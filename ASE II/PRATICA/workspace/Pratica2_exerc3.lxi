@@ -1,0 +1,39 @@
+B 3 C o m p i l a t i o n
+B 141 Equation Listing    SOLVE loadflow Using NLP From line 102
+D 144 eq1
+D 155 eq2
+D 166 eq_P
+D 177 eq_Q
+D 188 eq_cost
+D 193 eq6
+B 205 Column Listing      SOLVE loadflow Using NLP From line 102
+E 208 CT
+E 215 Pij
+E 237 Qij
+E 259 Pg
+E 280 Qg
+E 295 Va
+E 332 V
+B 370 Range Statistics    SOLVE loadflow Using NLP From line 102
+B 381 Model Statistics    SOLVE loadflow Using NLP From line 102
+B 395 Solution Report     SOLVE loadflow Using NLP From line 102
+F 414 eq1
+F 427 eq2
+F 440 eq_P
+F 449 eq_Q
+F 460 eq_cost
+F 462 eq6
+G 477 CT
+G 479 Pij
+G 492 Qij
+G 505 Pg
+G 513 Qg
+G 521 Va
+G 530 V
+B 546 E x e c u t i o n
+I 548 CT
+I 549 PerdasTotais
+I 550 report
+I 560 FatorPenalizacao
+I 565 IC
+I 570 LMP

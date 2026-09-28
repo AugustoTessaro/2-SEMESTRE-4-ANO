@@ -1,0 +1,588 @@
+GAMS 54.4.0  9a60ae27 Sep 9, 2026           WEX-WEI x86 64bit/MS Windows - 09/22/26 01:59:36 Page 1
+Fluxo de Potencia Otimo (AC-OPF) - Minimizacao de Custos
+C o m p i l a t i o n
+
+
+   2   
+   3  Set
+   4     i        'barras'            / 1*4   /
+   5     slack(i) barra de referencia / 1     /
+   6     GB(i)    'barras de geracao' / 1,2,3 /;
+   7   
+   8  Scalar
+   9     Sbase / 100 /;
+  10   
+  11  Alias (i,j);
+  12   
+  13  Table GenD(i,*) 'Caracteristicas das unidades geradoras (Exercicio 1)'
+  14         pmax  pmin    a      b    c     Qmax  Qmin
+  15     1   450   200     0.004  5.2  500   9999  -9999
+  16     2   350   150     0.006  5.0  400   9999  -9999
+  17     3   235   100     0.008  5.0  200   9999  -9999;
+  18   
+  19  Table BD(i,*) 'Demanda de cada barra em MW e MVAr (Exercicio 2)'
+  20         Pd   Qd
+  21     1   0    0
+  22     2   0    0
+  23     3   220  136.34
+  24     4   280  173.52;
+  25   
+  26  Table LN(i,j,*) 'Caracteristicas das linhas de transmissao'
+  27            r         x        b       limit
+  28     1 .4   0.00744   0.0372   0.0775  9999
+  29     1 .3   0.01008   0.0504   0.1025  9999
+  30     2 .3   0.00744   0.0372   0.0775  9999
+  31     2 .4   0.01272   0.0636   0.1275  9999;
+  32   
+  33  * --- PRE-PROCESSAMENTO DOS PARAMETROS DA REDE ---
+  34  LN(i,j,'x')$(LN(i,j,'x')=0) = LN(j,i,'x');
+  35  LN(i,j,'r')$(LN(i,j,'r')=0) = LN(j,i,'r');
+  36  LN(i,j,'b')$(LN(i,j,'b')=0) = LN(j,i,'b');
+  37  LN(i,j,'Limit')$(LN(i,j,'Limit')=0) = LN(j,i,'Limit');
+  38   
+  39  LN(i,j,'z')$LN(i,j,'Limit') = sqrt(sqr(LN(i,j,'x')) + sqr(LN(i,j,'r')));
+  40  LN(j,i,'z')$(LN(i,j,'z')=0) = LN(i,j,'z');
+  41   
+  42  LN(i,j,'th')$(LN(i,j,'Limit') and LN(i,j,'x') and LN(i,j,'r'))   = arctan(LN(i,j,'x')/LN(i,j,'r'));
+  43  LN(i,j,'th')$(LN(i,j,'Limit') and LN(i,j,'x') and LN(i,j,'r')=0) = pi/2;
+  44  LN(i,j,'th')$(LN(i,j,'Limit') and LN(i,j,'r') and LN(i,j,'x')=0) = 0;
+  45  LN(j,i,'th')$LN(i,j,'Limit') = LN(i,j,'th');
+  46   
+  47  Parameter cx(i,j);
+  48  cx(i,j)$(LN(i,j,'limit') and LN(j,i,'limit')) = 1;
+  49  cx(i,j)$(cx(j,i)) = 1;
+  50   
+  51  * --- VARIAVEIS E EQUACOES ---
+  52  Variable CT, Pij(i,j), Qij(i,j), Pg(i), Qg(i), Va(i), V(i);
+  53  Equation eq1, eq2, eq_P, eq_Q, eq_cost, eq6;
+  54   
+  55  * Fluxo de Potencia Ativa nas linhas
+  56  eq1(i,j)$cx(i,j)..
+  57     Pij(i,j) =e= (sqr(V(i))*cos(LN(j,i,'th')) - V(i)*V(j)*cos(Va(i) - Va(j) + LN(j,i,'th'))) / LN(j,i,'z');
+  58   
+  59  * Fluxo de Potencia Reativa nas linhas
+  60  eq2(i,j)$cx(i,j)..
+  61     Qij(i,j) =e= (sqr(V(i))*sin(LN(j,i,'th')) - V(i)*V(j)*sin(Va(i) - Va(j) + LN(j,i,'th'))) / LN(j,i,'z') - LN(j,i,'b')*sqr(V(i))/2;
+  62   
+  63  * Balanco Nodal de Potencia Ativa (Geracao - Carga = Fluxo injetado)
+  64  eq_P(i)..
+  65      Pg(i)$GB(i) - BD(i,'Pd')/Sbase =e= sum(j$cx(j,i), Pij(i,j));
+  66   
+  67  * Balanco Nodal de Potencia Reativa
+  68  eq_Q(i)..
+  69      Qg(i)$GB(i) - BD(i,'Qd')/Sbase =e= sum(j$cx(j,i), Qij(i,j));
+  70   
+  71  * Funcao Custo (Convertendo Pg de p.u. para MW para o calculo financeiro)
+  72  eq_cost..
+  73     CT =e= sum(i$GB(i), GenD(i,'c') + GenD(i,'b')*(Pg(i)*Sbase) + GenD(i,'a')*sqr(Pg(i)*Sbase));
+  74   
+  75  * Limite termico das linhas
+  76  eq6(i,j)$cx(i,j).. sqr(Pij(i,j)) + sqr(Qij(i,j)) =l= sqr(LN(i,j,'Limit')/Sbase);
+  77   
+  78  Model loadflow /all/;
+  79   
+  80  * --- LIMITES DAS VARIAVEIS ---
+  81  Pg.lo(i)$GB(i) = GenD(i,'Pmin')/Sbase;
+  82  Pg.up(i)$GB(i) = GenD(i,'Pmax')/Sbase;
+  83  Qg.lo(i)$GB(i) = GenD(i,'Qmin')/Sbase;
+  84  Qg.up(i)$GB(i) = GenD(i,'Qmax')/Sbase;
+  85   
+  86  Va.up(i)     = pi/2;
+  87  Va.lo(i)     =-pi/2;
+  88  Va.l(i)      = 0;
+  89  Va.fx(slack) = 0;
+  90   
+  91  V.lo(i)  = 0.90;
+  92  V.up(i)  = 1.10;
+  93  V.l(i)   = 1;
+  94   
+  95  * Fixando a tensao da barra slack para o referencial de fase
+  96  V.fx('1') = 1.0;
+  97   
+  98  * Obs: Deixei as tensoes V2 e V3 livres entre 0.9 e 1.1 para que o
+  99  * solver otimize tambem a injecao de reativos minimizando perdas.
+ 100   
+ 101  * --- SOLUCAO ---
+ 102  solve loadflow minimizing CT using nlp;
+ 103   
+ 104  * --- RELATORIO DE EXPORTACAO ---
+ 105  Parameter report(i,*), PerdasTotais;
+ 106  report(i,'V (pu)')    = V.l(i);
+ 107  report(i,'Ang (grau)')= Va.l(i) * 180 / pi;
+ 108  report(i,'Pg (MW)')   = Pg.l(i) * Sbase;
+ 109  report(i,'Qg (MVAr)') = Qg.l(i) * Sbase;
+ 110   
+ 111  PerdasTotais = sum(i, Pg.l(i)*Sbase) - sum(i, BD(i,'Pd'));
+ 112   
+ 113  display CT.l, PerdasTotais;
+ 114  display report;
+ 115  Parameter IC(i) 'Custo Incremental da maquina ($/MWh)';
+ 116  Parameter LMP(i) 'Preco Marginal Nodal / Lambda Local ($/MWh)';
+ 117   
+ 118  * Derivada da funcao custo: dF/dP = 2*a*P + b
+ 119  IC(i)$GB(i) = 2 * GenD(i,'a') * (Pg.l(i)*Sbase) + GenD(i,'b');
+ 120   
+ 121  * Extraindo o multiplicador de Lagrange (shadow price) da equacao de balanco de potencia
+ 122  * Divide-se por Sbase porque a equacao foi montada em p.u.
+ 123  LMP(i)$GB(i) = eq_P.m(i) / Sbase;
+ 124  Parameter FatorPenalizacao(i) 'Fator de Penalizacao equivalente (referencia na Barra Slack)';
+ 125   
+ 126  * Fator de Penalizacao = LMP da barra / LMP da barra de referencia (Slack)
+ 127  FatorPenalizacao(i)$GB(i) = LMP(i) / LMP('1');
+ 128   
+ 129  display FatorPenalizacao;
+ 130  display IC, LMP;
+ 131   
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  54.4.0 9a60ae27 WEX-WEI
+GAMS 54.4.0  9a60ae27 Sep 9, 2026           WEX-WEI x86 64bit/MS Windows - 09/22/26 01:59:36 Page 2
+Fluxo de Potencia Otimo (AC-OPF) - Minimizacao de Custos
+Equation Listing    SOLVE loadflow Using NLP From line 102
+
+
+---- eq1  =E=  
+
+eq1(1,3)..  Pij(1,3) - (19.0781440781441)*Va(1) + (19.0781440781441)*Va(3) - (3.81562881562881)*V(1) + (3.81562881562881)*V(3) =E= 0 ; (LHS = 0)
+     
+eq1(1,4)..  Pij(1,4) - (25.8478081058726)*Va(1) + (25.8478081058726)*Va(4) - (5.16956162117452)*V(1) + (5.16956162117452)*V(4) =E= 0 ; (LHS = 0)
+     
+eq1(2,3)..  Pij(2,3) - (25.8478081058726)*Va(2) + (25.8478081058726)*Va(3) - (5.16956162117452)*V(2) + (5.16956162117452)*V(3) =E= 0 ; (LHS = 0)
+     
+REMAINING 5 ENTRIES SKIPPED
+
+
+---- eq2  =E=  
+
+eq2(1,3)..  Qij(1,3) + (3.81562881562881)*Va(1) - (3.81562881562881)*Va(3) - (18.9756440781441)*V(1) + (19.0781440781441)*V(3) =E= 0 ; (LHS = 0.05125, INFES = 0.05125 ****)
+     
+eq2(1,4)..  Qij(1,4) + (5.16956162117452)*Va(1) - (5.16956162117452)*Va(4) - (25.7703081058726)*V(1) + (25.8478081058726)*V(4) =E= 0 ; (LHS = 0.03875, INFES = 0.03875 ****)
+     
+eq2(2,3)..  Qij(2,3) + (5.16956162117452)*Va(2) - (5.16956162117452)*Va(3) - (25.7703081058726)*V(2) + (25.8478081058726)*V(3) =E= 0 ; (LHS = 0.03875, INFES = 0.03875 ****)
+     
+REMAINING 5 ENTRIES SKIPPED
+
+
+---- eq_P  =E=  
+
+eq_P(1)..  - Pij(1,3) - Pij(1,4) + Pg(1) =E= 0 ; (LHS = 2, INFES = 2 ****)
+     
+eq_P(2)..  - Pij(2,3) - Pij(2,4) + Pg(2) =E= 0 ; (LHS = 1.5, INFES = 1.5 ****)
+     
+eq_P(3)..  - Pij(3,1) - Pij(3,2) + Pg(3) =E= 2.2 ; (LHS = 1, INFES = 1.2 ****)
+     
+REMAINING ENTRY SKIPPED
+
+
+---- eq_Q  =E=  
+
+eq_Q(1)..  - Qij(1,3) - Qij(1,4) + Qg(1) =E= 0 ; (LHS = 0)
+     
+eq_Q(2)..  - Qij(2,3) - Qij(2,4) + Qg(2) =E= 0 ; (LHS = 0)
+     
+eq_Q(3)..  - Qij(3,1) - Qij(3,2) + Qg(3) =E= 1.3634 ; (LHS = 0, INFES = 1.3634 ****)
+     
+REMAINING ENTRY SKIPPED
+
+
+---- eq_cost  =E=  
+
+eq_cost..  CT - (680)*Pg(1) - (680)*Pg(2) - (660)*Pg(3) =E= 1100 ; (LHS = -2665, INFES = 3765 ****)
+     
+
+---- eq6  =L=  
+
+eq6(1,3)..  (0)*Pij(1,3) + (0)*Qij(1,3) =L= 9998.0001 ; (LHS = 0)
+     
+eq6(1,4)..  (0)*Pij(1,4) + (0)*Qij(1,4) =L= 9998.0001 ; (LHS = 0)
+     
+eq6(2,3)..  (0)*Pij(2,3) + (0)*Qij(2,3) =L= 9998.0001 ; (LHS = 0)
+     
+REMAINING 5 ENTRIES SKIPPED
+
+GAMS 54.4.0  9a60ae27 Sep 9, 2026           WEX-WEI x86 64bit/MS Windows - 09/22/26 01:59:36 Page 3
+Fluxo de Potencia Otimo (AC-OPF) - Minimizacao de Custos
+Column Listing      SOLVE loadflow Using NLP From line 102
+
+
+---- CT  
+
+CT
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       eq_cost
+
+
+---- Pij  
+
+Pij(1,3)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       eq1(1,3)
+       -1       eq_P(1)
+       (0)      eq6(1,3)
+
+Pij(1,4)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       eq1(1,4)
+       -1       eq_P(1)
+       (0)      eq6(1,4)
+
+Pij(2,3)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       eq1(2,3)
+       -1       eq_P(2)
+       (0)      eq6(2,3)
+
+REMAINING 5 ENTRIES SKIPPED
+
+---- Qij  
+
+Qij(1,3)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       eq2(1,3)
+       -1       eq_Q(1)
+       (0)      eq6(1,3)
+
+Qij(1,4)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       eq2(1,4)
+       -1       eq_Q(1)
+       (0)      eq6(1,4)
+
+Qij(2,3)
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       eq2(2,3)
+       -1       eq_Q(2)
+       (0)      eq6(2,3)
+
+REMAINING 5 ENTRIES SKIPPED
+
+---- Pg  
+
+Pg(1)
+                (.LO, .L, .UP, .M = 2, 2, 4.5, 0)
+        1       eq_P(1)
+    (-680)      eq_cost
+        0       (OLD LEVEL ****)
+
+Pg(2)
+                (.LO, .L, .UP, .M = 1.5, 1.5, 3.5, 0)
+        1       eq_P(2)
+    (-680)      eq_cost
+        0       (OLD LEVEL ****)
+
+Pg(3)
+                (.LO, .L, .UP, .M = 1, 1, 2.35, 0)
+        1       eq_P(3)
+    (-660)      eq_cost
+        0       (OLD LEVEL ****)
+
+
+---- Qg  
+
+Qg(1)
+                (.LO, .L, .UP, .M = -99.99, 0, 99.99, 0)
+        1       eq_Q(1)
+
+Qg(2)
+                (.LO, .L, .UP, .M = -99.99, 0, 99.99, 0)
+        1       eq_Q(2)
+
+Qg(3)
+                (.LO, .L, .UP, .M = -99.99, 0, 99.99, 0)
+        1       eq_Q(3)
+
+
+---- Va  
+
+Va(1)
+                (.LO, .L, .UP, .M = 0, 0, 0, 0)
+     (-19.0781) eq1(1,3)
+     (-25.8478) eq1(1,4)
+      (19.0781) eq1(3,1)
+      (25.8478) eq1(4,1)
+       (3.8156) eq2(1,3)
+       (5.1696) eq2(1,4)
+      (-3.8156) eq2(3,1)
+      (-5.1696) eq2(4,1)
+
+Va(2)
+                (.LO, .L, .UP, .M = -1.5707963267949, 0, 1.5707963267949, 0)
+     (-25.8478) eq1(2,3)
+     (-15.1185) eq1(2,4)
+      (25.8478) eq1(3,2)
+      (15.1185) eq1(4,2)
+       (5.1696) eq2(2,3)
+       (3.0237) eq2(2,4)
+      (-5.1696) eq2(3,2)
+      (-3.0237) eq2(4,2)
+
+Va(3)
+                (.LO, .L, .UP, .M = -1.5707963267949, 0, 1.5707963267949, 0)
+      (19.0781) eq1(1,3)
+      (25.8478) eq1(2,3)
+     (-19.0781) eq1(3,1)
+     (-25.8478) eq1(3,2)
+      (-3.8156) eq2(1,3)
+      (-5.1696) eq2(2,3)
+       (3.8156) eq2(3,1)
+       (5.1696) eq2(3,2)
+
+REMAINING ENTRY SKIPPED
+
+---- V  
+
+V(1)
+                (.LO, .L, .UP, .M = 1, 1, 1, 0)
+      (-3.8156) eq1(1,3)
+      (-5.1696) eq1(1,4)
+       (3.8156) eq1(3,1)
+       (5.1696) eq1(4,1)
+     (-18.9756) eq2(1,3)
+     (-25.7703) eq2(1,4)
+      (19.0781) eq2(3,1)
+      (25.8478) eq2(4,1)
+
+V(2)
+                (.LO, .L, .UP, .M = 0.9, 1, 1.1, 0)
+      (-5.1696) eq1(2,3)
+      (-3.0237) eq1(2,4)
+       (5.1696) eq1(3,2)
+       (3.0237) eq1(4,2)
+     (-25.7703) eq2(2,3)
+     (-14.991)  eq2(2,4)
+      (25.8478) eq2(3,2)
+      (15.1185) eq2(4,2)
+
+V(3)
+                (.LO, .L, .UP, .M = 0.9, 1, 1.1, 0)
+       (3.8156) eq1(1,3)
+       (5.1696) eq1(2,3)
+      (-3.8156) eq1(3,1)
+      (-5.1696) eq1(3,2)
+      (19.0781) eq2(1,3)
+      (25.8478) eq2(2,3)
+     (-18.9756) eq2(3,1)
+     (-25.7703) eq2(3,2)
+
+REMAINING ENTRY SKIPPED
+GAMS 54.4.0  9a60ae27 Sep 9, 2026           WEX-WEI x86 64bit/MS Windows - 09/22/26 01:59:36 Page 4
+Fluxo de Potencia Otimo (AC-OPF) - Minimizacao de Custos
+Range Statistics    SOLVE loadflow Using NLP From line 102
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 1.363E+00, 9.998E+03] - Zero values observed as well
+Bound     [min, max] : [ 9.000E-01, 9.999E+01] - Zero values observed as well
+Matrix    [min, max] : [ 1.000E+00, 6.800E+02] - Zero values observed as well
+
+GAMS 54.4.0  9a60ae27 Sep 9, 2026           WEX-WEI x86 64bit/MS Windows - 09/22/26 01:59:36 Page 5
+Fluxo de Potencia Otimo (AC-OPF) - Minimizacao de Custos
+Model Statistics    SOLVE loadflow Using NLP From line 102
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           6     SINGLE EQUATIONS           33
+BLOCKS OF VARIABLES           7     SINGLE VARIABLES           31  3 projected
+NON ZERO ELEMENTS           122     NON LINEAR N-Z             83
+CODE LENGTH                 360     CONSTANT POOL              31
+
+
+GENERATION TIME      =        0.078 SECONDS      4 MB  54.4.0 9a60ae27 WEX-WEI
+GAMS 54.4.0  9a60ae27 Sep 9, 2026           WEX-WEI x86 64bit/MS Windows - 09/22/26 01:59:36 Page 6
+Fluxo de Potencia Otimo (AC-OPF) - Minimizacao de Custos
+Solution Report     SOLVE loadflow Using NLP From line 102
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   loadflow            OBJECTIVE  CT
+     TYPE    NLP                 DIRECTION  MINIMIZE
+     SOLVER  IPOPT               FROM LINE  102
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      2 Locally Optimal
+**** OBJECTIVE VALUE             4147.6555
+
+ RESOURCE USAGE, LIMIT          0.011 10000000000.000
+ ITERATION COUNT, LIMIT        11    2147483647
+ EVALUATION ERRORS              0             0
+
+COIN-OR Ipopt    54.4.0 9a60ae27 Sep 9, 2026           WEI x86 64bit/MS Window
+
+---- EQU eq1  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+1.3          .       2.498002E-15          .           694.6735      
+1.4          .       6.661338E-16          .           694.6735      
+2.3          .       1.221245E-15          .           694.8014      
+2.4          .       -3.99680E-15          .           694.8014      
+3.1          .       -2.99760E-15          .           700.4107      
+3.2          .       -2.55351E-15          .           700.4107      
+4.1          .       4.440892E-16          .           715.7204      
+4.2          .       3.330669E-15          .           715.7204      
+
+---- EQU eq2  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+1.3          .       1.665335E-16          .       1.198214E-14      
+1.4          .       1.776357E-15          .       2.705389E-14      
+2.3          .       -4.74967E-15          .       1.041126E-14      
+2.4          .       -1.33227E-15          .       1.869807E-14      
+3.1          .       -3.33067E-16          .       1.790754E-14      
+3.2          .       -5.39846E-15          .       1.640040E-14      
+4.1          .       -3.77476E-15          .            14.1808      
+4.2          .       -2.33147E-15          .            14.1808      
+
+---- EQU eq_P  
+
+         LOWER          LEVEL          UPPER         MARGINAL
+
+1          .       -4.44089E-16          .           694.6735      
+2          .       -2.22045E-16          .           694.8014      
+3         2.2000         2.2000         2.2000       700.4107      
+4         2.8000         2.8000         2.8000       715.7204      
+
+---- EQU eq_Q  
+
+         LOWER          LEVEL          UPPER         MARGINAL
+
+1          .              .              .       1.345872E-14      
+2          .              .              .       1.003725E-14      
+3         1.3634         1.3634         1.3634   1.758690E-14      
+4         1.7352         1.7352         1.7352        14.1808      
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU eq_cost         1100.0000      1100.0000      1100.0000         1.0000      
+
+---- EQU eq6  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+1.3        -INF            0.1696      9998.0001   -6.12148E-15      
+1.4        -INF            4.4347      9998.0001   -6.12438E-15      
+2.3        -INF            0.3118      9998.0001   -6.12157E-15      
+2.4        -INF            1.6361      9998.0001   -6.12247E-15      
+3.1        -INF            0.1545      9998.0001   -6.12147E-15      
+3.2        -INF            0.3177      9998.0001   -6.12158E-15      
+4.1        -INF            4.1139      9998.0001   -6.12416E-15      
+4.2        -INF            1.6085      9998.0001   -6.12245E-15      
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR CT                -INF         4147.6555        +INF             .          
+
+---- VAR Pij  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+1.3        -INF            0.3938        +INF            EPS         
+1.4        -INF            1.7896        +INF            EPS         
+2.3        -INF            0.5576        +INF            EPS         
+2.4        -INF            1.0658        +INF            EPS         
+3.1        -INF           -0.3922        +INF            EPS         
+3.2        -INF           -0.5553        +INF            EPS         
+4.1        -INF           -1.7560        +INF            EPS         
+4.2        -INF           -1.0440        +INF            EPS         
+
+---- VAR Qij  
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+1.3        -INF           -0.1206        +INF            EPS         
+1.4        -INF            1.1099        +INF            EPS         
+2.3        -INF            0.0305        +INF            EPS         
+2.4        -INF            0.7073        +INF            EPS         
+3.1        -INF            0.0262        +INF            EPS         
+3.2        -INF           -0.0969        +INF            EPS         
+4.1        -INF           -1.0151        +INF            EPS         
+4.2        -INF           -0.7201        +INF            EPS         
+
+---- VAR Pg  
+
+         LOWER          LEVEL          UPPER         MARGINAL
+
+1         2.0000         2.1834         4.5000   3.413815E-10      
+2         1.5000         1.6233         3.5000   5.151475E-10      
+3         1.0000         1.2526         2.3500   2.072726E-10      
+
+---- VAR Qg  
+
+         LOWER          LEVEL          UPPER         MARGINAL
+
+1       -99.9900         0.9893        99.9900   -1.34587E-14      
+2       -99.9900         0.7378        99.9900   -1.00373E-14      
+3       -99.9900         1.2927        99.9900   -1.75869E-14      
+
+---- VAR Va  
+
+         LOWER          LEVEL          UPPER         MARGINAL
+
+1          .              .              .       -5.14433E-12      
+2        -1.5708        -0.0004         1.5708   2.471287E-14      
+3        -1.5708        -0.0206         1.5708   1.133024E-12      
+4        -1.5708        -0.0614         1.5708   3.389274E-12      
+
+---- VAR V  
+
+         LOWER          LEVEL          UPPER         MARGINAL
+
+1         1.0000         1.0000         1.0000       -95.1004      
+2         0.9000         1.0062         1.1000   -8.51664E-11      
+3         0.9000         0.9997         1.1000   3.571870E-12      
+4         0.9000         0.9457         1.1000   1.0459771E-9      
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0     ERRORS
+GAMS 54.4.0  9a60ae27 Sep 9, 2026           WEX-WEI x86 64bit/MS Windows - 09/22/26 01:59:36 Page 7
+Fluxo de Potencia Otimo (AC-OPF) - Minimizacao de Custos
+E x e c u t i o n
+
+
+----    113 VARIABLE CT.L                  =     4147.655  
+            PARAMETER PerdasTotais         =        5.933  
+
+----    114 PARAMETER report  
+
+       V (pu)  Ang (grau)     Pg (MW)   Qg (MVAr)
+
+1       1.000                 218.342      98.932
+2       1.006      -0.026     162.334      73.785
+3       1.000      -1.178     125.257     129.268
+4       0.946      -3.518
+
+
+----    129 PARAMETER FatorPenalizacao  Fator de Penalizacao equivalente (referencia na Barra Slack)
+
+1 1.000,    2 1.000,    3 1.008
+
+
+----    130 PARAMETER IC  Custo Incremental da maquina ($/MWh)
+
+1 6.947,    2 6.948,    3 7.004
+
+
+----    130 PARAMETER LMP  Preco Marginal Nodal / Lambda Local ($/MWh)
+
+1 6.947,    2 6.948,    3 7.004
+
+
+
+EXECUTION TIME       =        0.328 SECONDS      4 MB  54.4.0 9a60ae27 WEX-WEI
+
+
+USER: Augusto Tessaro                                G260908+0003Cc-GEN
+      augusto.tessaro@unioeste.br                             FLP001927
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\atess\Documents\GAMS\Studio\workspace\Pratica2_exerc3.gms
+Output     C:\Users\atess\Documents\GAMS\Studio\workspace\Pratica2_exerc3.lst

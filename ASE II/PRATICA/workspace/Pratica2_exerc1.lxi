@@ -1,0 +1,17 @@
+B 3 C o m p i l a t i o n
+B 65 Equation Listing    SOLVE Despacho Using NLP From line 52
+D 68 Funcao_Custo
+D 73 Balanco_Pot
+B 79 Column Listing      SOLVE Despacho Using NLP From line 52
+E 82 Pg
+E 103 CT
+B 111 Range Statistics    SOLVE Despacho Using NLP From line 52
+B 122 Model Statistics    SOLVE Despacho Using NLP From line 52
+B 136 Solution Report     SOLVE Despacho Using NLP From line 52
+F 157 Funcao_Custo
+F 158 Balanco_Pot
+G 163 Pg
+G 173 CT
+B 184 E x e c u t i o n
+I 184 Pg
+I 191 CT

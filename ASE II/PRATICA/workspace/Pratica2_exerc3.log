@@ -1,0 +1,122 @@
+--- Job Pratica2_exerc3.gms Start 09/22/26 01:59:36 54.4.0 9a60ae27 WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\54\gmsprmNT.txt
+    C:\GAMS\54\gamsconfig_personal.yaml
+--- GAMS Parameters defined
+    LP HIGHS
+    MIP SCIP
+    RMIP HIGHS
+    NLP IPOPT
+    MCP MILES
+    MPEC NLPEC
+    RMPEC NLPEC
+    CNS IPOPT
+    DNLP IPOPT
+    RMINLP IPOPT
+    MINLP SHOT
+    QCP IPOPT
+    MIQCP SHOT
+    RMIQCP IPOPT
+    EMP RESHOP
+    Input C:\Users\atess\Documents\GAMS\Studio\workspace\Pratica2_exerc3.gms
+    PageSize 0
+    ScrDir C:\Users\atess\Documents\GAMS\Studio\workspace\225a\
+    SysDir C:\GAMS\54\
+    LogOption 3
+    AppendLog 1
+    ErrMsg 1
+    ErrorLog 99
+    IDE 1
+    LstTitleLeftAligned 1
+Licensee: Augusto Tessaro                                G260908+0003Cc-GEN
+          augusto.tessaro@unioeste.br                             FLP001927
+          225a\gamslice.dat
+          5036eed4-7536-40b4
+          node:85039005 mem:20 cores:6 ipport:58863 v:2                    
+          Time-limited free personal license
+          The time-limited license stops working on : Oct 03, 2027
+System information: 6 physical cores and 20 Gb physical memory detected
+GAMS 54.4.0   Copyright (C) 1987-2026 GAMS Development. All rights reserved
+--- Starting compilation
+--- Pratica2_exerc3.gms(131) 3 Mb
+--- Starting execution: elapsed 0:00:00.026
+--- Pratica2_exerc3.gms(96) 4 Mb
+--- Generating NLP model loadflow
+--- Pratica2_exerc3.gms(102) 6 Mb
+---   33 rows  31 columns  122 non-zeroes
+---   360 nl-code  83 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.363E+00, 9.998E+03] - Zero values observed as well
+--- Bound     [min, max] : [ 9.000E-01, 9.999E+01] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E+00, 6.800E+02] - Zero values observed as well
+--- Pratica2_exerc3.gms(102) 4 Mb
+--- Executing IPOPT (Solvelink=2): elapsed 0:00:00.101
+
+COIN-OR Ipopt    54.4.0 9a60ae27 Sep 9, 2026           WEI x86 64bit/MS Window
+
+COIN-OR Interior Point Optimizer (Ipopt Library 3.14.20)
+written by A. Waechter.
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.14.20, running with linear solver MUMPS 5.9.1.
+
+Number of nonzeros in equality constraint Jacobian...:       86
+Number of nonzeros in inequality constraint Jacobian.:       16
+Number of nonzeros in Lagrangian Hessian.............:       36
+
+Total number of variables............................:       28
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:       12
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:       24
+Total number of inequality constraints...............:        8
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        8
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  3.7954375e+03 2.80e+00 1.18e+00   0.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  3.7962780e+03 2.79e+00 1.45e+03   1.3 5.44e+00    -  9.92e-01 3.92e-03h  1
+   2  3.8791945e+03 2.05e+00 1.64e+04   2.7 1.82e+00    -  1.00e+00 2.65e-01f  1
+   3  4.1263853e+03 4.99e-02 1.24e+04   3.3 1.85e+00   2.0 6.96e-01 1.00e+00f  1
+   4  4.1501426e+03 1.17e-04 4.87e+02   1.6 2.24e+00    -  9.97e-01 1.00e+00f  1
+   5  4.1499564e+03 4.82e-05 5.12e+00   0.1 6.64e-02    -  9.97e-01 1.00e+00h  1
+   6  4.1479199e+03 2.00e-03 5.24e-01  -0.6 3.10e-01    -  1.00e+00 1.00e+00f  1
+   7  4.1476229e+03 1.67e-04 4.54e-02  -2.0 9.95e-02    -  9.93e-01 1.00e+00h  1
+   8  4.1476547e+03 6.62e-06 1.29e-03  -3.4 2.01e-02    -  1.00e+00 1.00e+00h  1
+   9  4.1476555e+03 3.35e-08 1.02e-05  -5.1 2.42e-03    -  1.00e+00 1.00e+00h  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  4.1476555e+03 7.39e-12 1.23e-07 -11.0 3.75e-05    -  1.00e+00 1.00e+00h  1
+  11  4.1476555e+03 5.40e-15 7.66e-13 -11.0 7.97e-09    -  1.00e+00 1.00e+00h  1
+
+Number of Iterations....: 11
+
+                                   (scaled)                 (unscaled)
+Objective...............:   6.0994933547227981e+02    4.1476554812115028e+03
+Dual infeasibility......:   7.6569133028056684e-13    5.2067010459078545e-12
+Constraint violation....:   5.3984594572398237e-15    5.3984594572398237e-15
+Variable bound violation:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   1.0001493958155386e-11    6.8010158915456623e-11
+Overall NLP error.......:   1.0001493958155386e-11    6.8010158915456623e-11
+
+
+Number of objective function evaluations             = 12
+Number of objective gradient evaluations             = 12
+Number of equality constraint evaluations            = 12
+Number of inequality constraint evaluations          = 12
+Number of equality constraint Jacobian evaluations   = 12
+Number of inequality constraint Jacobian evaluations = 12
+Number of Lagrangian Hessian evaluations             = 11
+Total seconds in IPOPT                               = 0.011
+
+EXIT: Optimal Solution Found.
+--- Reading solution for model loadflow
+--- Executing after solve: elapsed 0:00:00.361
+--- Pratica2_exerc3.gms(130) 4 Mb
+*** Status: Normal completion
+--- Job Pratica2_exerc3.gms Stop 09/22/26 01:59:36 elapsed 0:00:00.363

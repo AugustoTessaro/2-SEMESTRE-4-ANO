@@ -1,0 +1,205 @@
+GAMS 54.4.0  9a60ae27 Sep 9, 2026           WEX-WEI x86 64bit/MS Windows - 09/21/26 21:32:03 Page 1
+Despacho Economico - Parte 1
+C o m p i l a t i o n
+
+
+   2   
+   3  Sets
+   4      i geradores / G1, G2, G3 /;
+   5   
+   6  Parameters
+   7      a(i) coeficiente quadratico
+   8      / G1 0.004, G2 0.006, G3 0.008 /
+   9   
+  10      b(i) coeficiente linear
+  11      / G1 5.2, G2 5.0, G3 5.0 /
+  12   
+  13      c(i) custo fixo
+  14      / G1 500, G2 400, G3 200 /
+  15   
+  16      Pmin(i) limite minimo (MW)
+  17      / G1 200, G2 150, G3 100 /
+  18   
+  19      Pmax(i) limite maximo (MW)
+  20      / G1 450, G2 350, G3 235 /
+  21   
+  22      Pd demanda do sistema (MW)
+  23      / 500 /;
+  24   
+  25  Variables
+  26      Pg(i) potencia gerada (MW)
+  27      CT    custo total do sistema (dolares por hora);
+  28   
+  29  * Define que a geracao nao pode ser negativa
+  30  Positive Variable Pg;
+  31   
+  32  Equations
+  33      Funcao_Custo   equacao da funcao objetivo
+  34      Balanco_Pot    restricao de atendimento da demanda;
+  35   
+  36  * Funcao objetivo: Somatorio dos custos individuais
+  37  Funcao_Custo..
+  38      CT =e= sum(i, c(i) + b(i)*Pg(i) + a(i)*power(Pg(i),2));
+  39   
+  40  * Balanco de Potencia: A soma da geracao deve ser igual a demanda
+  41  Balanco_Pot..
+  42      sum(i, Pg(i)) =e= Pd;
+  43   
+  44  * Aplicacao dos limites operacionais maximos e minimos
+  45  Pg.lo(i) = Pmin(i);
+  46  Pg.up(i) = Pmax(i);
+  47   
+  48  * Definicao e resolucao do modelo
+  49  Model Despacho /all/;
+  50   
+  51  * NLP (Non-Linear Programming) e utilizado devido ao termo quadratico na funcao de custo
+  52  Solve Despacho using nlp minimizing CT;
+  53   
+  54  * Exibe os resultados no arquivo .lst
+  55  Display Pg.l, CT.l;
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  54.4.0 9a60ae27 WEX-WEI
+GAMS 54.4.0  9a60ae27 Sep 9, 2026           WEX-WEI x86 64bit/MS Windows - 09/21/26 21:32:03 Page 2
+Despacho Economico - Parte 1
+Equation Listing    SOLVE Despacho Using NLP From line 52
+
+
+---- Funcao_Custo  =E=  equacao da funcao objetivo
+
+Funcao_Custo..  - (6.8)*Pg(G1) - (6.8)*Pg(G2) - (6.6)*Pg(G3) + CT =E= 1100 ; (LHS = -2665, INFES = 3765 ****)
+     
+
+---- Balanco_Pot  =E=  restricao de atendimento da demanda
+
+Balanco_Pot..  Pg(G1) + Pg(G2) + Pg(G3) =E= 500 ; (LHS = 450, INFES = 50 ****)
+     
+GAMS 54.4.0  9a60ae27 Sep 9, 2026           WEX-WEI x86 64bit/MS Windows - 09/21/26 21:32:03 Page 3
+Despacho Economico - Parte 1
+Column Listing      SOLVE Despacho Using NLP From line 52
+
+
+---- Pg  potencia gerada (MW)
+
+Pg(G1)
+                (.LO, .L, .UP, .M = 200, 200, 450, 0)
+      (-6.8)    Funcao_Custo
+        1       Balanco_Pot
+        0       (OLD LEVEL ****)
+
+Pg(G2)
+                (.LO, .L, .UP, .M = 150, 150, 350, 0)
+      (-6.8)    Funcao_Custo
+        1       Balanco_Pot
+        0       (OLD LEVEL ****)
+
+Pg(G3)
+                (.LO, .L, .UP, .M = 100, 100, 235, 0)
+      (-6.6)    Funcao_Custo
+        1       Balanco_Pot
+        0       (OLD LEVEL ****)
+
+
+---- CT  custo total do sistema (dolares por hora)
+
+CT
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       Funcao_Custo
+
+GAMS 54.4.0  9a60ae27 Sep 9, 2026           WEX-WEI x86 64bit/MS Windows - 09/21/26 21:32:03 Page 4
+Despacho Economico - Parte 1
+Range Statistics    SOLVE Despacho Using NLP From line 52
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 5.000E+02, 1.100E+03]
+Bound     [min, max] : [ 1.000E+02, 4.500E+02]
+Matrix    [min, max] : [ 1.000E+00, 6.800E+00]
+
+GAMS 54.4.0  9a60ae27 Sep 9, 2026           WEX-WEI x86 64bit/MS Windows - 09/21/26 21:32:03 Page 5
+Despacho Economico - Parte 1
+Model Statistics    SOLVE Despacho Using NLP From line 52
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           2     SINGLE EQUATIONS            2
+BLOCKS OF VARIABLES           2     SINGLE VARIABLES            4  3 projected
+NON ZERO ELEMENTS             7     NON LINEAR N-Z              3
+CODE LENGTH                  20     CONSTANT POOL              20
+
+
+GENERATION TIME      =        0.016 SECONDS      4 MB  54.4.0 9a60ae27 WEX-WEI
+GAMS 54.4.0  9a60ae27 Sep 9, 2026           WEX-WEI x86 64bit/MS Windows - 09/21/26 21:32:03 Page 6
+Despacho Economico - Parte 1
+Solution Report     SOLVE Despacho Using NLP From line 52
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   Despacho            OBJECTIVE  CT
+     TYPE    NLP                 DIRECTION  MINIMIZE
+     SOLVER  IPOPT               FROM LINE  52
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      2 Locally Optimal
+**** OBJECTIVE VALUE             4106.3462
+
+ RESOURCE USAGE, LIMIT          0.007 10000000000.000
+ ITERATION COUNT, LIMIT         8    2147483647
+ EVALUATION ERRORS              0             0
+
+COIN-OR Ipopt    54.4.0 9a60ae27 Sep 9, 2026           WEI x86 64bit/MS Window
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU Funcao_Cu~      1100.0000      1100.0000      1100.0000         1.0000      
+---- EQU Balanco_P~       500.0000       500.0000       500.0000         6.9385      
+
+  Funcao_Custo  equacao da funcao objetivo
+  Balanco_Pot  restricao de atendimento da demanda
+
+---- VAR Pg  potencia gerada (MW)
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+G1       200.0000       217.3077       450.0000   5.338946E-13      
+G2       150.0000       161.5385       350.0000   8.293408E-13      
+G3       100.0000       121.1538       235.0000   3.838936E-13      
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR CT                -INF         4106.3462        +INF             .          
+
+  CT  custo total do sistema (dolares por hora)
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0     ERRORS
+GAMS 54.4.0  9a60ae27 Sep 9, 2026           WEX-WEI x86 64bit/MS Windows - 09/21/26 21:32:03 Page 7
+Despacho Economico - Parte 1
+E x e c u t i o n
+
+
+----     55 VARIABLE Pg.L  potencia gerada (MW)
+
+G1 217.308,    G2 161.538,    G3 121.154
+
+
+----     55 VARIABLE CT.L                  =     4106.346  custo total do sistema (dolares por hora)
+
+
+EXECUTION TIME       =        0.094 SECONDS      4 MB  54.4.0 9a60ae27 WEX-WEI
+
+
+USER: Augusto Tessaro                                G260908+0003Cc-GEN
+      augusto.tessaro@unioeste.br                             FLP001927
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\atess\Documents\GAMS\Studio\workspace\Pratica2_exerc1.gms
+Output     C:\Users\atess\Documents\GAMS\Studio\workspace\Pratica2_exerc1.lst
