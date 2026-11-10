@@ -1,0 +1,157 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{url}
+
+\setlength{\textfloatsep}{4pt plus 1pt minus 1pt}
+\setlength{\floatsep}{4pt plus 1pt minus 1pt}
+\setlength{\intextsep}{4pt plus 1pt minus 1pt}
+\setlength{\abovecaptionskip}{2pt}
+\setlength{\belowcaptionskip}{0pt}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Tabela}
+
+\begin{document}
+\raggedbottom
+
+\title{SE 05\\Inversor de Frequência}
+
+\author{
+\IEEEauthorblockN{Augusto Tessaro}
+\IEEEauthorblockA{\textit{Curso de Engenharia Elétrica} \\
+\textit{UNIOESTE -- Campus de Foz do Iguaçu}\\
+Foz do Iguaçu, Brasil \\
+seu.email@unioeste.br}
+}
+
+\maketitle
+
+\begin{abstract}
+Este relatório apresenta o funcionamento do inversor de frequência, a leitura de manual e a parametrização do WEG CFW300, as diferenças entre os controles escalar e vetorial, a pré-carga, a frenagem reostática e um roteiro de seleção e de dimensionamento das proteções, aplicado a um motor de 10~cv que aciona uma bomba centrífuga.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Inversor de Frequência, PWM, Controle Vetorial, Frenagem Reostática, Dimensionamento.
+\end{IEEEkeywords}
+
+\section{Introdução}
+
+A velocidade do motor de indução é $n=120f(1-s)/p$. Como o número de polos é fixo e o escorregamento é pequeno, a forma mais eficiente de variar a velocidade é variar a frequência. O inversor recebe a rede com tensão e frequência fixas e entrega ao motor tensão e frequência variáveis, permitindo partidas suaves e economia de energia em bombas e ventiladores. O motor de exemplo é um WEG W22 de 10~cv, 220~V e 25~A, que aciona a bomba do projeto final.
+
+\section{Princípio de funcionamento}
+
+O inversor possui três estágios (Fig.~\ref{fig:topologia}): o retificador a diodos converte a rede em tensão contínua; o barramento CC, com capacitores, filtra essa tensão e abriga a pré-carga e o transistor de frenagem; e a ponte de seis IGBTs recria a tensão alternada. A tensão do barramento é próxima do pico da tensão de linha, $V_{cc}\approx\sqrt{2}\,V_{rede}$, cerca de 310~V em rede de 220~V.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\columnwidth]{prism-uploads/SE05-s05-1.png}
+    \caption{Estágios de retificação, barramento CC e inversão.}
+    \label{fig:topologia}
+\end{figure}
+
+Os dois IGBTs de um mesmo braço nunca conduzem juntos; por isso, há um tempo morto entre o desligamento de um e o acionamento do outro. Na modulação PWM senoidal, uma referência senoidal é comparada a uma portadora triangular; a largura dos pulsos acompanha a senoide e a indutância do motor torna a corrente praticamente senoidal (Fig.~\ref{fig:pwm}). A frequência da referência define a frequência de saída e sua amplitude define a tensão. No CFW300, o chaveamento vai de 2,5 a 15~kHz (P297).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\columnwidth]{prism-uploads/SE05-s09-1.png}
+    \caption{Modulação PWM senoidal (ilustrativa). Elaborado pelos autores.}
+    \label{fig:pwm}
+\end{figure}
+
+Até a frequência nominal, a relação $V/f$ é mantida constante e o motor fornece conjugado nominal; acima dela, a tensão é limitada pela rede, o fluxo enfraquece e a potência permanece constante (Fig.~\ref{fig:regioes}). Abaixo de cerca de 50\,\% da rotação, motores autoventilados refrigeram mal e exigem redução de conjugado. Além disso, o PWM causa cerca de 15\,\% de perdas adicionais no motor, picos de tensão no isolamento e, com cabos acima de 100~m, exige reatância de saída.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\columnwidth]{prism-uploads/SE05-s10-1.png}
+    \caption{Regiões de conjugado e de potência constantes. Elaborado pelos autores.}
+    \label{fig:regioes}
+\end{figure}
+
+\section{Manual do equipamento e aplicações}
+
+Franchi divide o inversor em CPU, IHM, interfaces e etapa de potência. Segundo o manual do CFW300, a rede entra em R, S e T por fusíveis ou disjuntor e seccionadora; o motor sai em U, V e W por cabo blindado; o aterramento deve ter até 10~$\Omega$; e o resistor de frenagem é ligado em +BR e BR. As entradas digitais aceitam NPN ou PNP, e a analógica, potenciômetro, 0--10~V ou 4--20~mA.
+
+Na parametrização, P000 libera a senha, P202 escolhe o controle, P400 a P404 recebem os dados de placa, P100 e P101 definem as rampas, P133 e P134 as frequências mínima e máxima, e P220 a P266 o comando local ou remoto e as entradas digitais.
+
+O tipo de carga determina a escolha e o ajuste: conjugado constante (esteiras, compressores), quadrático (bombas, ventiladores) e potência constante (bobinadeiras). Em bombas, o PID interno mantém a pressão a partir de um transdutor de 4--20~mA. Na simulação no CADe SIMU, o contator de entrada apenas energiza o inversor, e o motor é comandado pelas entradas digitais, pois cada energização refaz a pré-carga.
+
+\section{Controles escalar e vetorial}
+
+No controle escalar ($V/f$), o inversor impõe tensão proporcional à frequência em malha aberta; o erro de velocidade é o escorregamento, e a compensação de escorregamento leva a precisão a cerca de 1\,\%. É indicado para vários motores no mesmo inversor e para cargas sem exigência de precisão. O VVW da WEG estima conjugado e escorregamento e melhora o desempenho abaixo de 5~Hz.
+
+No controle vetorial, a corrente do estator é decomposta em $i_d$, que produz o fluxo, e $i_q$, que produz o conjugado, com $C\propto\Phi\, i_q$, de forma análoga ao motor CC (Fig.~\ref{fig:vetorial}). No modo \textit{sensorless}, a velocidade é estimada pelo modelo do motor, com faixa de 1:100 e precisão de 0,5\,\%; com \textit{encoder}, ela é medida, permitindo controle até 0~rpm com precisão de 0,01\,\%. Como regra, usa-se o escalar na maioria dos casos e o vetorial quando há exigência de precisão ou conjugado em baixa rotação.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\columnwidth]{prism-uploads/SE05-s24-2.png}
+    \caption{Estrutura do controle vetorial. Elaborado pelos autores.}
+    \label{fig:vetorial}
+\end{figure}
+
+\section{Pré-carga e frenagem}
+
+Na energização, os capacitores descarregados se comportam como um curto-circuito. A pré-carga insere um resistor em série e, quando a tensão do barramento atinge o nível adequado, um relé o curto-circuita (Fig.~\ref{fig:precarga}). Após desligar o inversor, deve-se aguardar cerca de 10 minutos para a descarga dos capacitores.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\columnwidth]{prism-uploads/SE05-s28-1.png}
+    \caption{Circuito de pré-carga. Elaborado pelos autores.}
+    \label{fig:precarga}
+\end{figure}
+
+Na desaceleração rápida, o motor atua como gerador e, como os diodos não devolvem energia à rede, a tensão do barramento sobe até o desarme por sobretensão. Na frenagem reostática, um transistor liga um resistor entre +BR e BR quando a tensão excede o nível de P153, dissipando a energia em calor (Fig.~\ref{fig:frenagem}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\columnwidth]{prism-uploads/SE05-s29-1.png}
+    \caption{Conexão do resistor de frenagem com proteção térmica.}
+    \label{fig:frenagem}
+\end{figure}
+
+O resistor deve ter resistência maior ou igual à mínima do fabricante, corrente eficaz $I_{ef}=I_{m\acute{a}x}\sqrt{t_{br}/5}$, com $t_{br}$ em minutos no ciclo de 5 minutos mais severo, e potência de cerca de 20\,\% da do motor; um termostato e um relé térmico desligam o contator de entrada para evitar incêndio se o transistor falhar.
+
+\section{Seleção e proteções}
+
+A seleção segue quatro etapas: (i) tipo de carga, que define o controle; (ii) faixa de velocidade, verificando a redução de conjugado em baixa rotação; (iii) corrente, com o inversor igual ou maior que a corrente nominal do motor; e (iv) modelo e fabricante, conforme tensão, controle e frenagem. As proteções de entrada, fusível ultrarrápido aR ou disjuntor-motor, são indicadas pelo manual do inversor para cada modelo; a sobrecarga do motor é protegida pelo próprio inversor, a partir de P401. A Tabela~\ref{tab:selecao} aplica o roteiro ao motor de 10~cv.
+
+\begin{table}[H]
+\centering
+\caption{Seleção do inversor para o motor de 10~cv.}
+\label{tab:selecao}
+\begin{tabular}{ll}
+\hline
+\textbf{Etapa} & \textbf{Resultado} \\
+\hline
+Carga e controle & bomba (quadrática), V/f ou VVW \\
+Faixa de velocidade & 30 a 60~Hz, sem redução \\
+Corrente & 25~A $\rightarrow$ CFW500 de 28~A \\
+Frenagem & rampa de 10~s, sem resistor \\
+Proteção de entrada & fusível aR 63~A ou MPW40 \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Conclusões}
+
+O inversor varia tensão e frequência em conjunto para manter o fluxo do motor. O barramento CC explica a necessidade de pré-carga e de frenagem. O controle escalar atende à maioria das aplicações e o vetorial, aos casos de precisão ou conjugado em baixa rotação. Para o motor estudado, a seleção resultou em um CFW500 de 28~A, sem resistor de frenagem.
+
+\begin{thebibliography}{00}
+\bibitem{b1} FRANCHI, C. M. \textit{Acionamentos Elétricos}. 4. ed. São Paulo: Érica, 2013.
+\bibitem{b2} SOUZA, N. S. \textit{Apostila de Acionamentos Elétricos}. Natal: IFRN, 2008.
+\bibitem{b3} WEG. \textit{CFW-09: Manual do Usuário}, V3.3X, 2006.
+\bibitem{b4} WEG. \textit{CFW300: Manual do Usuário}.
+\bibitem{b5} WEG. \textit{CFW300: Manual de Programação}.
+\bibitem{b6} POMILIO, J. A. \textit{IT302 -- Eletrônica de Potência I}, cap. 6. Unicamp, 2014.
+\bibitem{b8} WEG. \textit{Motores de Indução Alimentados por Inversores de Frequência PWM}.
+\bibitem{b9} WEG. \textit{Inversores de Frequência}, catálogo.
+\bibitem{b10} WEG. \textit{CFW500: Quick Installation Guide}.
+\bibitem{b12} ENERGIA COMPLETA. \textit{Motor WEG W22 IR3 Premium 10 cv 2P}. Acesso em: 30 set. 2026.
+\bibitem{b13} CONTROL.COM. \textit{DC Bus Fundamentals in Industrial Motor Drives}. Acesso em: 28 out. 2026.
+\end{thebibliography}
+
+\end{document}

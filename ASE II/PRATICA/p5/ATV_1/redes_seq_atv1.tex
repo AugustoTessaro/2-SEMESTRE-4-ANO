@@ -1,0 +1,87 @@
+\documentclass[multi=circuitikz,border=10pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{circuitikz}
+\ctikzset{inductors/scale=0.8}
+
+% ---------- Estilos ----------
+\tikzset{bus/.style={line width=2.2pt}}
+
+% =========================================================
+% FIGURA 1 - Rede de sequencia POSITIVA (estilo Fig. 12.9b)
+% =========================================================
+\begin{document}
+\begin{circuitikz}[american, font=\small]
+  \draw[thick] (-1,0) -- (9,0) node[right]{Referência};
+  \draw (0,0) to[american voltage source, v_=$E_b$, invert] (0,2.5);
+  \draw (0,2.5) -- (0.7,2.5) to[L, l={$Z_1 = j40\,\Omega$}, i=$I^{(1)}_b$] (5.3,2.5) -- (6,2.5);
+  \node[font=\scriptsize] at (3,1.95) {($j0{,}0666$ pu)};
+  \draw[bus] (6,2.0) -- (6,3.0);
+  \node[draw, circle, inner sep=1pt] at (6.6,3.4) {F};
+  \draw[dashed, gray] (6,2.0) -- (6,0);
+  \draw (6,2.0) to[open, v^=$V^{(1)}_b$] (6,0);
+  \draw (6,0) node[ground]{};
+  \node at (3,-1.1) {Rede de sequência positiva};
+\end{circuitikz}
+
+% =========================================================
+% FIGURA 2 - Rede de sequencia NEGATIVA
+% =========================================================
+\begin{circuitikz}[american, font=\small]
+  \draw[thick] (-1,0) -- (9,0) node[right]{Referência};
+  \draw (0,0) -- (0,2.5) -- (0.7,2.5) to[L, l={$Z_2 = j40\,\Omega$}, i=$I^{(2)}_b$] (5.3,2.5) -- (6,2.5);
+  \node[font=\scriptsize] at (3,1.95) {($j0{,}0666$ pu)};
+  \draw[bus] (6,2.0) -- (6,3.0);
+  \node[draw, circle, inner sep=1pt] at (6.6,3.4) {F};
+  \draw[dashed, gray] (6,2.0) -- (6,0);
+  \draw (6,2.0) to[open, v^=$V^{(2)}_b$] (6,0);
+  \node at (3,-1.1) {Rede de sequência negativa};
+\end{circuitikz}
+
+% =========================================================
+% FIGURA 3 - Rede de sequencia ZERO
+% =========================================================
+\begin{circuitikz}[american, font=\small]
+  \draw[thick] (-1,0) -- (9,0) node[right]{Referência};
+  \draw (0,0) -- (0,2.5) -- (0.7,2.5) to[L, l={$Z_0 = j160\,\Omega$}, i=$I^{(0)}_b$] (5.3,2.5) -- (6,2.5);
+  \node[font=\scriptsize] at (3,1.95) {($j0{,}2666$ pu)};
+  \draw[bus] (6,2.0) -- (6,3.0);
+  \node[draw, circle, inner sep=1pt] at (6.6,3.4) {F};
+  \draw[dashed, gray] (6,2.0) -- (6,0);
+  \draw (6,2.0) to[open, v^=$V^{(0)}_b$] (6,0);
+  \node at (3,-1.1) {Rede de sequência zero};
+\end{circuitikz}
+
+% =========================================================
+% FIGURA 4 - Ligacao em serie (estilo Fig. 12.10)
+% =========================================================
+\begin{circuitikz}[american, font=\small]
+  % fonte
+  \draw (-3,7) to[american voltage source, v_={$E_b = 1\angle{-120^\circ}$ pu}, invert] (-3,9);
+  % linha 1: seq. positiva
+  \draw (-3,9) -- (0,9) to[L, l={$Z_1 = j40\,\Omega$}, i=$I^{(1)}_b$] (4.3,9) -- (5,9);
+  \node[font=\scriptsize] at (2.15,8.45) {($j0{,}0666$ pu)};
+  \draw[bus] (4.6,9) -- (5.4,9);
+  \draw (5,9) to[open, v^=$V^{(1)}_b$] (5,7.5);
+  \draw[bus] (4.6,7.5) -- (5.4,7.5);
+  \draw (5,7.5) -- (-0.8,7.5) -- (-0.8,6) -- (0,6);
+  % linha 2: seq. negativa
+  \draw (0,6) to[L, l={$Z_2 = j40\,\Omega$}, i=$I^{(2)}_b$] (4.3,6) -- (5,6);
+  \node[font=\scriptsize] at (2.15,5.45) {($j0{,}0666$ pu)};
+  \draw[bus] (4.6,6) -- (5.4,6);
+  \draw (5,6) to[open, v^=$V^{(2)}_b$] (5,4.5);
+  \draw[bus] (4.6,4.5) -- (5.4,4.5);
+  \draw (5,4.5) -- (-0.8,4.5) -- (-0.8,3) -- (0,3);
+  % linha 3: seq. zero
+  \draw (0,3) to[L, l={$Z_0 = j160\,\Omega$}, i=$I^{(0)}_b$] (4.3,3) -- (5,3);
+  \node[font=\scriptsize] at (2.15,2.45) {($j0{,}2666$ pu)};
+  \draw[bus] (4.6,3) -- (5.4,3);
+  \draw (5,3) to[open, v^=$V^{(0)}_b$] (5,1.5);
+  \draw[bus] (4.6,1.5) -- (5.4,1.5);
+  % retorno (3 Zf = 0, falta solida)
+  \draw (5,1.5) -- (8,1.5) to[short, i_=$\dfrac{I_b}{3}$] (8,0) -- (-3,0) -- (-3,7);
+  \node[draw, circle, inner sep=1pt] at (6.2,9.5) {F};
+  \node at (2.5,-1) {Ligação em série das redes de sequência (falta fase-terra, $Z_f = 0$)};
+\end{circuitikz}
+\end{document}

@@ -1,0 +1,74 @@
+\documentclass[multi=circuitikz,border=10pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{circuitikz}
+\ctikzset{inductors/scale=0.8}
+\tikzset{bus/.style={line width=2.2pt}}
+
+\newcommand{\refline}{\draw[thick] (-1,0) -- (13.2,0) node[right]{Ref.};}
+\newcommand{\bus}[2]{\draw[bus] (#1,2.1) -- (#1,2.9); \node[font=\scriptsize] at (#1,3.3) {#2};}
+\newcommand{\barras}{\bus{3.0}{G (15 kV)}\bus{5.6}{T (245 kV)}\bus{8.2}{R (245 kV)}\bus{10.8}{F (15 kV)}}
+% elementos em serie (cada indutor com 2 unidades de comprimento)
+\newcommand{\elGerador}[1]{\draw (0.6,2.5) to[L, l={#1}] (2.6,2.5) -- (3.0,2.5);}
+\newcommand{\elTrafoUm}{\draw (3.0,2.5) to[L, l={$X_{t1} = j0{,}03$}] (5.0,2.5) -- (5.6,2.5);}
+\newcommand{\elLinha}[2]{\draw (5.6,2.5) to[L, l={#1}, i_={#2}] (7.6,2.5) -- (8.2,2.5);}
+\newcommand{\elTrafoDois}{\draw (8.2,2.5) to[L, l={$X_{t2} = j0{,}02$}] (10.2,2.5) -- (10.8,2.5);}
+\newcommand{\portaF}[1]{\draw[dashed, gray] (10.8,2.1) -- (10.8,0); \draw (10.8,2.1) to[open, v^=#1] (10.8,0);}
+
+\begin{document}
+% ---------- 1) Sequencia POSITIVA ----------
+\begin{circuitikz}[american, font=\scriptsize]
+  \refline \barras
+  \draw (0,0) to[american voltage source, v_=$E_b$, invert] (0,2.5) -- (0.6,2.5);
+  \elGerador{$X_{g1} = j0{,}045$} \elTrafoUm \elLinha{$Z_{1,L} = j0{,}0666$}{$I_b^{(1)}$} \elTrafoDois
+  \portaF{$V_b^{(1)}$}
+  \node[font=\small, align=center] at (6.2,-1.3) {Sequência positiva: $Z_1^{tot} = 0{,}045 + 0{,}03 + 0{,}0666 + 0{,}02 = j0{,}1616$ pu\\
+   (o $\Delta$-Y do receptor também gira $+30^\circ$ a seq. positiva; não altera os módulos)};
+\end{circuitikz}
+
+% ---------- 2) Sequencia NEGATIVA ----------
+\begin{circuitikz}[american, font=\scriptsize]
+  \refline \barras
+  \draw (0,0) -- (0,2.5) -- (0.6,2.5);
+  \elGerador{$X_{g2} = j0{,}045$} \elTrafoUm \elLinha{$Z_{2,L} = j0{,}0666$}{$I_b^{(2)}$} \elTrafoDois
+  \portaF{$V_b^{(2)}$}
+  \node[font=\small] at (6.2,-1.1) {Sequência negativa: $Z_2^{tot} = j0{,}1616$ pu (sem fonte; o $\Delta$-Y gira $-30^\circ$)};
+\end{circuitikz}
+
+% ---------- 3) Sequencia ZERO ----------
+\begin{circuitikz}[american, font=\scriptsize]
+  \refline \barras
+  % parte "atras" do Delta: isolada
+  \draw[gray, dashed] (0.6,2.5) -- (8.2,2.5);
+  \node[font=\scriptsize, gray, align=center] at (4.2,4.0) {gerador, $\Delta$-$\Delta$ e linha:\\isolados da seq. zero pelo $\Delta$ do receptor};
+  % Xt2 liga a barra da carga (lado Yg) a terra; a barra R (lado Delta) fica ISOLADA
+  \draw (10.8,2.5) -- (9.8,2.5) to[L, l_={$X_{t2} = j0{,}02$}] (9.8,0);
+  \node[font=\scriptsize, gray] at (8.2,1.7) {aberta};
+  \draw[dashed, gray] (10.8,2.1) -- (10.8,0); \draw (10.8,2.1) to[open, v_=$V_b^{(0)}$] (10.8,0);
+  \node[font=\small, align=center] at (6.2,-1.3) {Sequência zero: só $X_{t2}$ liga a carga à terra $\Rightarrow$ $Z_0 = j0{,}02$ pu\\(com neutro sólido; se houver $Z_n$, $Z_0 = X_{t2} + 3Z_n$)};
+\end{circuitikz}
+
+% ---------- 4) Falta fase-terra: redes em serie ----------
+\begin{circuitikz}[american, font=\footnotesize]
+  \draw (-3,7) to[american voltage source, v_={$E_b = 1\angle{-120^\circ}$ pu}, invert] (-3,9);
+  \draw (-3,9) -- (0,9) to[L, l={$Z_1^{tot} = j0{,}1616$ pu}, i_=$I_b^{(1)}$] (4.3,9) -- (5,9);
+  \draw[line width=2pt] (4.6,9) -- (5.4,9);
+  \draw (5,9) to[open, v^=$V_b^{(1)}$] (5,7.5);
+  \draw[line width=2pt] (4.6,7.5) -- (5.4,7.5);
+  \draw (5,7.5) -- (-0.8,7.5) -- (-0.8,6) -- (0,6);
+  \draw (0,6) to[L, l={$Z_2^{tot} = j0{,}1616$ pu}, i_=$I_b^{(2)}$] (4.3,6) -- (5,6);
+  \draw[line width=2pt] (4.6,6) -- (5.4,6);
+  \draw (5,6) to[open, v^=$V_b^{(2)}$] (5,4.5);
+  \draw[line width=2pt] (4.6,4.5) -- (5.4,4.5);
+  \draw (5,4.5) -- (-0.8,4.5) -- (-0.8,3) -- (0,3);
+  \draw (0,3) to[L, l={$Z_0 = X_{t2} = j0{,}02$ pu}, i_=$I_b^{(0)}$] (4.3,3) -- (5,3);
+  \draw[line width=2pt] (4.6,3) -- (5.4,3);
+  \draw (5,3) to[open, v^=$V_b^{(0)}$] (5,1.5);
+  \draw[line width=2pt] (4.6,1.5) -- (5.4,1.5);
+  \draw (5,1.5) -- (8,1.5) to[short, i_=$\dfrac{I_b}{3}$] (8,0) -- (-3,0) -- (-3,7);
+  \node[draw, circle, inner sep=1pt] at (6.2,9.5) {F};
+  \node[font=\small, align=center] at (2.5,-1.4) {Falta fase-terra na carga: $I_0 = I_1 = I_2 = 1/(0{,}1616 + 0{,}1616 + 0{,}02) = 2{,}91$ pu\\
+   $I_b^{(1\phi)} = 3I_0 = 8{,}74$ pu $\approx 33\,637$ A (base 3849 A em 15 kV)};
+\end{circuitikz}
+\end{document}
