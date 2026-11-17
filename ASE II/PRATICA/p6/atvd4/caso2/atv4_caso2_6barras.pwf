@@ -1,0 +1,26 @@
+TITU
+Pratica 6 ASE II - Atividade 4 - Caso 2 - 5 barras + barra 6 no meio da linha 3-4
+DBAR
+(Num)OETGb(   nome   )Gl( V)( A)( Pg)( Qg)( Qn)( Qm)(Bc  )( Pl)( Ql)( Sh)Are(Vf)
+    1  1  GERADOR 1     1030     350.     -999999999
+    2  1  GERADOR 2     1020     185.     -999999999
+    3  2  BARRA INF     1000  0.
+    4  0  BARRA 4       1000                               100.  44.
+    5  0  BARRA 5       1000                                50.  16.
+    6  0  MEIO L3-4     1000
+99999
+DLIN
+(De )d O d(Pa )NcEP ( R% )( X% )(Mvar)(Tap)(Tmn)(Tmx)(Phs)(Bc  )(Cn)(Ce)Ns
+( transformadores (so reatancia, sem tap)
+    1         4 1            2.2
+    2         5 1             4.
+( linha 3-4 dividida ao meio pela barra 6: cada metade com R, X e B pela metade
+    3         6 1      .35    2.   4.1
+    6         4 1      .35    2.   4.1
+( demais linhas: R% X% e Mvar = B total (pu) x 100
+    3         5 1       .8   4.7   9.8
+    3         5 2       .8   4.7   9.8
+    4         5 1      1.8   11.  22.6
+99999
+EXLF NEWT
+FIM

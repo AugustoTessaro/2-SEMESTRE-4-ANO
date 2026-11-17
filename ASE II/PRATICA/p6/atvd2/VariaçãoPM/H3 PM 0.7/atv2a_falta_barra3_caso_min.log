@@ -1,0 +1,10 @@
+
+ RELATÓRIO DE MENSAGENS DA SIMULAÇÃO - TEMPO =      3.0  SEG
+
+
+ ******* SIMULAÇÃO DO INSTANTE T=     0.0s  ATÉ O INSTANTE T=     3.0s *******
+
+ T=  0.1000s APCB - Aplicou curto-circuito na barra     3 AT TRAFO    
+
+ T=  0.3460s RMCB - Removeu curto-circuito da barra     3 AT TRAFO    
+

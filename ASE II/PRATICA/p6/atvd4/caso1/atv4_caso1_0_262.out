@@ -1,0 +1,59 @@
+ CEPEL - Centro de Pesquisas de Energia Elétrica
+ Análise de Transitórios Eletromecânicos - ANATEM - Versão  13.0.0-x64                                                                                                    
+
+ X---------------------------------------------------X
+ | INFORMAÇÕES SOBRE CÓPIA DO PROGRAMA               |
+ X---------------------------------------------------X
+  VERSÃO : 13.0.0-Set26
+  LICENÇA: Multiusuario
+  EMPRESA: ITAIPU BINACIONAL
+  SIGLA  : ITAIPU
+  USUÁRIO: Robson Almir de Oliveira
+  RTL    : Robson Almir de Oliveira
+  IP     : 172.18.4.6
+  DATA   : 23/09/2026
+  HORA   : 09:49:05
+ 
+
+ DADOS DE ASSOCIAÇÃO DE ARQUIVOS DE ENTRADA E SAÍDA
+
+ X------X------X--------------------------------------------------------------X
+ | Tipo   Caso   Nome do Arquivo                                              |
+ X------X------X--------------------------------------------------------------X
+  HIS      1     .\ATV4.SAV
+  OUT            .\atv4_caso1_0_262.out
+  PLT            .\atv4_caso1_0_262.plt
+  LOG            .\atv4_caso1_0_262.log
+
+
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELÉTRICA  - ANATEM - v13.0.0-x64                                                                                                    
+
+ Pratica 6 ASE II - Atividade 4 - Caso 1                                         
+ Atividade 4 - Caso 1: falta trifasica na linha 4-3 junto a barra 4, retirada da 
+
+
+ ******* SIMULAÇÃO DO INSTANTE T=     0.0s  ATÉ O INSTANTE T=     3.0s *******
+
+
+ T=  0.1000s APCB - Aplicou curto-circuito na barra     4 BARRA 4     
+
+ T=  0.2620s RMCB - Removeu curto-circuito da barra     4 BARRA 4     
+
+ T=  0.2620s ABCI - Abrir circuito     3 BARRA INF        4 BARRA 4       1
+
+ T=  0.2620s Abriu circuito     3 BARRA INF        4 BARRA 4       1
+
+ T=  1.4781s - Ângulo da máquina 10 da barra     1 GERADOR 1    ultrapassou o
+               limite de  360.0 graus. Possível perda de sincronismo.
+               Ângulo em relação ao centro de massa :  360.1 graus
+
+ T=  1.8600s - Ângulo da máquina 10 da barra     1 GERADOR 1    ultrapassou o
+               limite de 1000.0 graus. O caso será encerrado.
+               Ângulo em relação ao centro de massa : 1000.0 graus
+
+ Simulação do instante t= 0.0s até o instante t= 1.86s, com passo de dt= 0.1ms
+ Opções ativadas:
+
+ Tempo de CPU da simulação: 00:00:00.27
+ Média de soluções de rede CA por passo:   2.89
+ Média de iterações modelos CA - rede CA por passo:  1.94

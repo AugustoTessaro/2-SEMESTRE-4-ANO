@@ -1,0 +1,42 @@
+TITU
+Varredura 2a - Pm=1,0 H=5 - falta barra 3 - RMCB=0.3251 s (tc=0.2251 s)
+(
+DARQ
+(Tipo) (C) ( Nome do Arquivo
+HIS      1 ATV2.SAV
+OUT        rmcb_0_3251.out
+PLT        rmcb_0_3251.plt
+LOG        rmcb_0_3251.log
+999999
+(
+DMDG MD01
+(No)   (L'd)(Ra )( H )( D )(MVA)Fr C
+0001     20.       5.0      100.
+0002
+999999
+(
+DMAQ
+( Nb)   Gr (P) (Q) Und ( Mg ) ( Mt )u( Mv )u( Me )u(Xvd)(Nbc)
+    1   10           1      1
+    2   10           1      2
+999999
+(
+DEVT
+(Tp) ( Tempo)( El )( Pa)Nc( Ex) ( % ) (ABS ) Gr Und         (Bl)P ( Rc ) ( Xc ) ( Bc ) (Defas)
+APCB   0.1000     3
+RMCB   0.3251     3
+999999
+(
+DPLT
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+DELT        1          10
+PELE        1          10
+999999
+(
+( Tmax=4 s, passo 0,1 ms (precisa ser <= ao incremento de 0,1 ms), plota a cada 5 ms
+DSIM
+( Tmax ) (Stp) ( P ) ( I ) ( F )
+     4.0 .0001    50
+(
+EXSI
+FIM

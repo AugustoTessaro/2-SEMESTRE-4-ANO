@@ -1,0 +1,18 @@
+
+ RELATÓRIO DE MENSAGENS DA SIMULAÇÃO - TEMPO =      3.0  SEG
+
+
+ ******* SIMULAÇÃO DO INSTANTE T=     0.0s  ATÉ O INSTANTE T=     3.0s *******
+
+ T=  0.1000s APCB - Aplicou curto-circuito na barra     6 MEIO L3-4   
+
+ T=  0.3000s RMCB - Removeu curto-circuito da barra     6 MEIO L3-4   
+
+ T=  0.3000s ABCI - Abrir circuito     3 BARRA INF        6 MEIO L3-4     1
+
+ T=  0.3000s ABCI - Abrir circuito     6 MEIO L3-4        4 BARRA 4       1
+
+ T=  0.3000s Abriu circuito     3 BARRA INF        6 MEIO L3-4     1
+
+ T=  0.3000s Abriu circuito     6 MEIO L3-4        4 BARRA 4       1
+

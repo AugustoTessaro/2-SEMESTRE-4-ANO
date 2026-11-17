@@ -1,0 +1,21 @@
+TITU
+Pratica 6 ASE II - Atividade 2 - Maquina x barra infinita (Figura 1)
+DBAR
+(Num)OETGb(   nome   )Gl( V)( A)( Pg)( Qg)( Qn)( Qm)(Bc  )( Pl)( Ql)( Sh)Are(Vf)
+    1  1  GERADOR       1000      70.     -999999999
+    2  2  BARRA INF     1050  0.          -999999999
+    3  0  AT TRAFO      1000
+    4  0  PONTO P       1000
+99999
+DLIN
+(De )d O d(Pa )NcEP ( R% )( X% )(Mvar)(Tap)(Tmn)(Tmx)(Phs)(Bc  )(Cn)(Ce)Ns
+( transformador 1-3 (j0,1)
+    1         3 1            10.
+( linha superior 3-2 (j0,4)
+    3         2 1            40.
+( linha inferior dividida no ponto P: 3-4 e 4-2 (j0,2 cada)
+    3         4 1            20.
+    4         2 1            20.
+99999
+EXLF NEWT
+FIM

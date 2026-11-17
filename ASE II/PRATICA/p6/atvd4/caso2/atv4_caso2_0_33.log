@@ -1,0 +1,26 @@
+
+ RELATÓRIO DE MENSAGENS DA SIMULAÇÃO - TEMPO =      3.0  SEG
+
+
+ ******* SIMULAÇÃO DO INSTANTE T=     0.0s  ATÉ O INSTANTE T=     3.0s *******
+
+ T=  0.1000s APCB - Aplicou curto-circuito na barra     6 MEIO L3-4   
+
+ T=  0.3300s RMCB - Removeu curto-circuito da barra     6 MEIO L3-4   
+
+ T=  0.3300s ABCI - Abrir circuito     3 BARRA INF        6 MEIO L3-4     1
+
+ T=  0.3300s ABCI - Abrir circuito     6 MEIO L3-4        4 BARRA 4       1
+
+ T=  0.3300s Abriu circuito     3 BARRA INF        6 MEIO L3-4     1
+
+ T=  0.3300s Abriu circuito     6 MEIO L3-4        4 BARRA 4       1
+
+ T=  0.9010s - Ângulo da máquina 10 da barra     1 GERADOR 1    ultrapassou o
+               limite de  360.0 graus. Possível perda de sincronismo.
+               Ângulo em relação ao centro de massa :  360.1 graus
+
+ T=  1.2805s - Ângulo da máquina 10 da barra     1 GERADOR 1    ultrapassou o
+               limite de 1000.0 graus. O caso será encerrado.
+               Ângulo em relação ao centro de massa : 1000.0 graus
+

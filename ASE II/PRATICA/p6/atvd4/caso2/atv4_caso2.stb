@@ -1,0 +1,57 @@
+TITU
+Atividade 4 - Caso 2: falta trifasica no meio da linha 3-4 (barra 6), retirada da linha 3-4
+(
+( Para variar o tempo de eliminacao, altere o instante do RMCB e dos dois ABCI (= 0,1 + tc)
+( e o nome dos arquivos de saida (ex.: atv4_caso2_0_32 para RMCB = 0,32 s)
+DARQ
+(Tipo) (C) ( Nome do Arquivo
+HIS      1 ATV4C2.SAV
+OUT        atv4_caso2_0_33.out
+PLT        atv4_caso2_0_33.plt
+LOG        atv4_caso2_0_33.log
+999999
+(
+( Modelo classico. X'd e H na base de 100 MVA (como no Grainger): G1 X'd=6,7% H=11,2 ; G2 X'd=10% H=8,0
+DMDG MD01
+(No)   (L'd)(Ra )( H )( D )(MVA)Fr C
+0001     6.7      11.2      100.
+0002     10.       8.0      100.
+0003
+999999
+(
+DMAQ
+( Nb)   Gr (P) (Q) Und ( Mg ) ( Mt )u( Mv )u( Me )u(Xvd)(Nbc)
+    1   10           1      1
+    2   10           1      2
+    3   10           1      3
+999999
+(
+( Cargas: sem DCAR o Anatem converte as cargas para impedancia constante (igual ao metodo classico)
+DEVT
+(Tp) ( Tempo)( El )( Pa)Nc( Ex) ( % ) (ABS ) Gr Und         (Bl)P ( Rc ) ( Xc ) ( Bc ) (Defas)
+( falta na barra 6 (meio da linha 3-4) em t=0,1 s; em t=0,1+tc remove o curto e abre as duas metades da linha
+APCB   0.1000     6
+RMCB   0.3300     6
+ABCI   0.3300     3    6 1
+ABCI   0.3300     6    4 1
+999999
+(
+( DELT em relacao a maquina da barra 3 (barra infinita), grupo 10
+DPLT
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+DELT        1          10     3 10
+DELT        2          10     3 10
+PELE        1          10
+PELE        2          10
+VOLT        4
+VOLT        5
+VOLT        6
+999999
+(
+DSIM
+( Tmax ) (Stp) ( P ) ( I ) ( F )
+     3.0 .0001    10
+(
+( ILHA: a barra 6 fica isolada apos abrir a linha 3-6-4; a opcao ILHA retira a ilha da solucao
+EXSI ILHA
+FIM
