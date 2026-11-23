@@ -1,0 +1,487 @@
+                CEPEL - Centro de Pesquisas de Energia Elétrica
+        ANAFAS - Programa de Análise de Faltas Simultâneas - 8.1-Ago25    P.   1
+ 
+ Sistema 14 Barras - motores_para_cargas - Xn=0.10 pu (so barra 14)
+
+          CASO  FALTA     LOCALIZACAO              CONTINGENCIA
+         ------ ----- --------------------  ----------------------------
+              1  FT       14 BARRA14---66   Caso-Base                          
+
+             T E N S O E S   E   C O R R E N T E S   D E   C U R T O
+
+                             Barra    14 (BARRA14---66)
+                  TENSAO(kV)                           CORRENTE( A ) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z  19.0  169.9     A    4309  -88.9   Z    1436  -88.9
+       B  45.7 -139.6   P  29.8  -10.7     B       0    0.0   P    1436  -88.9
+       C  45.0  118.3   N  10.9  168.2     C       0    0.0   N    1436  -88.9
+
+      T E N S O E S   E   C O R R E N T E S   D E   C O N T R I B U I C A O
+
+     Bar.   14 (BARRA14---66) TEN.(kV) 
+          mod.   ang.      mod.   ang. 
+       A   0.0    0.0   Z  19.0  169.9
+       B  45.7 -139.6   P  29.8  -10.7
+       C  45.0  118.3   N  10.9  168.2
+
+     Bar.    9 (BARRA09---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   14   Impedância de    14 para     9 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  26.2  -17.2   Z   2.9 -169.9     A    1185  -84.5   Z     417  -78.5    AB   37.18 -47.34  AN    0.00-101.58
+       B  38.3 -128.5   P  34.0  -13.1     B     169   16.3   P     332  -94.4    BC  297.54  42.31  BN   54.57 107.26
+       C  37.5  105.2   N   5.1  175.0     C      98 -106.3   N     444  -82.7    CA   41.08-159.14  CN   48.80  19.62
+
+     Bar.   13 (BARRA13---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   14   Impedância de    14 para    13 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  25.7  -19.5   Z   4.6  169.7     A     965  -88.9   Z     284  -73.9    AB   37.36 -46.09  AN    0.00-100.25
+       B  39.9 -135.5   P  35.2  -16.9     B     272   69.8   P     379 -110.8    BC  192.88 -15.67  BN  118.69  89.57
+       C  40.1  103.4   N   5.0  170.3     C     165  -41.5   N     346  -77.4    CA   52.16-144.74  CN   63.06   5.06
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1C(         ) CORR.( A ) p/   14 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A      60  151.3   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B     116   45.4   P      94  150.7
+       C   0.0    0.0   N   0.0    0.0     C     115 -104.4   N      34  -30.3
+
+     Bar.    0 (-BARRA_INT.-) TEN.(kV)   Cir.  1G(         ) CORR.( A ) p/   14 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A  42.5   -2.2   Z   0.0    0.0     A    2192  -90.9   Z     766 -100.1
+       B  42.5 -122.2   P  42.5   -2.2     B     477 -132.0   P     830  -73.6
+       C  42.5  117.8   N   0.0    0.0     C     287  100.1   N     655 -101.8
+
+     Bar.    9 (BARRA09---66) TEN.(kV) 
+          mod.   ang.      mod.   ang. 
+       A  26.2  -17.2   Z   2.9 -169.9
+       B  38.3 -128.5   P  34.0  -13.1
+       C  37.5  105.2   N   5.1  175.0
+
+     Bar.    4 (BARRA04--138) TEN.(kV)   Cir.  1T(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A  73.1  -40.1   Z   0.0    0.0     A     425  -68.3   Z     121  -79.9
+       B  73.6 -153.1   P  75.8  -36.7     B     140 -134.9   P     217  -50.9
+       C  80.9   83.1   N   5.2 -159.8     C     138   87.8   N     108  -90.2
+
+     Bar.    7 (BARRA07-FICT) TEN.(pu)   Cir.  1T(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A 0.786  -12.1   Z 0.043 -169.9     A     931  -70.9   Z     271  -79.9
+       B 1.006 -126.8   P 0.927  -10.4     B     248 -126.8   P     436  -52.4
+       C 0.992  107.2   N 0.101  174.0     C     279   92.8   N     268  -91.9
+
+     Bar.   10 (BARRA10---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/    9   Impedância de     9 para    10 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  27.8  -17.7   Z   2.6 -170.0     A     349 -101.6   Z      27  -58.1    AB   88.39 -68.92  AN   67.35-101.01
+       B  38.9 -129.6   P  34.9  -14.0     B     286  111.7   P     279 -114.8    BC  162.64 -63.43  BN  164.41 -57.93
+       C  38.2  104.1   N   4.9  174.4     C     219    1.7   N      73  -63.5    CA  123.93-101.77  CN  149.44 -65.78
+
+     Bar.   14 (BARRA14---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/    9   Impedância de     9 para    14 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z  19.0  169.9     A    1185   95.5   Z     417  101.5    AB   43.79 116.68  AN   13.01  64.82
+       B  45.7 -139.6   P  29.8  -10.7     B     169 -163.7   P     332   85.6    BC  285.56-138.69  BN   45.81 -61.69
+       C  45.0  118.3   N  10.9  168.2     C      98   73.7   N     444   97.3    CA   51.25  31.01  CN   40.69-173.50
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1H(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A     126 -104.5   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B     158  144.5   P     148 -103.1
+       C   0.0    0.0   N   0.0    0.0     C     163   10.7   N      22   85.0
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1C(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A     214  136.1   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B     268   25.2   P     251  137.6
+       C   0.0    0.0   N   0.0    0.0     C     276 -108.7   N      38  -34.3
+
+     Bar.   13 (BARRA13---66) TEN.(kV) 
+          mod.   ang.      mod.   ang. 
+       A  25.7  -19.5   Z   4.6  169.7
+       B  39.9 -135.5   P  35.2  -16.9
+       C  40.1  103.4   N   5.0  170.3
+
+     Bar.    6 (BARRA06---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   13   Impedância de    13 para     6 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  32.3  -20.4   Z   1.1 -166.6     A     663  -91.0   Z     190  -80.3    AB   70.01 -68.92  AN   24.75-112.33
+       B  39.1 -133.7   P  36.8  -18.1     B     139   89.7   P     278 -105.1    BC  339.88 -47.15  BN  163.89 119.17
+       C  39.3   99.5   N   3.7  173.6     C     113  -18.9   N     210  -82.1    CA   91.20-134.12  CN   90.23  -9.13
+
+     Bar.   12 (BARRA12---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   13   Impedância de    13 para    12 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  32.1  -20.8   Z   1.0 -154.3     A     306  -72.6   Z      98  -61.3    AB  169.97 -75.70  AN   51.41-131.26
+       B  38.1 -132.8   P  36.2  -17.6     B      68   32.7   P      85  -82.9    BC  912.75  42.14  BN  196.35  86.26
+       C  38.7  100.3   N   3.6 -179.5     C       8 -155.1   N     126  -74.5    CA  190.83-163.72  CN  204.47 -12.86
+
+     Bar.   14 (BARRA14---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   13   Impedância de    13 para    14 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z  19.0  169.9     A     965   91.1   Z     284  106.1    AB   45.95 113.70  AN   16.89  63.84
+       B  45.7 -139.6   P  29.8  -10.7     B     272 -110.2   P     379   69.2    BC  190.54 159.33  BN  103.74 -86.38
+       C  45.0  118.3   N  10.9  168.2     C     165  138.5   N     346  102.6    CA   67.47  42.13  CN   56.19 170.17
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1C(         ) CORR.( A ) p/   13 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A      92  138.7   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B     113   27.0   P     107  139.9
+       C   0.0    0.0   N   0.0    0.0     C     117 -106.1   N      15  -33.0
+
+          CASO  FALTA     LOCALIZACAO              CONTINGENCIA
+         ------ ----- --------------------  ----------------------------
+              2  FF       14 BARRA14---66   Caso-Base                          
+
+             T E N S O E S   E   C O R R E N T E S   D E   C U R T O
+
+                             Barra    14 (BARRA14---66)
+                  TENSAO(kV)                           CORRENTE( A ) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A  40.7  -11.0   Z   0.0    0.0     A       0    0.0   Z       0    0.0
+       B  20.3  169.0   P  20.3  -11.0     B    4663 -178.1   P    2692  -88.1
+       C  20.3  169.0   N  20.3  -11.0     C    4663    1.9   N    2692   91.9
+
+      T E N S O E S   E   C O R R E N T E S   D E   C O N T R I B U I C A O
+
+     Bar.   14 (BARRA14---66) TEN.(kV) 
+          mod.   ang.      mod.   ang. 
+       A  40.7  -11.0   Z   0.0    0.0
+       B  20.3  169.0   P  20.3  -11.0
+       C  20.3  169.0   N  20.3  -11.0
+
+     Bar.    9 (BARRA09---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   14   Impedância de    14 para     9 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  39.1  -12.0   Z   0.0    0.0     A     137  126.7   Z       0    0.0    AB   49.03 155.22  AN  297.54  42.31
+       B  27.8 -153.6   P  29.5  -14.6     B    1304 -171.8   P     715  -87.2    BC    0.00  84.33  BN   15.60 160.76
+       C  24.4  123.0   N   9.6   -4.2     C    1375    3.2   N     832   98.1    CA   41.96  -9.72  CN   14.80 -14.22
+
+     Bar.   13 (BARRA13---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   14   Impedância de    14 para    13 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  40.2  -16.0   Z   0.0    0.0     A     211 -175.3   Z       0    0.0    AB   76.98 165.27  AN  192.88 -15.67
+       B  28.9 -155.9   P  30.9  -18.2     B    1004 -176.1   P     650  -95.3    BC    0.00  86.00  BN   20.27 165.07
+       C  26.0  118.2   N   9.4   -8.9     C    1215    4.1   N     648  103.4    CA   42.81 -15.15  CN   16.75 -15.06
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1C(         ) CORR.( A ) p/   14 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A     129  150.4   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B      64  -29.6   P      64  150.4
+       C   0.0    0.0   N   0.0    0.0     C      64  -29.6   N      64  150.4
+
+     Bar.    0 (-BARRA_INT.-) TEN.(kV)   Cir.  1G(         ) CORR.( A ) p/   14 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A  42.5   -2.2   Z   0.0    0.0     A     399  -22.8   Z       0    0.0
+       B  42.5 -122.2   P  42.5   -2.2     B    2411  176.1   P    1366  -84.4
+       C  42.5  117.8   N   0.0    0.0     C    2037   -0.3   N    1227   79.0
+
+     Bar.    9 (BARRA09---66) TEN.(kV) 
+          mod.   ang.      mod.   ang. 
+       A  39.1  -12.0   Z   0.0    0.0
+       B  27.8 -153.6   P  29.5  -14.6
+       C  24.4  123.0   N   9.6   -4.2
+
+     Bar.    4 (BARRA04--138) TEN.(kV)   Cir.  1T(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A  76.9  -30.5   Z   0.0    0.0     A     150  -23.7   Z       0    0.0
+       B  76.2 -163.1   P  71.3  -36.6     B     480 -168.9   P     297  -62.1
+       C  61.6   83.8   N   9.7   20.9     C     367   24.5   N     202   90.6
+
+     Bar.    7 (BARRA07-FICT) TEN.(pu)   Cir.  1T(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A 1.028  -10.0   Z 0.000    0.0     A     286  -15.8   Z       0    0.0
+       B 0.781 -143.9   P 0.839  -11.1     B    1090 -170.4   P     638  -65.4
+       C 0.743  120.9   N 0.190   -5.2     C     841   18.0   N     502   88.8
+
+     Bar.   10 (BARRA10---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/    9   Impedância de     9 para    10 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  39.7  -13.0   Z   0.0    0.0     A     240 -128.6   Z       0    0.0    AB  187.59-112.31  AN  162.64 -63.43
+       B  29.0 -152.7   P  30.7  -15.4     B     320  158.9   P     321 -105.7    BC   46.60-106.27  BN   86.99-132.54
+       C  25.7  120.2   N   9.1   -4.8     C     454    9.2   N     137  117.3    CA   90.32 -52.59  CN   53.77 -66.25
+
+     Bar.   14 (BARRA14---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/    9   Impedância de     9 para    14 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  40.7  -11.0   Z   0.0    0.0     A     137  -53.3   Z       0    0.0    AB   50.81  -9.94  AN  285.56-138.69
+       B  20.3  169.0   P  20.3  -11.0     B    1304    8.2   P     715   92.8    BC   13.01  64.82  BN   21.32  18.14
+       C  20.3  169.0   N  20.3  -11.0     C    1375 -176.8   N     832  -81.9    CA   40.49 152.23  CN   17.76 119.75
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1H(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A     170 -102.0   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B     121  116.4   P     129 -104.6
+       C   0.0    0.0   N   0.0    0.0     C     106   33.0   N      42  -94.2
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1C(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A     289  138.6   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B     206   -3.0   P     218  136.1
+       C   0.0    0.0   N   0.0    0.0     C     181  -86.4   N      71  146.5
+
+     Bar.   13 (BARRA13---66) TEN.(kV) 
+          mod.   ang.      mod.   ang. 
+       A  40.2  -16.0   Z   0.0    0.0
+       B  28.9 -155.9   P  30.9  -18.2
+       C  26.0  118.2   N   9.4   -8.9
+
+     Bar.    6 (BARRA06---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   13   Impedância de    13 para     6 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  40.5  -17.0   Z   0.0    0.0     A     118 -148.9   Z       0    0.0    AB  112.37-171.74  AN  339.88 -47.15
+       B  32.4 -151.2   P  33.7  -19.3     B     675  178.7   P     451  -95.3    BC   25.82-113.35  BN   42.83-154.56
+       C  29.3  110.5   N   7.0   -5.6     C     777    3.4   N     393   98.7    CA   69.24 -40.67  CN   33.40 -65.21
+
+     Bar.   12 (BARRA12---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   13   Impedância de    13 para    12 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  39.6  -16.0   Z   0.0    0.0     A      44  121.9   Z       0    0.0    AB  181.12 155.80  AN  912.75  42.14
+       B  32.9 -151.0   P  33.3  -19.4     B     367 -162.0   P     194  -77.2    BC   50.24-126.88  BN   78.77-173.89
+       C  28.4  109.2   N   6.7    1.2     C     380   11.5   N     236  106.3    CA  153.97 -39.31  CN   68.33 -73.39
+
+     Bar.   14 (BARRA14---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   13   Impedância de    13 para    14 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  40.7  -11.0   Z   0.0    0.0     A     211    4.7   Z       0    0.0    AB   82.01  -3.08  AN  190.54 159.33
+       B  20.3  169.0   P  20.3  -11.0     B    1004    3.9   P     650   84.7    BC   16.89  63.84  BN   28.80  20.19
+       C  20.3  169.0   N  20.3  -11.0     C    1215 -175.9   N     648  -76.6    CA   42.92 142.13  CN   21.37 114.10
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1C(         ) CORR.( A ) p/   13 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A     122  140.8   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B      88    0.9   P      94  138.6
+       C   0.0    0.0   N   0.0    0.0     C      79  -85.1   N      29  147.8
+
+          CASO  FALTA     LOCALIZACAO              CONTINGENCIA
+         ------ ----- --------------------  ----------------------------
+              3  FFT      14 BARRA14---66   Caso-Base                          
+
+             T E N S O E S   E   C O R R E N T E S   D E   C U R T O
+
+                             Barra    14 (BARRA14---66)
+                  TENSAO(kV)                           CORRENTE( A ) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A  47.5  -10.6   Z  15.8  -10.6     A       0    0.0   Z    1197   90.6
+       B   0.0    0.0   P  15.8  -10.6     B    4959  160.7   P    3291  -88.3
+       C   0.0    0.0   N  15.8  -10.6     C    5035   22.8   N    2094   92.3
+
+      T E N S O E S   E   C O R R E N T E S   D E   C O N T R I B U I C A O
+
+     Bar.   14 (BARRA14---66) TEN.(kV) 
+          mod.   ang.      mod.   ang. 
+       A  47.5  -10.6   Z  15.8  -10.6
+       B   0.0    0.0   P  15.8  -10.6
+       C   0.0    0.0   N  15.8  -10.6
+
+     Bar.    9 (BARRA09---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   14   Impedância de    14 para     9 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  37.1  -11.4   Z   2.4    9.6     A     134  141.3   Z     347  101.0    AB   36.52-179.34  AN   59.25  62.19
+       B  23.7 -149.2   P  27.4  -15.3     B    1420  166.2   P     900  -86.3    BC    0.00  84.33  BN    0.00 124.01
+       C  22.5  112.9   N   7.5   -3.8     C    1419   25.1   N     647   98.5    CA   32.03 -31.10  CN    0.00  41.90
+
+     Bar.   13 (BARRA13---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   14   Impedância de    14 para    13 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  39.8  -16.1   Z   3.8  -10.8     A     225 -161.7   Z     237  105.6    AB   49.64-167.80  AN   92.24  37.88
+       B  24.3 -147.9   P  28.8  -18.7     B    1136  164.7   P     789  -92.2    BC    0.00  86.00  BN    0.00 121.75
+       C  22.7  106.4   N   7.3   -8.5     C    1207   22.1   N     504  103.7    CA   33.16 -32.17  CN    0.00  47.40
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1C(         ) CORR.( A ) p/   14 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A     100  150.8   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B      50  -29.2   P      50  150.8
+       C   0.0    0.0   N   0.0    0.0     C      50  -29.2   N      50  150.8
+
+     Bar.    0 (-BARRA_INT.-) TEN.(kV)   Cir.  1G(         ) CORR.( A ) p/   14 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A  42.5   -2.2   Z   0.0    0.0     A     374   -9.3   Z     639   79.4
+       B  42.5 -122.2   P  42.5   -2.2     B    2468  154.6   P    1628  -87.3
+       C  42.5  117.8   N   0.0    0.0     C    2383   21.8   N     955   79.4
+
+     Bar.    9 (BARRA09---66) TEN.(kV) 
+          mod.   ang.      mod.   ang. 
+       A  37.1  -11.4   Z   2.4    9.6
+       B  23.7 -149.2   P  27.4  -15.3
+       C  22.5  112.9   N   7.5   -3.8
+
+     Bar.    4 (BARRA04--138) TEN.(kV)   Cir.  1T(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A  73.4  -31.5   Z   0.0    0.0     A     130  -23.2   Z     101   99.6
+       B  72.9 -161.7   P  69.1  -36.5     B     490  173.9   P     337  -65.8
+       C  61.6   83.8   N   7.5   21.3     C     435   43.0   N     157   91.0
+
+     Bar.    7 (BARRA07-FICT) TEN.(pu)   Cir.  1T(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A 0.977   -9.6   Z 0.036    9.6     A     241  -19.0   Z     226   99.6
+       B 0.719 -140.4   P 0.797  -11.3     B    1118  172.2   P     739  -69.4
+       C 0.708  115.5   N 0.148   -4.8     C     970   37.8   N     391   89.2
+
+     Bar.   10 (BARRA10---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/    9   Impedância de     9 para    10 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  37.7  -12.5   Z   2.2    9.5     A     261 -121.1   Z      23  121.4    AB  132.85-111.22  AN  152.37 -60.76
+       B  25.3 -148.7   P  28.7  -16.1     B     362  153.4   P     345 -102.4    BC   46.60-106.27  BN   59.26-119.20
+       C  24.0  111.4   N   7.1   -4.4     C     440   15.8   N     106  117.6    CA   81.05 -63.38  CN   52.26 -88.63
+
+     Bar.   14 (BARRA14---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/    9   Impedância de     9 para    14 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  47.5  -10.6   Z  15.8  -10.6     A     134  -38.7   Z     347  -79.0    AB   43.79  16.17  AN   46.25-118.55
+       B   0.0    0.0   P  15.8  -10.6     B    1420  -13.8   P     900   93.7    BC   13.01  64.82  BN   13.01  64.82
+       C   0.0    0.0   N  15.8  -10.6     C    1419 -154.9   N     647  -81.5    CA   35.79 127.69  CN   13.01  64.82
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1H(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A     152 -102.8   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B     113  118.9   P     120 -105.3
+       C   0.0    0.0   N   0.0    0.0     C     101   28.8   N      33  -93.8
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1C(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A     257  137.8   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B     192   -0.5   P     203  135.4
+       C   0.0    0.0   N   0.0    0.0     C     171  -90.6   N      56  146.8
+
+     Bar.   13 (BARRA13---66) TEN.(kV) 
+          mod.   ang.      mod.   ang. 
+       A  39.8  -16.1   Z   3.8  -10.8
+       B  24.3 -147.9   P  28.8  -18.7
+       C  22.7  106.4   N   7.3   -8.5
+
+     Bar.    6 (BARRA06---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   13   Impedância de    13 para     6 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  38.2  -17.1   Z   0.9   12.9     A     130 -143.0   Z     158   99.1    AB   84.81-149.21  AN  142.39  40.50
+       B  30.3 -149.1   P  32.2  -19.9     B     757  160.1   P     537  -93.3    BC   25.82-113.35  BN   25.53-111.07
+       C  28.6  106.0   N   5.4   -5.2     C     794   21.3   N     305   99.1    CA   60.32 -59.79  CN   24.87-114.59
+
+     Bar.   12 (BARRA12---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   13   Impedância de    13 para    12 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  37.4  -16.4   Z   0.8   25.2     A      36  167.0   Z      82  118.1    AB  160.61-177.98  AN  210.89  37.62
+       B  30.8 -149.5   P  31.9  -20.3     B     401  178.7   P     247  -76.7    BC   50.24-126.88  BN   48.32-130.09
+       C  28.1  104.6   N   5.2    1.6     C     377   31.9   N     184  106.7    CA  137.72 -64.60  CN   54.05-128.26
+
+     Bar.   14 (BARRA14---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   13   Impedância de    13 para    14 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  47.5  -10.6   Z  15.8  -10.6     A     225   18.3   Z     237  -74.4    AB   61.56  24.62  AN   77.41-147.60
+       B   0.0    0.0   P  15.8  -10.6     B    1136  -15.3   P     789   87.8    BC   16.89  63.84  BN   16.89  63.84
+       C   0.0    0.0   N  15.8  -10.6     C    1207 -157.9   N     504  -76.3    CA   38.75 122.15  CN   16.89  63.84
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1C(         ) CORR.( A ) p/   13 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A     109  140.1   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B      82    3.4   P      87  138.0
+       C   0.0    0.0   N   0.0    0.0     C      75  -88.9   N      22  148.2
+
+          CASO  FALTA     LOCALIZACAO              CONTINGENCIA
+         ------ ----- --------------------  ----------------------------
+              4  FFF      14 BARRA14---66   Caso-Base                          
+
+             T E N S O E S   E   C O R R E N T E S   D E   C U R T O
+
+                             Barra    14 (BARRA14---66)
+                  TENSAO(kV)                           CORRENTE( A ) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A    5385  -88.1   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B    5385  151.9   P    5385  -88.1
+       C   0.0    0.0   N   0.0    0.0     C    5385   31.9   N       0    0.0
+
+      T E N S O E S   E   C O R R E N T E S   D E   C O N T R I B U I C A O
+
+     Bar.   14 (BARRA14---66) TEN.(kV) 
+          mod.   ang.      mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0
+       B   0.0    0.0   P   0.0    0.0
+       C   0.0    0.0   N   0.0    0.0
+
+     Bar.    9 (BARRA09---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   14   Impedância de    14 para     9 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  20.1  -19.5   Z   0.0    0.0     A    1545  -84.3   Z       0    0.0    AB    0.00   0.00  AN    0.00   0.00
+       B  20.1 -139.5   P  20.1  -19.5     B    1545  155.7   P    1545  -84.3    BC    0.00   0.00  BN    0.00   0.00
+       C  20.1  100.5   N   0.0    0.0     C    1545   35.7   N       0    0.0    CA    0.00   0.00  CN    0.00   0.00
+
+     Bar.   13 (BARRA13---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   14   Impedância de    14 para    13 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  21.6  -22.2   Z   0.0    0.0     A    1281  -86.0   Z       0    0.0    AB    0.00   0.00  AN    0.00   0.00
+       B  21.6 -142.2   P  21.6  -22.2     B    1281  154.0   P    1281  -86.0    BC    0.00   0.00  BN    0.00   0.00
+       C  21.6   97.8   N   0.0    0.0     C    1281   34.0   N       0    0.0    CA    0.00   0.00  CN    0.00   0.00
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1C(         ) CORR.( A ) p/   14 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A       0    0.0   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B       0    0.0   P       0    0.0
+       C   0.0    0.0   N   0.0    0.0     C       0    0.0   N       0    0.0
+
+     Bar.    0 (-BARRA_INT.-) TEN.(kV)   Cir.  1G(         ) CORR.( A ) p/   14 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A  42.5   -2.2   Z   0.0    0.0     A    2567  -92.2   Z       0    0.0
+       B  42.5 -122.2   P  42.5   -2.2     B    2567  147.8   P    2567  -92.2
+       C  42.5  117.8   N   0.0    0.0     C    2567   27.8   N       0    0.0
+
+     Bar.    9 (BARRA09---66) TEN.(kV) 
+          mod.   ang.      mod.   ang. 
+       A  20.1  -19.5   Z   0.0    0.0
+       B  20.1 -139.5   P  20.1  -19.5
+       C  20.1  100.5   N   0.0    0.0
+
+     Bar.    4 (BARRA04--138) TEN.(kV)   Cir.  1T(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A  61.6  -36.2   Z   0.0    0.0     A     486  -73.1   Z       0    0.0
+       B  61.6 -156.2   P  61.6  -36.2     B     486  166.9   P     486  -73.1
+       C  61.6   83.8   N   0.0    0.0     C     486   46.9   N       0    0.0
+
+     Bar.    7 (BARRA07-FICT) TEN.(pu)   Cir.  1T(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A 0.650  -12.8   Z 0.000    0.0     A    1112  -76.7   Z       0    0.0
+       B 0.650 -132.8   P 0.650  -12.8     B    1112  163.3   P    1112  -76.7
+       C 0.650  107.2   N 0.000    0.0     C    1112   43.3   N       0    0.0
+
+     Bar.   10 (BARRA10---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/    9   Impedância de     9 para    10 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  21.8  -19.8   Z   0.0    0.0     A     432  -93.2   Z       0    0.0    AB   46.60-106.27  AN   46.60-106.27
+       B  21.8 -139.8   P  21.8  -19.8     B     432  146.8   P     432  -93.2    BC   46.60-106.27  BN   46.60-106.27
+       C  21.8  100.2   N   0.0    0.0     C     432   26.8   N       0    0.0    CA   46.60-106.27  CN   46.60-106.27
+
+     Bar.   14 (BARRA14---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/    9   Impedância de     9 para    14 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A    1545   95.7   Z       0    0.0    AB   13.01  64.82  AN   13.01  64.82
+       B   0.0    0.0   P   0.0    0.0     B    1545  -24.3   P    1545   95.7    BC   13.01  64.82  BN   13.01  64.82
+       C   0.0    0.0   N   0.0    0.0     C    1545 -144.3   N       0    0.0    CA   13.01  64.82  CN   13.01  64.82
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1H(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A      88 -109.5   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B      88  130.5   P      88 -109.5
+       C   0.0    0.0   N   0.0    0.0     C      88   10.5   N       0    0.0
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1C(         ) CORR.( A ) p/    9 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A     149  131.1   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B     149   11.1   P     149  131.1
+       C   0.0    0.0   N   0.0    0.0     C     149 -108.9   N       0    0.0
+
+     Bar.   13 (BARRA13---66) TEN.(kV) 
+          mod.   ang.      mod.   ang. 
+       A  21.6  -22.2   Z   0.0    0.0
+       B  21.6 -142.2   P  21.6  -22.2
+       C  21.6   97.8   N   0.0    0.0
+
+     Bar.    6 (BARRA06---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   13   Impedância de    13 para     6 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  27.0  -22.9   Z   0.0    0.0     A     838  -88.8   Z       0    0.0    AB   25.82-113.35  AN   25.82-113.35
+       B  27.0 -142.9   P  27.0  -22.9     B     838  151.2   P     838  -88.8    BC   25.82-113.35  BN   25.82-113.35
+       C  27.0   97.1   N   0.0    0.0     C     838   31.2   N       0    0.0    CA   25.82-113.35  CN   25.82-113.35
+
+     Bar.   12 (BARRA12---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   13   Impedância de    13 para    12 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A  27.1  -24.4   Z   0.0    0.0     A     431  -75.3   Z       0    0.0    AB   50.24-126.88  AN   50.24-126.88
+       B  27.1 -144.4   P  27.1  -24.4     B     431  164.7   P     431  -75.3    BC   50.24-126.88  BN   50.24-126.88
+       C  27.1   95.6   N   0.0    0.0     C     431   44.7   N       0    0.0    CA   50.24-126.88  CN   50.24-126.88
+
+     Bar.   14 (BARRA14---66) TEN.(kV)   Cir.  1L(         ) CORR.( A ) p/   13   Impedância de    13 para    14 (ohms) 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A    1281   94.0   Z       0    0.0    AB   16.89  63.84  AN   16.89  63.84
+       B   0.0    0.0   P   0.0    0.0     B    1281  -26.0   P    1281   94.0    BC   16.89  63.84  BN   16.89  63.84
+       C   0.0    0.0   N   0.0    0.0     C    1281 -146.0   N       0    0.0    CA   16.89  63.84  CN   16.89  63.84
+
+     Bar.    0 (-REFERENCIA-) TEN.(kV)   Cir.  1C(         ) CORR.( A ) p/   13 
+          mod.   ang.      mod.   ang.          mod.   ang.        mod.   ang. 
+       A   0.0    0.0   Z   0.0    0.0     A      66  134.6   Z       0    0.0
+       B   0.0    0.0   P   0.0    0.0     B      66   14.6   P      66  134.6
+       C   0.0    0.0   N   0.0    0.0     C      66 -105.4   N       0    0.0
+
+                CEPEL - Centro de Pesquisas de Energia Elétrica
+        ANAFAS - Programa de Análise de Faltas Simultâneas - 8.1-Ago25    P.   1
+ 
+ Sistema 14 Barras - motores_para_cargas - Xn=0.10 pu (so barra 14)
+ 
+ 
+                            INDICE DE CASOS DA MACRO
+ 
+          CASO  FALTA     LOCALIZACAO               CONTINGENCIA         PAGINA
+         ------ ----- --------------------  ---------------------------- ------
+              1  FT       14 BARRA14---66   Caso-Base                        1            
+              2  FF       14 BARRA14---66   Caso-Base                        1            
+              3  FFT      14 BARRA14---66   Caso-Base                        1            
+              4  FFF      14 BARRA14---66   Caso-Base                        1            
