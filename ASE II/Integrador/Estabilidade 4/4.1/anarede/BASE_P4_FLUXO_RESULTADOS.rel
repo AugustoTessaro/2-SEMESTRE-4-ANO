@@ -1,0 +1,543 @@
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA - PROGRAMA DE ANALISE DE REDES - V12.00.01                                 PAG.   1
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ DADOS DE PADRAO PARA OPCOES DE EXECUCAO
+
+ X------X------X------X------X------X------X------X------X------X------X
+  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO
+  NOME E NOME E NOME E NOME E NOME E NOME E NOME E NOME E NOME E NOME E
+ X----X-X----X-X----X-X----X-X----X-X----X-X----X-X----X-X----X-X----X-X
+
+  IMPR L QLIM L CREM L CTAP L NEWT L RCVG L RMON L 80CO L NOVO L MFCT L
+  PMIN L INMN L UNPG L
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ DADOS DE CONSTANTES
+
+ X-----------X-----------X-----------X-----------X-----------X-----------X
+   CTE  VALOR  CTE  VALOR  CTE  VALOR  CTE  VALOR  CTE  VALOR  CTE  VALOR
+ X----X------X----X------X----X------X----X------X----X------X----X------X
+
+  BASE   100. DASE   100. TEPA   .001 EXST   .004 TETP     5. TBPA     5.
+  TLPP     1. TEPR   .001 QLST   .004 TLPR     .1 TLPQ     2. TSBZ    .01
+  TSBA     5. ASTP    .05 VSTP     5. TLVC     .5 TLTC    .01 TSFR  .1E-7
+  ZMAX   500. TLPV     .5 VDVM   200. VDVN    40. TUDC   .001 TADC    .01
+  PGER    30. TPST   .002 VFLD    70. ZMIN   .001 HIST    470 LFIT     10
+  ACIT     30 LFCV      1 DCIT     10 VSIT     10 LPIT     50 LFLP     10
+  PDIT     10 LCRT     96 LPRT     60 CSTP     5. ASDC     1.            
+  ICIT     30 DMAX      5 FDIV     2. ICMN    .05 VART     5. TSTP     33
+  ICMV     .5 APAS    90. CPAR    70. VAVT     2. VAVF     5. VMVF    15.
+  VPVT     2. VPVF     5. VPMF    10. VSVF    20. VINF     1. VSUP     1.
+  TLSI     0. NDIR    20. STTR     5. TRPT   100. STIR     1. BFPO     1.
+  LFPO     .1 TLMT     0. TLMF     0. TLMG     0. PARS    10.            
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ SUMARIO DE CONSTANTES
+
+ X------X------X------X------X------X------X------X------X------X------X
+   BASE   DASE   TEPA   EXST   TETP   TBPA   TLPP   TEPR   QLST   TLPR
+ X------X------X------X------X------X------X------X------X------X------X
+
+    100.   100.   .001   .004     5.     5.     1.   .001   .004     .1
+
+ X------X------X------X------X------X------X------X------X------X------X
+   TLPQ   TSBZ   TSBA   ASTP   VSTP   CSTP   TLVC   TLTC   TSFR   ZMAX
+ X------X------X------X------X------X------X------X------X------X------X
+
+      2.    .01     5.    .05     5.     5.     .5    .01  .1E-7   500.
+
+ X------X------X------X------X------X------X------X------X------X------X
+   VDVM   VDVN   TUDC   TADC   PGER   TPST   TLPV   VFLD   ZMIN   HIST
+ X------X------X------X------X------X------X------X------X------X------X
+
+    200.    40.   .001    .01    30.   .002     .5    70.   .001    470
+
+ X------X------X------X------X------X------X------X------X------X------X
+   LFIT   ACIT   LFCV   DCIT   VSIT   LPIT   LFLP   PDIT   LCRT   LPRT
+ X------X------X------X------X------X------X------X------X------X------X
+
+      10     30      1     10     10     50     10     10     96     60
+
+ X------X------X------X------X------X------X------X------X------X------X
+   DMAX   VART   FDIV   ICMN   ICIT   TSTP   ICMV   APAS   CPAR   VAVT
+ X------X------X------X------X------X------X------X------X------X------X
+
+       5     5.     2.    .05     30     33     .5    90.    70.     2.
+
+ X------X------X------X------X------X------X------X------X------X------X
+   VAVF   VMVF   VPVT   VPVF   VPMF   VSVF   VINF   VSUP   TLSI   ASDC
+ X------X------X------X------X------X------X------X------X------X------X
+
+      5.    15.     2.     5.    10.    20.     1.     1.     0.     1.
+
+ X------X------X------X------X------X------X------X------X------X------X
+   NDIR   STTR   TRPT   STIR   BFPO   LFPO   TLMT   TLMF   TLMG   PARS 
+ X------X------X------X------X------X------X------X------X------X------X
+
+     20.     5.   100.     1.     1.     .1     0.     0.     0.    10.
+
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ DADOS DE BARRA CA
+
+ X------------X------X---------------X-----X-----------------X-----X-----X----X-X---------------------------------------X
+      BARRA    BARRA    TENSAO  GRUPO GERMW     GER Mvar      CARGA SHUNT V CF M     A  G  R  E  G  A  D  O  R  E  S
+  NUM.  T  ARE CONTR.  MOD  ANG B  L  ESPEC  MIN  ESPEC  MAX   MW/   Mvar  MOD P AGR AGR AGR AGR AGR AGR AGR AGR AGR AGR
+      NOME                                                     Mvar               1   2   3   4   5   6   7   8   9   10
+ X------------X------X----X----X--X--X-----X-----X-----X-----X-----X-----X----X-X---X---X---X---X---X---X---X---X---X---X
+
+      1 2   10        1060   0.  1  1 194.1  -30. 7.001   20.             1000 0                                         A
+  BARRA01--138                                                     
+      2 1   10        1045 -2.2  1  2 28.31  -40. 10.18   50.  21.7       1000 0                                         A
+  BARRA02--138                                                 12.7
+      3 1   10        1010 -9.7  1  2    0.    0.  25.4   40.  94.2       1000 0                                         A
+  BARRA03--138                                                  19.
+      4     10        1016 -6.9  1  1                          51.7       1000 0                                         A
+  BARRA04--138                                                  -1.
+      5     10        1010 -5.2  1  2                         -95.2       1000 0                                         A
+  BARRA05--138                                                -30.9
+      6 1   20        1062 -17.  S  1 19.28   -6.   -6.   24.  130.       1000 0                                         A
+  BARRA06---66                                                 -26.
+      7     30        1028 -10.  0  3                                     1000 0                                         A
+  BARRA07-FICT                                                     
+      8 1   30      9  972 -10.  T  2    0.  -20.  -20.   20.             1000 0                                         A
+  BARRA08---33                                                     
+      9     30        1025 -12.  S  2                          29.5   19. 1000 0                                         A
+  BARRA09---66                                                 16.6
+     10     30        1042 -13.  S  2                            9.       1000 0                                         A
+  BARRA10---66                                                  5.8
+     11     30        1052 -15.  S  1                           3.5       1000 0                                         A
+  BARRA11---66                                                  1.8
+     12 1   20        1040 -16.  S  2    0.  -15. -11.7   25.   6.1       1000 0                                         A
+  BARRA12---66                                                  1.6
+     13     20        1055 -16.  S  1                          13.5       1000 0                                         A
+  BARRA13---66                                                  5.8
+     14 1   30        1068 -11.  S  1 47.69   10.   10.   30.  14.9       1000 0                                         A
+  BARRA14---66                                                   5.
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ DADOS DE CIRCUITO CA
+
+ X-----------X------X------X------X--------------------------X---------X------------X---------------------------------------X
+     BARRA           RESIST            T A P                    (MVA)     IDENTIF        A  G  R  E  G  A  D  O  R  E  S
+   DE   PARA   CIRC  REATAN SUSCEP ESPEC  MIN   ANG  BARRA  M NORM EQPT   DA BARRA   AGR AGR AGR AGR AGR AGR AGR AGR AGR AGR
+   EST.  EST. NC E P   (%)  (Mvar) NSTEP  MAX  DEFAS CONTR.   EMER       PARA BARRA   1   2   3   4   5   6   7   8   9   10
+ X-----X-----X--X-X-X------X------X-----X-----X-----X------X-X----X----X------------X---X---X---X---X---X---X---X---X---X---X
+      1     2  1 L F   1.94   5.28                            100. 100. BARRA01--138                                         ADIC 
+   LIG.  LIG.          5.92                                   100.      BARRA02--138
+      1     2  2 L F   1.94   5.28                            100. 100. BARRA01--138                                         ADIC 
+   LIG.  LIG.          5.92                                   100.      BARRA02--138
+      1     5  1 L F    5.4   4.92                            100. 100. BARRA01--138                                         ADIC 
+   LIG.  LIG.          22.3                                   100.      BARRA05--138
+      2     3  1 L F    4.7   4.38                            100. 100. BARRA02--138                                         ADIC 
+   LIG.  LIG.          19.8                                   100.      BARRA03--138
+      2     4  1 L F   5.81   3.75                            100. 100. BARRA02--138                                         ADIC 
+   LIG.  LIG.         17.63                                   100.      BARRA04--138
+      2     5  1 L F   5.69    3.4                            100. 100. BARRA02--138                                         ADIC 
+   LIG.  LIG.         17.39                                   100.      BARRA05--138
+      3     4  1 L F    6.7   3.46                            100. 100. BARRA03--138                                         ADIC 
+   LIG.  LIG.          17.1                                   100.      BARRA04--138
+      4     5  1 L F   1.34   1.28                            100. 100. BARRA04--138                                         ADIC 
+   LIG.  LIG.          4.21                                   100.      BARRA05--138
+      4     7  1 L F                .978                      100. 100. BARRA04--138                                         ADIC 
+   LIG.  LIG.         20.91                                   100.      BARRA07-FICT
+      4     9  1 L F                .969                      100. 100. BARRA04--138                                         ADIC 
+   LIG.  LIG.         55.62                                   100.      BARRA09---66
+      5     6  1 L F                  .9    .9            5 S 200. 200. BARRA05--138                                         ADIC 
+   LIG.  LIG.          25.2           33   1.1                100.      BARRA06---66
+      6    11  1 L F    9.5                                    50.  50. BARRA06---66                                         ADIC 
+   LIG.  LIG.         19.89                                    50.      BARRA11---66
+      6    12  1 L F  12.29                                    50.  50. BARRA06---66                                         ADIC 
+   LIG.  LIG.         25.58                                    50.      BARRA12---66
+      6    13  1 L F   6.61                                    50.  50. BARRA06---66                                         ADIC 
+   LIG.  LIG.         13.03                                    50.      BARRA13---66
+      7     8  1 L F                  1.                       30.  30. BARRA07-FICT                                         ADIC 
+   LIG.  LIG.         17.62                                    30.      BARRA08---33
+      7     9  1 L F                  1.                      100. 100. BARRA07-FICT                                         ADIC 
+   LIG.  LIG.           11.                                   100.      BARRA09---66
+      9    10  1 L F   3.18                                    50.  50. BARRA09---66                                         ADIC 
+   LIG.  LIG.          8.45                                    50.      BARRA10---66
+      9    14  1 L F  12.71                                    50.  50. BARRA09---66                                         ADIC 
+   LIG.  LIG.         27.04                                    50.      BARRA14---66
+     10    11  1 L F    8.2                                    50.  50. BARRA10---66                                         ADIC 
+   LIG.  LIG.         19.21                                    50.      BARRA11---66
+     12    13  1 L F  22.09                                    50.  50. BARRA12---66                                         ADIC 
+   LIG.  LIG.         19.99                                    50.      BARRA13---66
+     13    14  1 L F  17.09                                    50.  50. BARRA13---66                                         ADIC 
+   LIG.  LIG.          34.8                                    50.      BARRA14---66
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ DADOS DE MODELO DE CARGA FUNCAO DA TENSAO
+
+ X-----------------------X-X-----------------------X-------X-------X------X
+  Elemento     Elemento     Elemento     Elemento    ATIVA  REATIVA TENSAO
+  Tipo  Num  C Tipo  Num  C Tipo  Num  C Tipo  Num   %I  %Z  %I  %Z MINIMA
+ X----X-----X-X----X-----X-X----X-----X-X----X-----X---X---X---X---X------X
+
+  BARR    10                                         35   0   4  46    70. ADIC 
+  BARR    12                                         20   0   0  10    70. ADIC 
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ DADOS DE LIMITES DE TENSAO
+
+ X------X-------------X-------------X
+   GRUPO     TENSAO    TENSAO EMERG. 
+  TENSAO MINIMA MAXIMA MINIMA MAXIMA 
+ X------X------X------X------X------X
+
+     1       .9    1.1     .9    1.1
+     2      .95   1.05    .95   1.05
+     3      .97   1.03    .97   1.03
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ DADOS DE AREA
+
+ X---X--------------------X------------------------------------X
+  ARE INTERCAMBIO LIQ (MW)              IDENTIFICACAO
+  NUM MINIMO  ESPEC MAXIMO                DA AREA
+ X---X------X------X------X------------------------------------X
+
+   10   139.   140.   141. * AREA 1 / NIVEL DE TENSAO  138 KV *
+   20  -131.  -130.  -129. * AREA 2 / NIVEL DE TENSAO   66 KV *
+   30   -10.   -10.    -9. * AREA 3 / NIVEL DE TENSAO   33 KV *
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ DADOS DE GRUPO DE TENSAO BASE
+
+ X----X------X
+  GRUP TENSAO
+  BASE  (KV)
+ X----X------X
+
+    1   138.
+    S    66.
+    T    33.
+    0     1.
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ RELATORIO DE CONVERGENCIA
+
+ OPCOES ATIVADAS: QLIM CREM CTAP NEWT RCVG RMON 80CO INMN UNPG
+
+ X-----------X------X------X---------------X---------------X---------------X--X
+    ITERACAO          FREQ.  ERRO MAX BARRA  ERRO MAX BARRA  ERRO MAX  CONV    
+  FC  P  Q  V  M.O.   (Hz)       MW    NUM.     Mvar   NUM.  TENSAO %  NUM. FM 
+ X--X--X--X--X------X------X---------X-----X---------X-----X---------X-----X--X
+
+      1  1    1.0000 60.000     20.56     9     49.77     5
+      2  2    1.0000 60.000      0.19     9      0.07     9
+      3  3    1.0000 60.000      0.00     9**********     8
+      4  4    1.0000 60.000      8.23     6     44.58     5
+      5  5    1.0000 60.000      0.15    12      0.05     6
+      6  6    1.0000 60.000      0.00     6**********    14
+      7  7    1.0000 60.000      0.01     9      0.01    14
+ ................................................................
+
+
+
+
+ CONVERGENCIA FINAL
+
+ X-----------X------X------X---------------X---------------X---------------X
+    ITERACAO          FREQ. ERRO MAX BARRA  ERRO MAX BARRA  ERRO MAX  CONV  
+  FC  P  Q  V  M.O.   (Hz)      MW    NUM.     Mvar   NUM.  TENSAO %  NUM.  
+ X--X--X--X--X------X------X---------X-----X---------X-----X---------X-----X
+
+   0                             0.00     0      0.00     0
+      7  7  0 1.0000 60.000      0.00    13      0.00     5     0.000     0
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ RELATORIO DE BARRAS CA * AREA  10 * * AREA 1 / NIVEL DE TENSAO  138 KV *
+
+ X------------X------X-------X-------X-----X-------X-------X-------X-------X
+     BARRA     TENSAO GERACAO INJ EQV FATOR  CARGA   ELO CC  SHUNT   MOTOR
+  NUM. KV TIPO  MOD/    MW/     MW/   GER %   MW/      MW/   Mvar/    MW/
+      NOME      ANG    Mvar/   Mvar   EQV %  Mvar     Mvar   EQUIV   Mvar
+                      CE Mvar                               SHUNT L
+ X------------X------X-------X-------X-----X-------X-------X-------X-------X
+
+      1  138 2  1.060   194.1     0.0   0.0     0.0     0.0     0.0     0.0
+  BARRA01--138   -0.0     7.0     0.0   0.0     0.0     0.0     0.0     0.0
+      2  138 1  1.045    28.3     0.0   0.0    21.7     0.0     0.0     0.0
+  BARRA02--138   -2.2    10.2     0.0   0.0    12.7     0.0     0.0     0.0
+      3  138 1  1.010     0.0     0.0   0.0    94.2     0.0     0.0     0.0
+  BARRA03--138   -9.7    25.4     0.0   0.0    19.0     0.0     0.0     0.0
+      4  138 0  1.016     0.0     0.0   0.0    51.7     0.0     0.0     0.0
+  BARRA04--138   -6.9     0.0     0.0   0.0    -1.0     0.0     0.0     0.0
+      5  138 0  1.025     0.0     0.0   0.0   -95.2     0.0     0.0     0.0
+  BARRA05--138   -5.2     0.0     0.0   0.0   -30.9     0.0     0.0     0.0
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ RELATORIO DE BARRAS CA * AREA  20 * * AREA 2 / NIVEL DE TENSAO   66 KV *
+
+ X------------X------X-------X-------X-----X-------X-------X-------X-------X
+     BARRA     TENSAO GERACAO INJ EQV FATOR  CARGA   ELO CC  SHUNT   MOTOR
+  NUM. KV TIPO  MOD/    MW/     MW/   GER %   MW/      MW/   Mvar/    MW/
+      NOME      ANG    Mvar/   Mvar   EQV %  Mvar     Mvar   EQUIV   Mvar
+                      CE Mvar                               SHUNT L
+ X------------X------X-------X-------X-----X-------X-------X-------X-------X
+
+      6   66-1  1.069    19.3     0.0   0.0   130.0     0.0     0.0     0.0
+  BARRA06---66  -16.7    -6.0     0.0   0.0   -26.0     0.0     0.0     0.0
+     12   66 1  1.040     0.0     0.0   0.0     6.1     0.0     0.0     0.0
+  BARRA12---66  -16.1   -11.7     0.0   0.0     1.6     0.0     0.0     0.0
+     13   66 0  1.055     0.0     0.0   0.0    13.5     0.0     0.0     0.0
+  BARRA13---66  -15.9     0.0     0.0   0.0     5.8     0.0     0.0     0.0
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ RELATORIO DE BARRAS CA * AREA  30 * * AREA 3 / NIVEL DE TENSAO   33 KV *
+
+ X------------X------X-------X-------X-----X-------X-------X-------X-------X
+     BARRA     TENSAO GERACAO INJ EQV FATOR  CARGA   ELO CC  SHUNT   MOTOR
+  NUM. KV TIPO  MOD/    MW/     MW/   GER %   MW/      MW/   Mvar/    MW/
+      NOME      ANG    Mvar/   Mvar   EQV %  Mvar     Mvar   EQUIV   Mvar
+                      CE Mvar                               SHUNT L
+ X------------X------X-------X-------X-----X-------X-------X-------X-------X
+
+      7    1 0  1.028     0.0     0.0   0.0     0.0     0.0     0.0     0.0
+  BARRA07-FICT  -10.1     0.0     0.0   0.0     0.0     0.0     0.0     0.0
+      8   33-1  0.992     0.0     0.0   0.0     0.0     0.0     0.0     0.0
+  BARRA08---33  -10.1   -20.0     0.0   0.0     0.0     0.0     0.0     0.0
+      9   66 0  1.045     0.0     0.0   0.0    29.5     0.0    20.8     0.0
+  BARRA09---66  -11.8     0.0     0.0   0.0    16.6     0.0     0.0     0.0
+     10   66 0  1.042     0.0     0.0   0.0     9.1     0.0     0.0     0.0
+  BARRA10---66  -13.0     0.0     0.0   0.0     6.0     0.0     0.0     0.0
+     11   66 0  1.052     0.0     0.0   0.0     3.5     0.0     0.0     0.0
+  BARRA11---66  -14.9     0.0     0.0   0.0     1.8     0.0     0.0     0.0
+     14   66-1  1.078    47.7     0.0   0.0    14.9     0.0     0.0     0.0
+  BARRA14---66  -11.2    10.0     0.0   0.0     5.0     0.0     0.0     0.0
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ RELATORIO DE GERADOR * AREA  10 * * AREA 1 / NIVEL DE TENSAO  138 KV *
+
+ X------------X------X-----------------------X----X------X-------X
+     BARRA     TENSAO         GERACAO         LIM. PARTIC  BARRA
+  NUM.    TIPO   MOD     MIN     MW      MAX   MW    GER  CONTROL
+      NOME       ANG     MIN    Mvar     MAX  Mvar  EQUIV   MVA
+ X------------X------X-------X-------X-------X----X------X-------X
+
+      1      2  1.060     0.0   194.1 99999.0         0.0       1
+  BARRA01--138   -0.0   -30.0     7.0    20.0         0.0   194.2
+      2      1  1.045     0.0    28.3 99999.0         0.0       2
+  BARRA02--138   -2.2   -40.0    10.2    50.0         0.0    30.1
+      3      1  1.010     0.0     0.0 99999.0   I     0.0       3
+  BARRA03--138   -9.7     0.0    25.4    40.0         0.0    25.4
+
+
+
+
+ RELATORIO DE GERADOR * AREA  20 * * AREA 2 / NIVEL DE TENSAO   66 KV *
+
+ X------------X------X-----------------------X----X------X-------X
+     BARRA     TENSAO         GERACAO         LIM. PARTIC  BARRA
+  NUM.    TIPO   MOD     MIN     MW      MAX   MW    GER  CONTROL
+      NOME       ANG     MIN    Mvar     MAX  Mvar  EQUIV   MVA
+ X------------X------X-------X-------X-------X----X------X-------X
+
+      6     -1  1.069     0.0    19.3 99999.0         0.0       6
+  BARRA06---66  -16.7    -6.0    -6.0    24.0   I     0.0    20.2
+     12      1  1.040     0.0     0.0 99999.0   I     0.0      12
+  BARRA12---66  -16.1   -15.0   -11.7    25.0         0.0    11.7
+
+
+
+
+ RELATORIO DE GERADOR * AREA  30 * * AREA 3 / NIVEL DE TENSAO   33 KV *
+
+ X------------X------X-----------------------X----X------X-------X
+     BARRA     TENSAO         GERACAO         LIM. PARTIC  BARRA
+  NUM.    TIPO   MOD     MIN     MW      MAX   MW    GER  CONTROL
+      NOME       ANG     MIN    Mvar     MAX  Mvar  EQUIV   MVA
+ X------------X------X-------X-------X-------X----X------X-------X
+
+      8     -1  0.992     0.0     0.0 99999.0   I     0.0       9
+  BARRA08---33  -10.1   -20.0   -20.0    20.0   I     0.0    20.0
+     14     -1  1.078     0.0    47.7 99999.0         0.0      14
+  BARRA14---66  -11.2    10.0    10.0    30.0   I     0.0    48.7
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ RELATORIO DE CIRC. CA DO SIST. * AREA  10 * * AREA 1 / NIVEL DE TENSAO  138 KV *
+
+ X---- DADOS-BARRA ----X--------- CARGA -----------X--------- GERACAO --------X
+  DA BARRA       TENSAO      >       MW       Mvar   >           MW       Mvar 
+  NUM.  KV TIPO   MOD   PARA BARRA         F L U X O S  -  C I R C U I T O S   
+      NOME        ANG   NUM.      NOME     NC     MW    Mvar    TAP  DEFAS TIE 
+ X-------------X-------X-----X------------X--X-------X-------X------X-----X---X
+
+      1  138  2   1.060                              >      194.1MW    7.0Mvar
+  BARRA01--138     -0.0                                          
+    70.0% MVA/Vd   100.     2 BARRA02--138  1    74.2     1.0                 
+    70.0% MVA/Vd   100.     2 BARRA02--138  2    74.2     1.0                 
+    43.4% MVA/Vd   100.     5 BARRA05--138  1    45.7     5.0                 
+  ............................................................................
+
+      2  138  1   1.045      >   21.7MW   12.7Mvar   >       28.3MW   10.2Mvar
+  BARRA02--138     -2.2                                          
+    70.2% MVA/Vd   100.     1 BARRA01--138  1   -73.2    -3.9                 
+    70.2% MVA/Vd   100.     1 BARRA01--138  2   -73.2    -3.9                 
+    67.6% MVA/Vd   100.     3 BARRA03--138  1    70.5     3.8                 
+    48.0% MVA/Vd   100.     4 BARRA04--138  1    50.2     0.9                 
+    31.0% MVA/Vd   100.     5 BARRA05--138  1    32.4     0.7                 
+  ............................................................................
+
+      3  138  1   1.010      >   94.2MW   19.0Mvar   >                25.4Mvar
+  BARRA03--138     -9.7                                          
+    67.7% MVA/Vd   100.     2 BARRA02--138  1   -68.4     0.6                 
+    26.2% MVA/Vd   100.     4 BARRA04--138  1   -25.8     5.8                 
+  ............................................................................
+
+      4  138  0   1.016      >   51.7MW   -1.0Mvar                            
+  BARRA04--138     -6.9                                          
+    48.1% MVA/Vd   100.     2 BARRA02--138  1   -48.8    -0.8                 
+    27.1% MVA/Vd   100.     3 BARRA03--138  1    26.3    -8.1                 
+    73.5% MVA/Vd   100.     5 BARRA05--138  1   -74.6     2.5                 
+    28.8% MVA/Vd   100.     7 BARRA07-FICT  1    28.6     6.2 0.978F       030
+    16.6% MVA/Vd   100.     9 BARRA09---66  1    16.8     1.2 0.969F       030
+  ............................................................................
+
+      5  138  0   1.025      >  -95.2MW  -30.9Mvar                            
+  BARRA05--138     -5.2                                          
+    44.0% MVA/Vd   100.     1 BARRA01--138  1   -44.7    -6.1                 
+    31.2% MVA/Vd   100.     2 BARRA02--138  1   -31.8    -2.6                 
+    73.5% MVA/Vd   100.     4 BARRA04--138  1    75.3    -1.6                 
+    51.2% MVA/Vd   200.     6 BARRA06---66  1    96.4    41.2 0.900I       020
+
+
+
+ TOTAIS DA AREA  10
+
+
+ X--------X--------X--------X--------X--------X--------X--------X--------X
+   GERACAO  INJ EQV   CARGA   ELO CC    SHUNT   EXPORT   IMPORT   PERDAS  
+     MW/      MW/      MW/      MW/     Mvar/     MW/      MW/      MW/   
+    Mvar     Mvar     Mvar     Mvar     EQUIV    Mvar     Mvar     Mvar   
+ X--------X--------X--------X--------X--------X--------X--------X--------X
+
+     222.4      0.0     72.4      0.0      0.0    141.8      0.0      8.2
+      42.6      0.0     -0.2      0.0      0.0     24.3      0.2     18.7
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ RELATORIO DE CIRC. CA DO SIST. * AREA  20 * * AREA 2 / NIVEL DE TENSAO   66 KV *
+
+ X---- DADOS-BARRA ----X--------- CARGA -----------X--------- GERACAO --------X
+  DA BARRA       TENSAO      >       MW       Mvar   >           MW       Mvar 
+  NUM.  KV TIPO   MOD   PARA BARRA         F L U X O S  -  C I R C U I T O S   
+      NOME        ANG   NUM.      NOME     NC     MW    Mvar    TAP  DEFAS TIE 
+ X-------------X-------X-----X------------X--X-------X-------X------X-----X---X
+
+      6   66 -1   1.069      >  130.0MW  -26.0Mvar   >       19.3MW   -6.0Mvar
+  BARRA06---66    -16.7                                          
+    46.1% MVA/Vd   200.     5 BARRA05--138  1   -96.4   -19.8              010
+    33.4% MVA/Vd    50.    11 BARRA11---66  1   -10.7    14.3              030
+    21.5% MVA/Vd    50.    12 BARRA12---66  1     1.4    11.4                 
+    28.0% MVA/Vd    50.    13 BARRA13---66  1    -5.0    14.1                 
+  ............................................................................
+
+     12   66  1   1.040      >    6.1MW    1.6Mvar   >               -11.7Mvar
+  BARRA12---66    -16.1                                          
+    21.5% MVA/Vd    50.     6 BARRA06---66  1    -1.2   -11.1                 
+    10.4% MVA/Vd    50.    13 BARRA13---66  1    -4.9    -2.2                 
+  ............................................................................
+
+     13   66  0   1.055      >   13.5MW    5.8Mvar                            
+  BARRA13---66    -15.9                                          
+    28.0% MVA/Vd    50.     6 BARRA06---66  1     5.1   -13.8                 
+    10.4% MVA/Vd    50.    12 BARRA12---66  1     5.0     2.3                 
+    46.1% MVA/Vd    50.    14 BARRA14---66  1   -23.6     5.8              030
+
+
+
+ TOTAIS DA AREA  20
+
+
+ X--------X--------X--------X--------X--------X--------X--------X--------X
+   GERACAO  INJ EQV   CARGA   ELO CC    SHUNT   EXPORT   IMPORT   PERDAS  
+     MW/      MW/      MW/      MW/     Mvar/     MW/      MW/      MW/   
+    Mvar     Mvar     Mvar     Mvar     EQUIV    Mvar     Mvar     Mvar   
+ X--------X--------X--------X--------X--------X--------X--------X--------X
+
+      19.3      0.0    149.6      0.0      0.0      0.0    131.9      1.5
+     -17.7      0.0    -18.6      0.0      0.0     17.7     19.8      3.0
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ RELATORIO DE CIRC. CA DO SIST. * AREA  30 * * AREA 3 / NIVEL DE TENSAO   33 KV *
+
+ X---- DADOS-BARRA ----X--------- CARGA -----------X--------- GERACAO --------X
+  DA BARRA       TENSAO      >       MW       Mvar   >           MW       Mvar 
+  NUM.  KV TIPO   MOD   PARA BARRA         F L U X O S  -  C I R C U I T O S   
+      NOME        ANG   NUM.      NOME     NC     MW    Mvar    TAP  DEFAS TIE 
+ X-------------X-------X-----X------------X--X-------X-------X------X-----X---X
+
+      7    1  0   1.028                                                       
+  BARRA07-FICT    -10.1                                          
+    28.2% MVA/Vd   100.     4 BARRA04--138  1   -28.6    -4.5              010
+    67.2% MVA/Vd    30.     8 BARRA08---33  1     0.0    20.7 1.000F          
+    32.0% MVA/Vd   100.     9 BARRA09---66  1    28.6   -16.2 1.000F          
+  ............................................................................
+
+      8   33 -1   0.992                              >               -20.0Mvar
+  BARRA08---33    -10.1                                          
+    67.2% MVA/Vd    30.     7 BARRA07-FICT  1     0.0   -20.0                 
+  ............................................................................
+
+      9   66  0   1.045      >   29.5MW   16.6Mvar                            
+  BARRA09---66    -11.8                                  20.8 SHL
+    16.1% MVA/Vd   100.     4 BARRA04--138  1   -16.8     0.2              010
+    32.0% MVA/Vd   100.     7 BARRA07-FICT  1   -28.6    17.3                 
+    46.8% MVA/Vd    50.    10 BARRA10---66  1    24.0    -4.8                 
+    22.6% MVA/Vd    50.    14 BARRA14---66  1    -8.1    -8.6                 
+  ............................................................................
+
+     10   66  0   1.042      >    9.1MW    6.0Mvar                            
+  BARRA10---66    -13.0                                          
+    46.8% MVA/Vd    50.     9 BARRA09---66  1   -23.8     5.3                 
+    35.6% MVA/Vd    50.    11 BARRA11---66  1    14.7   -11.3                 
+  ............................................................................
+
+     11   66  0   1.052      >    3.5MW    1.8Mvar                            
+  BARRA11---66    -14.9                                          
+    33.4% MVA/Vd    50.     6 BARRA06---66  1    10.9   -13.7              020
+    35.6% MVA/Vd    50.    10 BARRA10---66  1   -14.4    11.9                 
+  ............................................................................
+
+     14   66 -1   1.078      >   14.9MW    5.0Mvar   >       47.7MW   10.0Mvar
+  BARRA14---66    -11.2                                          
+    22.6% MVA/Vd    50.     9 BARRA09---66  1     8.3     8.9                 
+    46.1% MVA/Vd    50.    13 BARRA13---66  1    24.5    -3.9              020
+
+
+
+ TOTAIS DA AREA  30
+
+
+ X--------X--------X--------X--------X--------X--------X--------X--------X
+   GERACAO  INJ EQV   CARGA   ELO CC    SHUNT   EXPORT   IMPORT   PERDAS  
+     MW/      MW/      MW/      MW/     Mvar/     MW/      MW/      MW/   
+    Mvar     Mvar     Mvar     Mvar     EQUIV    Mvar     Mvar     Mvar   
+ X--------X--------X--------X--------X--------X--------X--------X--------X
+
+      47.7      0.0     57.0      0.0     20.8     35.4     45.4      0.6
+     -10.0      0.0     29.4      0.0      0.0      0.2     22.2      3.3
+CEPEL - Centro de Pesquisas de Energia Eletrica - ANAREDE V12.00.01
+
+ Sistema 14 Barras - motores_para_cargas                                         
+
+ --- CASO ANAREDE 01 GRAVADO. ---
+ Sistema 14 Barras - motores_para_cargas                                         
+

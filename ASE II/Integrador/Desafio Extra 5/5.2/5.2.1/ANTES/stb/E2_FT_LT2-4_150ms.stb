@@ -1,0 +1,172 @@
+(===============================================================================
+( INTEGRADOR ASE II - ITEM 5.2 - ESTABILIDADE ELETROMECANICA - CASO ANTES
+( Curto 1F na LT 2-4 junto a barra 4 (Zf=Z2+Z0=7.84+j31.38%), abertura em 150ms
+( Modelos completos fornecidos (SIS14B.BLT): maquinas de polos salientes com
+( amortecedores e saturacao, reguladores de tensao e de velocidade (Sub. 2.3, 2.4.1.6)
+( Motores de inducao NAO representados (substituidos por carga P,Q no fluxo - item 2)
+(===============================================================================
+TITU
+Item 5.2 - Caso ANTES - E2_FT_LT2-4_150ms
+DARQ
+(Tipo) (C) ( Nome do Arquivo
+   OUT     ..\out\
+   LOG     ..\log\
+   PLT     ..\plt\
+   HIS   1 ..\sav\ANTES.HIS
+   BLT     ..\modelos\SIS14B.BLT
+999999
+DOPC IMPR
+(Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E
+IMPR L FILE L 80CO L
+999999
+DCTE
+(Ct) (Val )
+TEPQ     .1
+999999
+(
+( Maquinas e controles: igual ao SIS14B_1.STB fornecido
+DMAQ
+( Nb)   Gr (P) (Q) Und ( Mg ) ( Mt )u( Mv )u( Me )u(Xvd)(Nbc)
+(....... Barra 1
+   01   10           3    202    102    101
+(....... Barra 2
+   02   10           1    201    102    101
+(....... Barra 3
+   03   10           1    201    102
+(....... Barra 6
+   06   10           1    201    102    101
+(....... Barra 8
+   08   10           1    201    101                        0
+(....... Barra 12
+   12   10           1    201    101
+(....... Barra 14
+   14   10           1    202   1201    101
+999999
+(
+( Cargas (dado do arquivo fornecido): ativa 60% P const. + 40% Z const.; reativa 100% Z const.
+( (Sub. 2.3, 2.4.1.8 so se aplica na ausencia de informacao)
+DCAR
+(tp) ( no) C (tp) ( no) C (tp) ( no) C (tp) ( no)   (A) (B) (C) (D) (Vmn)
+BARR     1 A BARR  9998                               0  40   0 100    70
+999999
+(
+( ERAC do arquivo fornecido (Sub. 2.3, 2.4.1.6 (l))
+DERA
+(Ne) (tp) ( no) C (tp) ( no) C (tp) ( no) C (tp) ( no) ( Nb) (Fs ) (Fc ) O
+0001 AREA    10 A AREA    30                                             A
+( (Tax) (Fr ) ( %C) (Ttx) (Tre) (Tdj)
+A       .9917    10        0.10  0.10
+A       .9833    10        0.20  0.10
+A       .9800    10        0.40  0.10
+A       .9667    10        0.80  0.10
+A       .9583    10        1.60  0.10
+A       .9500    10        3.20  0.10
+A       .9417    10        6.40  0.10
+A       .9333    10       12.80  0.10
+FIMERAC
+999999
+(
+DPLT
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+( angulos dos rotores referidos a maquina da barra 1 (referencia comum)
+DELT        2          10     1 10
+DELT        3          10     1 10
+DELT        6          10     1 10
+DELT        8          10     1 10
+DELT       12          10     1 10
+DELT       14          10     1 10
+( angulos absolutos
+DELT        1          10
+DELT        2          10
+DELT        3          10
+DELT        6          10
+DELT        8          10
+DELT       12          10
+DELT       14          10
+( velocidade/frequencia das maquinas (Hz)
+FMAQ        1          10
+FMAQ        2          10
+FMAQ        3          10
+FMAQ        6          10
+FMAQ        8          10
+FMAQ       12          10
+FMAQ       14          10
+( potencias eletrica, mecanica, reativa e tensao de campo
+PELE        1          10
+PELE        2          10
+PELE        3          10
+PELE        6          10
+PELE        8          10
+PELE       12          10
+PELE       14          10
+PMEC        1          10
+PMEC        2          10
+PMEC        3          10
+PMEC        6          10
+PMEC        8          10
+PMEC       12          10
+PMEC       14          10
+QELE        1          10
+QELE        2          10
+QELE        3          10
+QELE        6          10
+QELE        8          10
+QELE       12          10
+QELE       14          10
+EFD         1          10
+EFD         2          10
+EFD         3          10
+EFD         6          10
+EFD         8          10
+EFD        12          10
+EFD        14          10
+( tensoes em todas as barras
+VOLT        1
+VOLT        2
+VOLT        3
+VOLT        4
+VOLT        5
+VOLT        6
+VOLT        7
+VOLT        8
+VOLT        9
+VOLT       10
+VOLT       11
+VOLT       12
+VOLT       13
+VOLT       14
+( fluxos nas LTs de interesse (2.4.3.4/2.4.3.5): MVA e MW
+FLXM       13    14  1
+FLXA       13    14  1
+FLXM        6    13  1
+FLXA        6    13  1
+FLXM        4     5  1
+FLXA        4     5  1
+FLXM        9    14  1
+FLXA        9    14  1
+FLXM        2     4  1
+FLXA        2     4  1
+FLXM        9    10  1
+FLXA        9    10  1
+FLXM       12    13  1
+FLXA       12    13  1
+FLXM        1     2  1
+FLXA        1     2  1
+FLXM        1     5  1
+FLXA        1     5  1
+999999
+(
+DEVT
+(Tp) ( Tempo)( El )( Pa)Nc( Ex) ( % ) (ABS ) Gr Und         (Bl)P ( Rc ) ( Xc ) ( Bc ) (Defas)
+APCL      1.0     2    4 1        99.                               7.84  31.38
+RMCL     1.15     2    4 1
+ABCI     1.15     2    4 1
+999999
+(
+DSIM
+( Tmax ) (Stp) ( P ) ( I ) ( F )
+   20.00  .001    10
+(
+EXSI
+(
+FIM

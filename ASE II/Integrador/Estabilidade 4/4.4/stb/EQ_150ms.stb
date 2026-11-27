@@ -1,0 +1,51 @@
+(===============================================================================
+( INTEGRADOR ASE II - ITEM 4.4 - EQUIVALENTE MAQUINA 14 - BARRA INFINITA
+( Caso: EQ_150ms - falta trifasica no terminal da maquina (barra 1), eliminada em 150 ms sem alterar a rede
+(===============================================================================
+TITU
+Item 4.4 - Equivalente maq. 14 x barra infinita - falta de 150 ms
+DARQ
+(Tipo) (C) ( Nome do Arquivo
+   OUT     ..\out\
+   LOG     ..\log\
+   PLT     ..\plt\
+   HIS   1 ..\sav\EQUIV_B14.HIS
+   BLT     ..\modelos\EQUIV.BLT
+999999
+DOPC IMPR
+(Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E
+IMPR L FILE L 80CO L
+999999
+DCTE
+(Ct) (Val )
+TEPQ     .1
+999999
+( Maquina 14 (modelo classico) e barra infinita
+DMAQ
+( Nb)   Gr (P) (Q) Und ( Mg ) ( Mt )u( Mv )u( Me )u(Xvd)(Nbc)
+    1   10           1     20
+    2   10           1     30
+999999
+(
+DPLT
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+DELT        1          10     2 10
+PELE        1          10
+FMAQ        1          10
+VOLT        1
+VOLT        2
+999999
+(
+DEVT
+(Tp) ( Tempo)( El )( Pa)Nc( Ex) ( % ) (ABS ) Gr Und         (Bl)P ( Rc ) ( Xc ) ( Bc ) (Defas)
+APCB      1.0     1
+RMCB     1.15     1
+999999
+(
+DSIM
+( Tmax ) (Stp) ( P ) ( I ) ( F )
+     5.0  .001     5
+(
+EXSI
+(
+FIM

@@ -1,0 +1,46 @@
+(=============================================================
+( ITEM 4.4 - Equivalente maquina-barra infinita (maquina da barra 14)
+(   Barra 1: terminal da maquina 14 (PV, V = 1,0775 pu, Pg = 47,69 MW)
+(   Barra 2: barra infinita (referencia, V = 1,000 pu)
+(   Circuito 1-2: X = Im(Zth) visto da barra 14 no ANAFAS (R desprezada)
+(=============================================================
+ULOG
+2
+..\sav\EQUIV_B14.HIS
+ARQV INIC
+SIM
+ULOG
+4
+..\out\EQUIV_B14_FLUXO.REL
+TITU
+Item 4.4 - Equivalente maquina 14 - barra infinita
+DOPC IMPR
+(Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E
+IMPR L NEWT L RCVG L 80CO L
+99999
+DCTE
+(Mn) ( Val) (Mn) ( Val) (Mn) ( Val) (Mn) ( Val) (Mn) ( Val) (Mn) ( Val) 
+BASE   100. TEPA   .001 TEPR   .001
+99999
+DBAR
+(Num)OETGb(   nome   )Gl( V)( A)( Pg)( Qg)( Qn)( Qm)(Bc  )( Pl)( Ql)( Sh)Are(Vf)M(1)(2)(3)(4)(5)(6)(7)(8)(9)(10
+    1 L1 SGERADOR-B14  11078  0.47.69     -999. 999.                      101000
+    2 L2 SBARRA-INFIN  11000  0.          -999. 999.                      101000
+99999
+DLIN
+(De )d O d(Pa )NcEPM( R% )( X% )(Mvar)(Tap)(Tmn)(Tmx)(Phs)(Bc  )(Cn)(Ce)Ns(Cq)(1)(2)(3)(4)(5)(6)(7)(8)(9)(10 (U) Uop
+    1         2 1          29.60
+99999
+DGLT
+(G (Vmn) (Vmx) (Vmne (Vmxe
+ 1    .9   1.1    .9   1.1
+99999
+DGBT
+(G ( kV)
+ S   66.
+99999
+EXLF
+RELA RBAR RLIN RGER
+ARQV GRAV
+1
+FIM

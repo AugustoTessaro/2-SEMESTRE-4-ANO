@@ -1,0 +1,10 @@
+
+ RELATÓRIO DE MENSAGENS DA SIMULAÇÃO - TEMPO =      2.0  SEG
+
+
+ ******* SIMULAÇÃO DO INSTANTE T=     0.0s  ATÉ O INSTANTE T=     2.0s *******
+
+ T=  1.0000s APCB - Aplicou curto-circuito na barra     2 BARRA02--138
+
+ T=  1.2500s RMCB - Removeu curto-circuito da barra     2 BARRA02--138
+

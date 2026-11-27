@@ -1,0 +1,197 @@
+ CEPEL - Centro de Pesquisas de Energia Elétrica
+ Análise de Transitórios Eletromecânicos - ANATEM - Versão  13.0.0-x64                                                                                                    
+
+ X---------------------------------------------------X
+ | INFORMAÇÕES SOBRE CÓPIA DO PROGRAMA               |
+ X---------------------------------------------------X
+  VERSÃO : 13.0.0-Set26
+  LICENÇA: Multiusuario
+  EMPRESA: ITAIPU BINACIONAL
+  SIGLA  : ITAIPU
+  USUÁRIO: Robson Almir de Oliveira
+  RTL    : Robson Almir de Oliveira
+  IP     : 172.18.4.6
+  DATA   : 23/09/2026
+  HORA   : 09:49:05
+ 
+
+ DADOS DE ASSOCIAÇÃO DE ARQUIVOS DE ENTRADA E SAÍDA
+
+ X------X------X--------------------------------------------------------------X
+ | Tipo   Caso   Nome do Arquivo                                              |
+ X------X------X--------------------------------------------------------------X
+  OUT            ..\out\B02_150ms.out
+  LOG            ..\log\B02_150ms.log
+  PLT            ..\plt\B02_150ms.plt
+  HIS      1     ..\sav\BASE_P4.HIS
+  BLT            ..\modelos\CLASSICO.BLT
+
+
+ DADOS DE PADRAO PARA OPÇÕES DE EXECUÇÃO
+
+ X------X------X------X------X------X------X------X------X------X------X
+ |OPÇÃO  OPÇÃO  OPÇÃO  OPÇÃO  OPÇÃO  OPÇÃO  OPÇÃO  OPÇÃO  OPÇÃO  OPÇÃO |
+ |NOME E NOME E NOME E NOME E NOME E NOME E NOME E NOME E NOME E NOME E|
+ X----X-X----X-X----X-X----X-X----X-X----X-X----X-X----X-X----X-X----X-X
+
+  IMPR L FILE L 80CO L
+
+
+ DADOS DE CONSTANTES
+
+ X----X------X
+ |Nome  Valor|
+ X----X------X
+
+  TEPQ     .1
+
+ SUMÁRIO DE CONSTANTES
+
+ X-------X-------X-------X-------X-------X-------X-------X-------X
+   TETE    TEMD    TEPQ    TABS    TBID    PFFB    AMX1    AMX2
+ X-------X-------X-------X-------X-------X-------X-------X-------X
+
+    .0001   .0001      .1   .1E-6   .1E-8     .02    360.   1000.
+
+
+ X------X------X------X------X------X------X------X------X
+   LCRT   LPRT   IMDS   IACS   IACE   MRAC   MRDC   ITMR
+ X------X------X------X------X------X------X------X------X
+
+      24     60     10     10    300     30    100     20
+
+ DADOS DE MÁQUINA SINCRONA
+
+ X------------------X--X-----X---X------X-------X-------X-------X-----X-----X
+ |     Barra         No Pg(%)  No   Maq     Exc     Vel     Est   Reat Barra|
+ |  Num     Nome     Gr Qg(%)  Un   Mod    Mod T   Mod T   Mod T  Xvd  Contr|
+ X-----X------------X--X-----X---X------X-------X-------X-------X-----X-----X
+
+      1 BARRA01--138 10  100    3     20                                   1
+                         100
+
+      2 BARRA02--138 10  100    1     10                                   2
+                         100
+
+      3 BARRA03--138 10  100    1     10                                   3
+                         100
+
+      6 BARRA06---66 10  100    1     10                                   6
+                         100
+
+      8 BARRA08---33 10  100    1     10                                   8
+                         100
+
+     12 BARRA12---66 10  100    1     10                                  12
+                         100
+
+     14 BARRA14---66 10  100    1     20                                  14
+                         100
+
+
+ DADOS DE MODELO DE CARGA FUNÇÃO DA TENSÃO
+
+ X-----------------------X-X-----------------------X----------------X------X
+ | Elemento     Elemento     Elemento     Elemento  ATIV. %I  %Z  %P TENSÃO|
+ |Tipo  Num  C Tipo  Num  C Tipo  Num  C Tipo  Num  REAT. %I  %Z  %Q MÍNIMA|
+ X----X-----X-X----X-----X-X----X-----X-X----X-----X--------X---X---X------X
+
+  BARR     1 A BARR  9998                                  0 100   0     70
+                                                           0 100   0
+
+
+ DADOS DE PLOTAGEM
+
+ X-------X----------------------X--------X-----X-------X-------------------------X
+ |               Elemento         Refer    Num  Bloco         Identificação      |
+ |Tipo  M Tip   Num   Para Nc Gr Barra Gr  Extr P                                |
+ X-------X---X------X-----X--X--X-----X--X-----X-------X------------X------------X
+
+  DELT    Ger      2          10     1 10               BARRA02--138 BARRA01--138
+  DELT    Ger      3          10     1 10               BARRA03--138 BARRA01--138
+  DELT    Ger      6          10     1 10               BARRA06---66 BARRA01--138
+  DELT    Ger      8          10     1 10               BARRA08---33 BARRA01--138
+  DELT    Ger     12          10     1 10               BARRA12---66 BARRA01--138
+  DELT    Ger     14          10     1 10               BARRA14---66 BARRA01--138
+  DELT    Ger      1          10                        BARRA01--138 CENTRO MASSA
+  DELT    Ger      2          10                        BARRA02--138 CENTRO MASSA
+  DELT    Ger      3          10                        BARRA03--138 CENTRO MASSA
+  DELT    Ger      6          10                        BARRA06---66 CENTRO MASSA
+  DELT    Ger      8          10                        BARRA08---33 CENTRO MASSA
+  DELT    Ger     12          10                        BARRA12---66 CENTRO MASSA
+  DELT    Ger     14          10                        BARRA14---66 CENTRO MASSA
+  PELE    Ger      1          10                        BARRA01--138             
+  PELE    Ger      2          10                        BARRA02--138             
+  PELE    Ger      3          10                        BARRA03--138             
+  PELE    Ger      6          10                        BARRA06---66             
+  PELE    Ger      8          10                        BARRA08---33             
+  PELE    Ger     12          10                        BARRA12---66             
+  PELE    Ger     14          10                        BARRA14---66             
+  FMAQ    Ger      1          10                        BARRA01--138             
+  FMAQ    Ger      2          10                        BARRA02--138             
+  FMAQ    Ger      3          10                        BARRA03--138             
+  FMAQ    Ger      6          10                        BARRA06---66             
+  FMAQ    Ger      8          10                        BARRA08---33             
+  FMAQ    Ger     12          10                        BARRA12---66             
+  FMAQ    Ger     14          10                        BARRA14---66             
+  VOLT    Bar      1                                    BARRA01--138             
+  VOLT    Bar      2                                    BARRA02--138             
+  VOLT    Bar      3                                    BARRA03--138             
+  VOLT    Bar      4                                    BARRA04--138             
+  VOLT    Bar      5                                    BARRA05--138             
+  VOLT    Bar      6                                    BARRA06---66             
+  VOLT    Bar      7                                    BARRA07-FICT             
+  VOLT    Bar      8                                    BARRA08---33             
+  VOLT    Bar      9                                    BARRA09---66             
+  VOLT    Bar     10                                    BARRA10---66             
+  VOLT    Bar     11                                    BARRA11---66             
+  VOLT    Bar     12                                    BARRA12---66             
+  VOLT    Bar     13                                    BARRA13---66             
+  VOLT    Bar     14                                    BARRA14---66             
+
+ DADOS DE EVENTOS
+
+ X-------------X---------------X-----X------X--X---X----X-------X--------------X
+ |    Evento        Elemento             %   Gr Und  Blk  Resist     Nome 1    |
+ |Tipo   Tempo    Tip            Num    ABS     Uni       Reatan     Nome 2   D|
+ |                Num   Para Nc  Extr            C        Suscep               |
+ |                                              Unf       Defas.               |
+ X----X--------X------X-----X--X-----X------X--X---X----X-------X------------X-X
+
+  APCB      1.0 Bar                                              BARRA02--138  
+                     2                                                         
+                                                                
+                                                                
+  RMCB    1.150 Bar                                              BARRA02--138  
+                     2                                                         
+                                                                
+                                                                
+
+ DADOS DE SIMULAÇÃO
+
+ X---------X----------X----------------------------X
+ |  Tempo    Intervalo      Frequência pontos      |
+ |simulação integração plotagem impressão fatoração|
+ X---------X----------X--------X---------X---------X
+
+       2.0      .001         5         1         1
+
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELÉTRICA  - ANATEM - v13.0.0-x64                                                                                                    
+
+ Sistema 14 Barras - motores_para_cargas                                         
+ Caso base sem perturbacao (verificacao de regime permanente)                    
+
+
+ ******* SIMULAÇÃO DO INSTANTE T=     0.0s  ATÉ O INSTANTE T=     2.0s *******
+
+
+ T=  1.0000s APCB - Aplicou curto-circuito na barra     2 BARRA02--138
+
+ T=  1.1500s RMCB - Removeu curto-circuito da barra     2 BARRA02--138
+
+ Simulação do instante t= 0.0s até o instante t= 2.0s, com passo de dt= 1.0ms
+ Opções ativadas:
+
+ Tempo de CPU da simulação: 00:00:00.04
+ Média de soluções de rede CA por passo:   2.00
+ Média de iterações modelos CA - rede CA por passo:  1.50

@@ -1,0 +1,11 @@
+(===============================================================================
+( ITEM 4.4 - Modelos do equivalente maquina-barra infinita
+(   Mod 20 <- modelo 202 classico (L'd, H e MVA de SIS14B.BLT, D = 0)
+(   Mod 30 <- barra infinita (mesma convencao do modelo 0101 do SIS14B.BLT)
+(===============================================================================
+DMDG MD01
+(No)   (L'd)(Ra )( H )( D )(MVA)Fr C
+0020    31.0     3.588       72.
+0030                                   ( barra infinita )
+999999
+FIM

@@ -1,0 +1,164 @@
+(
+( >>> ARQUIVO CORRIGIDO - DESAFIO EXTRA (item 5.1), CASO ANTES (1 unidade na barra 14) <<<
+( Conversao ANAANA (modelagem A, com carregamento) de CASO_BASE.PWF + mesmas correcoes do item 3:
+(  - Linhas: R0 = 3R1, X0 = 3X1 (line-charging S0 mantido = S1)
+(  - Trafos: R desprezada, X0 = X1, Dyn11 (delta no 138 kV, YN nos demais), DEF = +30 graus
+(  - Trafo 3 enrol. 4-8-9: barra 7 = mid-point; ramo 4-7 em delta
+(  - Geradores: X1 = X"d, X0 = 0,4 X"d, YN solido (Xn = 0); Pg/Qg do fluxo de potencia
+(  - Cargas Z const. e capacitor da barra 9: ligacao D (sem seq. zero, nao dada no enunciado)
+(  - Tensoes pre-falta, cargas (Z const.) e Pg/Qg dos geradores do fluxo salvo c/ Ponto de Operacao (27/11/2026)
+(
+(  ARQUIVO ANAFAS COM TENSAO PRE-FALTA
+(
+TIPO
+A 1
+(
+(  TITULO DO CASO
+(
+TITU
+Sistema 14 Barras - Limites ONS - Desafio 5.1 - ANTES (1 unidade na barra 14)
+(
+(  BASE DE POTENCIA
+(
+BASE
+   100.0000
+(
+(  DADOS DE BARRA
+(
+DBAR
+(NB  CEM      BN      VPRE ANG VBAS DISJUN         DDMMAAAA DDMMAAAA IA  SA
+(----=-= ------------ ----==== ---- ------         -------- ======== --- --
+    1    BARRA01--138 1045  0.  138                                   10
+    2    BARRA02--138 1040-2.5  138                                   10
+    3    BARRA03--138 1010-10.  138                                   10
+    4    BARRA04--138 1006-7.1  138                                   10
+    5    BARRA05--138 1014-5.3  138                                   10
+    6    BARRA06---66 1050-17.   66                                   20
+    7  1 BARRA07-FICT 1012-10.  138                                   30
+    8    BARRA08---33  976-10.   33                                   30
+    9    BARRA09---66 1027-12.   66                                   30
+   10    BARRA10---66 1024-13.   66                                   30
+   11    BARRA11---66 1033-15.   66                                   30
+   12    BARRA12---66 1015-16.   66                                   20
+   13    BARRA13---66 1032-16.   66                                   20
+   14    BARRA14---66 1050-11.   66                                   30
+99999
+(
+(  DADOS DE CIRCUITO
+(
+(  >>>  IMPORTANTE !!!  <<<
+(  OS VALORES DE IMPEDANCIA DE SEQ. ZERO FORAM
+(  INICIALIZADOS IGUAIS AOS DE SEQ. POSITIVA.
+(  PORTANTO, PARA SIMULAR FALTAS ASSIMETRICAS,
+(  EH NECESSARIO O CORRETO PREENCHIMENTO DAS
+(  IMPEDANCIAS DE SEQ. ZERO.
+(
+DCIR
+(BF  CE  BT   NCT  R1    X1    R0    X0    CN   S1   S0   TAP  TB  TCIA DEFE KM                                    NunNop DJ_BF    DJ_BT                        DDMMAAAADDMMAAAA                           NOME EXTENSO    
+(----=-=====  --=------======------======------=====-----=====-----==---===-====                                   ===--- ======   ======                       ========--------                       --------------------
+    1      2   1L  1.94  5.92  5.82 17.76        528  528             10
+    1      2   2L  1.94  5.92  5.82 17.76        528  528             10
+    1      5   1L   5.4  22.3  16.2  66.9        492  492             10
+    2      3   1L   4.7  19.8  14.1  59.4        438  438             10
+    2      4   1L  5.81 17.63 17.43 52.89        375  375             10
+    2      5   1L  5.69 17.39 17.07 52.17        340  340             10
+    3      4   1L   6.7  17.1  20.1  51.3        346  346             10
+    4      5   1L  1.34  4.21  4.02 12.63        128  128             10
+    4      7   1T       20.91       20.91                 9780        10 30     D
+    4      9   1T       55.62       55.62                 9690        10 30     D             YN
+    5      6   1T        25.2        25.2                 9000        10 30     D             YN
+    6     11   1L   9.5 19.89  28.5 59.67                             20
+    6     12   1L 12.29 25.58 36.87 76.74                             20
+    6     13   1L  6.61 13.03 19.83 39.09                             20
+    7      8   1T       17.62       17.62                10000        30                      YN
+    7      9   1T         11.         11.                10000        30                      YN
+    9     10   1L  3.18  8.45  9.54 25.35                             30
+    9     14   1L 12.71 27.04 38.13 81.12                             30
+   10     11   1L   8.2 19.21  24.6 57.63                             30
+   12     13   1L 22.09 19.99 66.27 59.97                             20
+   13     14   1L 17.09  34.8 51.27 104.4                             20
+(
+(  A SEGUIR OS CIRCUITOS TIPO SHUNT DE BARRA
+(
+(BF  CE  BT   NCT  R1    X1    R0    X0    CN   S1   S0   TAP  TB  TCIA DEFE KM                                    NunNop DJ_BF    DJ_BT                        DDMMAAAADDMMAAAA                           NOME EXTENSO    
+(----=-=====  --=------======------======------=====-----=====-----==---===-====                                   ===--- ======   ======                       ========--------                       --------------------
+    0      9    H      -52632      -52632                             30                      D
+(
+(  A SEGUIR OS SHUNTS DE BARRA INDIVIDUALIZADOS
+(
+(BF  CE  BT   NCT  R1    X1    R0    X0    CN   S1   S0   TAP  TB  TCIA DEFE KM                                    NunNop DJ_BF    DJ_BT                        DDMMAAAADDMMAAAA                           NOME EXTENSO    
+(----=-=====  --=------======------======------=====-----=====-----==---===-====                                   ===--- ======   ======                       ========--------                       --------------------
+(
+(  A SEGUIR OS CIRCUITOS TIPO CARGA
+(
+(BF  CE  BT   NCT  R1    X1    R0    X0    CN   S1   S0   TAP  TB  TCIA DEFE KM                                    NunNop DJ_BF    DJ_BT                        DDMMAAAADDMMAAAA                           NOME EXTENSO    
+(----=-=====  --=------======------======------=====-----=====-----==---===-====                                   ===--- ======   ======                       ========--------                       --------------------
+    0      2    C371.27217.28371.27217.28                             10                      D
+    0      3    C104.0620.988104.0620.988                             10                      D
+    0      4    C195.68-3.785195.68-3.785                             10                      D
+    0      5    C-97.71-31.71-97.71-31.71                             10                      D
+    0      6    C81.546-16.3181.546-16.31                             20                      D
+    0      9    C271.55 152.8271.55 152.8                             30                      D
+    0     10    C 823.2530.51 823.2530.51                             30                      D
+    0     11    C2411.1 1240.2411.1 1240.                             30                      D
+    0     12    C1580.2414.471580.2414.47                             20                      D
+    0     13    C665.98286.12665.98286.12                             20                      D
+    0     14    C665.04223.17665.04223.17                             30                      D
+(
+(  A SEGUIR AS CARGAS INDIVIDUALIZADAS
+(
+(BF  CE  BT   NCT  R1    X1    R0    X0    CN   S1   S0   TAP  TB  TCIA DEFE KM                                    NunNop DJ_BF    DJ_BT                        DDMMAAAADDMMAAAA                           NOME EXTENSO    
+(----=-=====  --=------======------======------=====-----=====-----==---===-====                                   ===--- ======   ======                       ========--------                       --------------------
+(
+(  A SEGUIR OS CIRCUITOS TIPO GERADOR
+(
+(          >>>  IMPORTANTE !!!  <<<
+(  PREENCHER OS VALORES CORRETOS DE IMPEDANCIA.
+(  OS GERADORES QUE ESTAVAM REPRESENTADOS NOS
+(  ARQUIVOS ANATEM ESTAO COM OS VALORES DE
+(  SEQ. POSITIVA JA PREENCHIDOS CORRETAMENTE.
+(
+(BF  CE  BT   NCT  R1    X1    R0    X0    CN   S1   S0   TAP  TB  TCIA DEFE KM                                    NunNop DJ_BF    DJ_BT                        DDMMAAAADDMMAAAA                           NOME EXTENSO    
+(----=-=====  --=------======------======------=====-----=====-----==---===-====                                   ===--- ======   ======                       ========--------                       --------------------
+    0      1    G      12.685       5.074      194.5 -30.             10                      YN
+    0      2    G        56.6       22.64      28.3148.44             10                      YN
+    0      3    G        56.6       22.64         0.33.56             10                      YN
+    0      6    G        56.6       22.64      19.28-3.17             20                      YN
+    0      8    G        56.6       22.64         0. -20.             30                      YN
+    0     12    G        56.6       22.64         0. -15.             20                      YN
+    0     14    G      38.056      15.222      47.694.614             30                      YN
+(
+(  A SEGUIR OS GERADORES INDIVIDUALIZADOS
+(
+(BF  CE  BT   NCT  R1    X1    R0    X0    CN   S1   S0   TAP  TB  TCIA DEFE KM                                    NunNop DJ_BF    DJ_BT                        DDMMAAAADDMMAAAA                           NOME EXTENSO    
+(----=-=====  --=------======------======------=====-----=====-----==---===-====                                   ===--- ======   ======                       ========--------                       --------------------
+99999
+(
+(  DADOS DE SHUNT DE LINHA
+(
+(  >>>  IMPORTANTE !!!  <<<
+(  FOI SUPOSTA A CONEXÃO ESTRELA ATERRADO
+(  SEM IMPEDÂNCIA DE ATERRAMENTO
+(
+DSHL
+99999
+(
+(  DADOS DE MUTUA
+(
+(  >>>  IMPORTANTE !!!  <<<
+(  PARA SIMULAR FALTAS ASSIMETRICAS,
+(  EH NECESSARIO O PREENCHIMENTO DAS
+(  IMPEDANCIAS MUTUAS DE SEQ. ZERO.
+(
+DMUT
+(BF1 C   BT1 NC1 BF2     BT2 NC2  RM    XM                            IA
+(--- -  ----====----    ----====------======                          --
+99999
+(
+(  DADOS DE ÁREA
+(
+DARE
+ 10               * AREA 1 / NIVEL DE TENSAO  138 KV *
+ 20               * AREA 2 / NIVEL DE TENSAO   66 KV *
+ 30               * AREA 3 / NIVEL DE TENSAO   33 KV *
+99999

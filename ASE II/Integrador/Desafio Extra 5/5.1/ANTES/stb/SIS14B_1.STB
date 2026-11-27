@@ -1,0 +1,317 @@
+(===============================================================================
+( TITULO DO CASO
+(===============================================================================
+TITU
+* Sistema teste 14 barras - caso com modelos "built-in" *
+(
+(===============================================================================
+( ASSOCIACAO DE ARQUIVOS 
+(===============================================================================
+DARQ
+(............................. Arquivos de Saída ...............................
+(Tipo) (C) ( Nome do Arquivo   
+   OUT     ..\out\
+   LOG     ..\log\
+   PLT     ..\plt\
+(............................. Arquivo Histórico ...............................      
+(Tipo) (C) ( Nome do Arquivo   
+   HIS   1 ..\sav\sis14b.his
+(....................... Arquivos CDU e Modelos Built in .......................    
+(Tipo) (C) ( Nome do Arquivo   
+   BLT     ..\modelos\sis14b.blt 
+(   CDU     ..\modelos\sis14b.cdu
+(............................................................................... 
+999999
+(
+(===============================================================================
+( DADOS DE OPCOES DEFAULT DE EXECUCAO
+(===============================================================================
+DOPC IMPR CONT
+(Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E
+IMPR L FILE L CONT L 80CO L
+999999
+(
+(===============================================================================
+( TOLERANCIA DE CONVERGENCIA DESEJADA PARA O FLUXO DE POTENCIA
+(===============================================================================
+DCTE
+(Ct) (Val )
+TEPQ     .1
+999999
+(===============================================================================
+( DADOS DE MAQUINAS E ASSOCIACAO DAS MAQUINAS AOS CONTROLES
+(===============================================================================
+DMAQ
+( Nb)   Gr (P) (Q) Und ( Mg ) ( Mt )u( Mv )u( Me )u(Xvd)(Nbc)
+(....... Barra 1
+   01   10           3    202    102    101
+(....... Barra 2
+   02   10           1    201    102    101
+(....... Barra 3
+   03   10           1    201    102
+(....... Barra 6
+   06   10           1    201    102    101
+(....... Barra 8
+   08   10           1    201    101                        0
+(....... Barra 12
+   12   10           1    201    101
+(....... Barra 14
+   14   10           1    202   1201    101
+999999
+(
+( OBS: Para os modelos "built-in" de reguladores de tensao a barra a ser
+(      controlada dependera' do preenchimento do campo (Nb).
+(
+(      Caso o campo (Nb) seja deixado em branco,a barra controlada sera'
+(      a barra terminal do gerador.
+(      Caso o valor de Nb seja igual a 0,a barra controlada sera' aquela
+(      que foi especificada no programa ANAREDE.
+(      Caso se deseje controlar a tensao de qualquer outra barra basta
+(      preencher o campo (Nb) com o valor desejado.
+(
+(      Para os modelos de regulador tipo CDU o bloco IMPORT subtipo VOLT
+(      pega por "default" a tensao na barra terminal da maquina. Caso se
+(      deseje importar a tensao de outra barra e' necessario informar no
+(      registro deste bloco o numero de um local de medicao,o qual sera'
+(      especificado por um codigo DLOC ( ver registro correspondente ao
+(      bloco 2 do CDU 11 e registros do codigo DLOC ). Se ao inves do
+(      bloco IMPORT subtipo VOLT for usado o bloco IMPORT subtipo VTR
+(      este sofre influencia dos campos(Xvd) e (Nb), similarmente aos
+(      modelos "built-in".
+(
+(===============================================================================
+( DADOS DOS MOTORES DE INDUCAO
+(===============================================================================
+DMOT
+( Nb)   Gr (  H ) ( K0 ) ( K1 ) ( K2 ) ( EXP) M ( Mt )
+    4   10     4.                   1.   1.52
+    4   20     4.                   1.   1.52
+    5   10     4.                   1.   1.52
+    5   20     4.                   1.   1.52
+999999
+(
+(===============================================================================
+( DADOS DE CARGAS FUNCIONAIS
+(===============================================================================
+DCAR IMPR
+(tp) ( no) C (tp) ( no) C (tp) ( no) C (tp) ( no)   (A) (B) (C) (D) (Vmn)
+BARR     1 A BARR  9998                               0  40   0 100    70
+(BARR     1 A BARR  9998                             100   0 100   0    70 
+(BARR     1 A BARR  9998                               0   0   0   0    70
+999999
+(
+(===============================================================================
+( DADOS DE ERAC
+(===============================================================================
+DERA
+(Ne) (tp) ( no) C (tp) ( no) C (tp) ( no) C (tp) ( no) ( Nb) (Fs ) (Fc ) O
+0001 AREA    10 A AREA    30                                             A
+( (Tax) (Fr ) ( %C) (Ttx) (Tre) (Tdj)
+A       .9917    10        0.10  0.10
+A       .9833    10        0.20  0.10
+A       .9800    10        0.40  0.10
+A       .9667    10        0.80  0.10
+A       .9583    10        1.60  0.10
+A       .9500    10        3.20  0.10
+A       .9417    10        6.40  0.10
+A       .9333    10       12.80  0.10
+FIMERAC
+999999
+(
+(===============================================================================
+( DADOS DAS VARIAVEIS DE SAIDA
+(===============================================================================
+DPLT
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+( angulos
+DELT        2          10     1 10
+DELT        3          10     1 10
+DELT        6          10     1 10
+DELT        8          10     1 10
+DELT       12          10     1 10
+DELT       14          10     1 10
+(
+( frequencias
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+FMAQ        1          10
+FMAQ        2          10
+FMAQ        3          10
+FMAQ        6          10
+FMAQ        8          10
+FMAQ       12          10
+FMAQ       14          10
+(
+( potencias ativas
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+PELE        1          10
+PELE        2          10
+PELE        3          10
+PELE        6          10
+PELE        8          10
+PELE       12          10
+PELE       14          10
+PMEC        1          10
+PMEC        2          10
+PMEC        3          10
+PMEC        6          10
+PMEC        8          10
+PMEC       12          10
+PMEC       14          10
+(
+( potencias reativas
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+QELE        1          10
+QELE        2          10
+QELE        3          10
+QELE        6          10
+QELE        8          10
+QELE       12          10
+QELE       14          10
+(
+( tensoes de campo
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+EFD         1          10
+EFD         2          10
+EFD         3          10
+EFD         6          10
+EFD         8          10
+EFD        12          10
+EFD        14          10
+(
+( tensoes de barras
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+VOLT        1
+VOLT        2
+VOLT        3
+VOLT        4
+VOLT        5
+VOLT        6
+VOLT        7
+VOLT        8
+VOLT        9
+VOLT       10
+VOLT       11
+VOLT       12
+VOLT       13
+VOLT       14
+(
+( motor de inducao
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+SLIP        4          10
+SLIP        4          20
+SLIP        5          10
+SLIP        5          20
+PMOT        4          10
+PMOT        4          20
+PMOT        5          10
+PMOT        5          20
+QMOT        4          10
+QMOT        4          20
+QMOT        5          10
+QMOT        5          20
+IMOT        4          10
+IMOT        4          20
+IMOT        5          10
+IMOT        5          20              
+TMOT        4          10
+TMOT        4          20
+TMOT        5          10
+TMOT        5          20
+(
+( fluxo de potencia ativa
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+FLXA        2     3
+(
+( fluxo de potencia reativa
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+FLXR        2     3
+(
+( Modulo da corrente no circuito
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+ILIN        2     3
+(
+( potencias ativas e reativas das cargas
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+PCAR        2
+QCAR        2
+PCAR        3
+QCAR        3
+PCAR        4
+QCAR        4
+PCAR        5
+QCAR        5
+PCAR        6
+QCAR        6
+PCAR        9
+QCAR        9
+PCAR       10
+QCAR       10
+PCAR       11
+QCAR       11
+PCAR       12
+QCAR       12
+PCAR       13
+QCAR       13
+PCAR       14
+QCAR       14
+(
+999999
+(
+(===============================================================================
+( DADOS DE RELE DE SOBRECORRENTE
+(===============================================================================
+DREL MD02
+( De)   ( Pa) Nc ( Ne) (Cor) ( Ang) (Tre) (Tdj) M
+    2       3            1.5   45.0  0.20  0.01 A
+999999
+(
+(===============================================================================
+( DADOS DE EVENTOS
+(===============================================================================
+( APCL -> aplicacao de curto-circuito em circuito CA
+( RMGR -> remocao de gerador
+(
+DEVT
+(Tp) ( Tempo)( El )( Pa)Nc( Ex) ( % ) (ABS ) Gr Und         (Bl)P ( Rc ) ( Xc ) ( Bc ) (Defas)
+APCL       1.     2    3      2    40
+RMGR       1.     1                          10   2
+999999
+(
+(===============================================================================
+( DADOS DE SIMULACAO
+(===============================================================================
+DSIM
+( Tmax ) (Stp) ( P ) ( I ) ( F )
+   30.00  .005     5
+(
+(===============================================================================
+( INICIALIZACAO DE VARIAVEIS SEM SIMULACAO
+(===============================================================================
+EXSI INIC
+(
+( OBS: O programa faz uma inicializacao automatica de variaveis (visando
+(      regime permanente)  e  a seguir executa a simulacao sempre que se
+(      fornece o codigo EXSI. A opcao INIC no codigo EXSI permite que se
+(      faca a inicializacao sem que se execute a simulacao. Isto e' util
+(      para  verificar  o  valor  inicial  das variaveis calculadas pelo
+(      programa.
+(
+(===============================================================================
+( RELATORIOS
+(===============================================================================
+RELA RBAR RLIN RGER ROPG RMOT
+(
+(===============================================================================
+( EXECUCAO DA SIMULACAO
+(===============================================================================
+EXSI ECHO
+(
+(==============================================================================
+( RELATORIO DE MAXIMOS E MINIMOS
+(==============================================================================
+RELA RMXG
+(
+(===============================================================================
+( FIM DA SIMULACAO
+(===============================================================================
+FIM

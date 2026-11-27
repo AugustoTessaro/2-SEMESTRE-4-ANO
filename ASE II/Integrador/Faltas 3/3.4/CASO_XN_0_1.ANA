@@ -6,6 +6,7 @@
 (  - Trafo 3 enrol. 4-8-9: barra 7 = mid-point; ramo 4-7 em delta
 (  - Geradores: X1 = X"d, X0 = 0,4 X"d, YN solido (Xn = 0); Pg/Qg do fluxo de potencia
 (  - Cargas Z const. e capacitor da barra 9: ligacao D (sem seq. zero, nao dada no enunciado)
+(  - Tensoes pre-falta e cargas (Z const.) atualizadas p/ o fluxo CONVERGIDO (BASE_P4) em 25/11/2026
 (  - Reator de neutro Xn = 0.10 pu na base de cada unidade (todas as maquinas), campo XNPA
 (
 (  ARQUIVO ANAFAS COM TENSAO PRE-FALTA
@@ -32,16 +33,16 @@ DBAR
     2    BARRA02--138 1045-2.2  138                                   10
     3    BARRA03--138 1010-9.7  138                                   10
     4    BARRA04--138 1016-6.9  138                                   10
-    5    BARRA05--138 1010-5.2  138                                   10
-    6    BARRA06---66 1062-17.   66                                   20
+    5    BARRA05--138 1025-5.2  138                                   10
+    6    BARRA06---66 1069-17.   66                                   20
     7  1 BARRA07-FICT 1028-10.  138                                   30
-    8    BARRA08---33  972-10.   33                                   30
-    9    BARRA09---66 1025-12.   66                                   30
+    8    BARRA08---33  992-10.   33                                   30
+    9    BARRA09---66 1045-12.   66                                   30
    10    BARRA10---66 1042-13.   66                                   30
    11    BARRA11---66 1052-15.   66                                   30
    12    BARRA12---66 1040-16.   66                                   20
    13    BARRA13---66 1055-16.   66                                   20
-   14    BARRA14---66 1068-11.   66                                   30
+   14    BARRA14---66 1078-11.   66                                   30
 99999
 (
 (  DADOS DE CIRCUITO
@@ -93,17 +94,17 @@ DCIR
 (
 (BF  CE  BT   NCT  R1    X1    R0    X0    CN   S1   S0   TAP  TB  TCIA DEFE KM                                    NunNop DJ_BF    DJ_BT                        DDMMAAAADDMMAAAA                           NOME EXTENSO    
 (----=-=====  --=------======------======------=====-----=====-----==---===-====                                   ===--- ======   ======                       ========--------                       --------------------
-    0      2    C 37484 21938 37484 21938                             10                      D
-    0      3    C 1040620.988 1040620.988                             10                      D
-    0      4    C 19959-3.861 19959-3.861                             10                      D
-    0      5    C -9694 -3146 -9694 -3146                             10                      D
-    0      6    C  8342 -1668  8342 -1668                             20                      D
-    0      9    C 27049 15221 27049 15221                             30                      D
-    0     10    C 85240 54932 85240 54932                             30                      D
-    0     11    C250062128603250062128603                             30                      D
-    0     12    C165898 43514165898 43514                             20                      D
-    0     13    C 69599 29902 69599 29902                             20                      D
-    0     14    C 68804 23089 68804 23089                             30                      D
+    0      2    C374.84219.38374.84219.38                             10                      D
+    0      3    C104.0620.988104.0620.988                             10                      D
+    0      4    C199.41-3.857199.41-3.857                             10                      D
+    0      5    C-99.75-32.38-99.75-32.38                             10                      D
+    0      6    C84.491-16.9084.491-16.90                             20                      D
+    0      9    C281.38158.34281.38158.34                             30                      D
+    0     10    C852.77549.56852.77549.56                             30                      D
+    0     11    C2501.41286.52501.41286.5                             30                      D
+    0     12    C1659.0435.141659.0435.14                             20                      D
+    0     13    C695.70298.90695.70298.90                             20                      D
+    0     14    C700.36235.02700.36235.02                             30                      D
 (
 (  A SEGUIR AS CARGAS INDIVIDUALIZADAS
 (

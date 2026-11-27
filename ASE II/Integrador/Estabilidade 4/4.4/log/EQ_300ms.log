@@ -1,0 +1,18 @@
+
+ RELATÓRIO DE MENSAGENS DA SIMULAÇÃO - TEMPO =      5.0  SEG
+
+
+ ******* SIMULAÇÃO DO INSTANTE T=     0.0s  ATÉ O INSTANTE T=     5.0s *******
+
+ T=  1.0000s APCB - Aplicou curto-circuito na barra     1 GERADOR-B14 
+
+ T=  1.3000s RMCB - Removeu curto-circuito da barra     1 GERADOR-B14 
+
+ T=  1.7670s - Ângulo da máquina 10 da barra     1 GERADOR-B14  ultrapassou o
+               limite de  360.0 graus. Possível perda de sincronismo.
+               Ângulo em relação ao centro de massa :  360.7 graus
+
+ T=  2.1640s - Ângulo da máquina 10 da barra     1 GERADOR-B14  ultrapassou o
+               limite de 1000.0 graus. O caso será encerrado.
+               Ângulo em relação ao centro de massa : 1002.0 graus
+

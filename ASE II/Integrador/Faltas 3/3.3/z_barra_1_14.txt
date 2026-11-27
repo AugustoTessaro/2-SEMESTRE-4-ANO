@@ -1,0 +1,55 @@
+                                          CEPEL - Centro de Pesquisas de Energia Elétrica
+                                  ANAFAS - Programa de Análise de Faltas Simultâneas - 8.1-Ago25                              P.   1
+ 
+ Sistema 14 Barras - motores_para_cargas
+ 
+ RELATORIO DE IMPEDANCIAS DE BARRA
+ 
+X------------------X---------------------------------X---------------------------------X---------------------------------X-------X
+   IDENTIFICAÇÃO           SEQUÊNCIA  POSITIVA               SEQUÊNCIA  ZERO                REATOR DE CURTO ( Z0 + Z2 )    V+_FT  
+  NUM.     NOME           R(%)             X(%)             R(%)             X(%)             R(%)             X(%)        (pu)   
+X-----X------------X----------------X----------------X----------------X----------------X----------------X----------------X-------X
+ 
+     1 BARRA01--138     0.6373502543     7.4447914920     0.1037035712     4.1777122489     0.7410538255    11.6225037409  0.646
+    14 BARRA14---66     3.8702054648    16.9133515553     0.9833848905    12.3542318377     4.8535903553    29.2675833930  0.674
+X-----X------------X----------------X----------------X----------------X----------------X----------------X----------------X-------X
+                                          CEPEL - Centro de Pesquisas de Energia Elétrica
+                                  ANAFAS - Programa de Análise de Faltas Simultâneas - 8.1-Ago25                              P.   1
+ 
+ Sistema 14 Barras - motores_para_cargas
+ 
+ RELATORIO DE ELEMENTOS DA MATRIZ ZBARRA DE SEQUENCIA ZERO (% / j%)
+ 
+ X------------------X-----------------------------------------------------X
+    IDENTIFICACAO       NUM.     NUM.     NUM.     NUM.     NUM.     NUM.
+   NUM.     NOME           1       14
+ X-----X------------X--------X--------X--------X--------X--------X--------X
+      1 BARRA01--138   0.1037   0.0000
+                       4.1777   0.0000
+     14 BARRA14---66   0.0000   0.9834
+                       0.0000  12.3542
+ X-----X------------X--------X--------X--------X--------X--------X--------X
+ 
+ RELATORIO DE ELEMENTOS DA MATRIZ ZBARRA DE SEQUENCIA POSITIVA (% / j%)
+ 
+ X------------------X-----------------------------------------------------X
+    IDENTIFICACAO       NUM.     NUM.     NUM.     NUM.     NUM.     NUM.
+   NUM.     NOME           1       14
+ X-----X------------X--------X--------X--------X--------X--------X--------X
+      1 BARRA01--138   0.6374   1.2388
+                       7.4448   1.8733
+     14 BARRA14---66  -1.0029   3.8702
+                       2.0095  16.9134
+ X-----X------------X--------X--------X--------X--------X--------X--------X
+ 
+ RELATORIO DE ELEMENTOS DA MATRIZ ZBARRA DE SEQUENCIA NEGATIVA (% / j%)
+ 
+ X------------------X-----------------------------------------------------X
+    IDENTIFICACAO       NUM.     NUM.     NUM.     NUM.     NUM.     NUM.
+   NUM.     NOME           1       14
+ X-----X------------X--------X--------X--------X--------X--------X--------X
+      1 BARRA01--138   0.6374  -1.0029
+                       7.4448   2.0095
+     14 BARRA14---66   1.2388   3.8702
+                       1.8733  16.9134
+ X-----X------------X--------X--------X--------X--------X--------X--------X

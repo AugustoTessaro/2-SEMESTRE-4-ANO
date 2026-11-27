@@ -1,0 +1,18 @@
+
+ RELATÓRIO DE MENSAGENS DA SIMULAÇÃO - TEMPO =     5.00  SEG
+
+
+ ******* SIMULAÇÃO DO INSTANTE T=     0.0s  ATÉ O INSTANTE T=    5.00s *******
+
+ T=  1.0000s APCB - Aplicou curto-circuito na barra     2 BARRA02--138
+
+ T=  1.2500s RMCB - Removeu curto-circuito da barra     2 BARRA02--138
+
+ T=  4.3170s - Ângulo da máquina 10 da barra    12 BARRA12---66 ultrapassou o
+               limite de  360.0 graus. Possível perda de sincronismo.
+               Ângulo em relação ao centro de massa : -360.8 graus
+
+ T=  4.7750s - Ângulo da máquina 10 da barra    12 BARRA12---66 ultrapassou o
+               limite de 1000.0 graus. O caso será encerrado.
+               Ângulo em relação ao centro de massa : -1001. graus
+

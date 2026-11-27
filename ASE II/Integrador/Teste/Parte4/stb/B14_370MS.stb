@@ -1,0 +1,98 @@
+(===============================================================================
+( INTEGRADOR ASE II - PARTE 4 - ESTABILIDADE ANGULAR (MODELO CLASSICO)
+( Caso: B14_370MS
+(===============================================================================
+TITU
+Falta trifasica franca na barra 14 em t=1 s, eliminada em 370 ms sem alterar a rede
+DARQ
+(Tipo) (C) ( Nome do Arquivo
+   OUT     ..\out\
+   LOG     ..\log\
+   PLT     ..\plt\
+   HIS   1 ..\sav\BASE_P4.HIS
+   BLT     ..\modelos\CLASSICO.BLT
+999999
+DOPC IMPR
+(Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E
+IMPR L FILE L 80CO L
+999999
+DCTE
+(Ct) (Val )
+TEPQ     .1
+999999
+( Maquinas: modelo classico, sem reguladores de tensao e velocidade
+DMAQ
+( Nb)   Gr (P) (Q) Und ( Mg ) ( Mt )u( Mv )u( Me )u(Xvd)(Nbc)
+    1   10           3     20
+    2   10           1     10
+    3   10           1     10
+    6   10           1     10
+    8   10           1     10
+   12   10           1     10
+   14   10           1     20
+999999
+(
+( Cargas: 100% impedancia constante (P e Q)
+DCAR
+(tp) ( no) C (tp) ( no) C (tp) ( no) C (tp) ( no)   (A) (B) (C) (D) (Vmn)
+BARR     1 A BARR  9998                               0 100   0 100    70
+999999
+(
+DPLT
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+DELT        2          10     1 10
+DELT        3          10     1 10
+DELT        6          10     1 10
+DELT        8          10     1 10
+DELT       12          10     1 10
+DELT       14          10     1 10
+DELT        1          10
+DELT        2          10
+DELT        3          10
+DELT        6          10
+DELT        8          10
+DELT       12          10
+DELT       14          10
+PELE        1          10
+PELE        2          10
+PELE        3          10
+PELE        6          10
+PELE        8          10
+PELE       12          10
+PELE       14          10
+FMAQ        1          10
+FMAQ        2          10
+FMAQ        3          10
+FMAQ        6          10
+FMAQ        8          10
+FMAQ       12          10
+FMAQ       14          10
+VOLT        1
+VOLT        2
+VOLT        3
+VOLT        4
+VOLT        5
+VOLT        6
+VOLT        7
+VOLT        8
+VOLT        9
+VOLT       10
+VOLT       11
+VOLT       12
+VOLT       13
+VOLT       14
+999999
+(
+DEVT
+(Tp) ( Tempo)( El )( Pa)Nc( Ex) ( % ) (ABS ) Gr Und         (Bl)P ( Rc ) ( Xc ) ( Bc ) (Defas)
+APCB    1.000    14
+RMCB    1.370    14
+999999
+(
+DSIM
+( Tmax ) (Stp) ( P ) ( I ) ( F )
+   10.00  .001     5
+(
+EXSI
+(
+FIM

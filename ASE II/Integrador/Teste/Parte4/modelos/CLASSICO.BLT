@@ -1,0 +1,11 @@
+(===============================================================================
+( PARTE 4 - MODELOS CLASSICOS (L'd, H e MVA extraidos de SIS14B.BLT, D = 0)
+(   Mod 10 <- modelo 201 (polos salientes, 50 MVA)
+(   Mod 20 <- modelo 202 (polos salientes, 72 MVA)
+(===============================================================================
+DMDG MD01
+(No)   (L'd)(Ra )( H )( D )(MVA)Fr C
+0010    35.7     2.474       50.
+0020    31.0     3.588       72.
+999999
+FIM

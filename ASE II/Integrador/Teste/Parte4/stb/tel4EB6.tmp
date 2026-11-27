@@ -1,0 +1,63 @@
+ CEPEL - Centro de Pesquisas de Energia Elétrica
+ Análise de Transitórios Eletromecânicos - ANATEM - Versão  13.0.0-x64                                                                                                    
+
+ Tipo de licença: Multiusuario / Usuário: Robson Almir de Oliveira
+ Empresa: ITAIPU BINACIONAL
+
+ X-------X---------X-------------------------------X
+ |UNIDADE    NOME           IDENTIFICAÇÃO          |
+ | LOGICA   LOGICO           DO ARQUIVO            |
+ X-------X---------X-------------------------------X
+
+      1   TEM$DADOS C:\Users\atess\Documents\UNIOESTE\2-SEMESTRE-4-ANO\ASE II\Integrador\Teste\Parte4\stb\B00_SEMFALTA.stb
+      2   TEM$SAVCA NUL
+      3   TEM$MODEL NUL
+      4   TEM$PRINT CONOUT$
+      5   TEM$INPUT CONIN$
+      6   TEM$VIDEO CONOUT$
+      7   TEM$PUNCH NUL
+      8   TEM$PLOTA NUL
+      9   TEM$LOG   NUL
+     10   TEM$SNAPS NUL
+     11   TEM$ARQSN NUL
+
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELÉTRICA  - ANATEM - v13.0.0-x64                                                                                                    
+
+                                                                                
+ Caso base sem perturbacao (verificacao de regime permanente)                   
+
+
+ DADOS DE ASSOCIAÇÃO DE ARQUIVOS DE ENTRADA E SAÍDA
+
+ X------X------X--------------------------------------------------------------X
+ | Tipo   Caso   Nome do Arquivo                                              |
+ X------X------X--------------------------------------------------------------X
+  OUT            ..\out\B00_SEMFALTA.out
+  LOG            ..\log\B00_SEMFALTA.log
+  PLT            ..\plt\B00_SEMFALTA.plt
+  HIS      1     ..\sav\BASE_P4.HIS
+  BLT            ..\modelos\CLASSICO.BLT
+
+
++T=  0.5000s
++T=  1.0000s
++T=  1.5000s
++T=  2.0000s
++T=  2.5000s
++T=  3.0000s
++T=  3.5000s
++T=  4.0000s
++T=  4.5000s
++T=  5.0000s
++T=  5.5000s
++T=  6.0000s
++T=  6.5000s
++T=  7.0000s
++T=  7.5000s
++T=  8.0000s
++T=  8.5000s
++T=  9.0000s
++T=  9.5000s
++T= 10.0000s
+ Execução em batch concluída com sucesso
+ 

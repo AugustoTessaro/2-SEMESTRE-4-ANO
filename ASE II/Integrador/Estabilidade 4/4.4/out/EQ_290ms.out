@@ -1,0 +1,135 @@
+ CEPEL - Centro de Pesquisas de Energia Elétrica
+ Análise de Transitórios Eletromecânicos - ANATEM - Versão  13.0.0-x64                                                                                                    
+
+ X---------------------------------------------------X
+ | INFORMAÇÕES SOBRE CÓPIA DO PROGRAMA               |
+ X---------------------------------------------------X
+  VERSÃO : 13.0.0-Set26
+  LICENÇA: Multiusuario
+  EMPRESA: ITAIPU BINACIONAL
+  SIGLA  : ITAIPU
+  USUÁRIO: Robson Almir de Oliveira
+  RTL    : Robson Almir de Oliveira
+  IP     : 172.18.4.6
+  DATA   : 23/09/2026
+  HORA   : 09:49:05
+ 
+
+ DADOS DE ASSOCIAÇÃO DE ARQUIVOS DE ENTRADA E SAÍDA
+
+ X------X------X--------------------------------------------------------------X
+ | Tipo   Caso   Nome do Arquivo                                              |
+ X------X------X--------------------------------------------------------------X
+  OUT            ..\out\EQ_290ms.out
+  LOG            ..\log\EQ_290ms.log
+  PLT            ..\plt\EQ_290ms.plt
+  HIS      1     ..\sav\EQUIV_B14.HIS
+  BLT            ..\modelos\EQUIV.BLT
+
+
+ DADOS DE PADRAO PARA OPÇÕES DE EXECUÇÃO
+
+ X------X------X------X------X------X------X------X------X------X------X
+ |OPÇÃO  OPÇÃO  OPÇÃO  OPÇÃO  OPÇÃO  OPÇÃO  OPÇÃO  OPÇÃO  OPÇÃO  OPÇÃO |
+ |NOME E NOME E NOME E NOME E NOME E NOME E NOME E NOME E NOME E NOME E|
+ X----X-X----X-X----X-X----X-X----X-X----X-X----X-X----X-X----X-X----X-X
+
+  IMPR L FILE L 80CO L
+
+
+ DADOS DE CONSTANTES
+
+ X----X------X
+ |Nome  Valor|
+ X----X------X
+
+  TEPQ     .1
+
+ SUMÁRIO DE CONSTANTES
+
+ X-------X-------X-------X-------X-------X-------X-------X-------X
+   TETE    TEMD    TEPQ    TABS    TBID    PFFB    AMX1    AMX2
+ X-------X-------X-------X-------X-------X-------X-------X-------X
+
+    .0001   .0001      .1   .1E-6   .1E-8     .02    360.   1000.
+
+
+ X------X------X------X------X------X------X------X------X
+   LCRT   LPRT   IMDS   IACS   IACE   MRAC   MRDC   ITMR
+ X------X------X------X------X------X------X------X------X
+
+      24     60     10     10    300     30    100     20
+
+ DADOS DE MÁQUINA SINCRONA
+
+ X------------------X--X-----X---X------X-------X-------X-------X-----X-----X
+ |     Barra         No Pg(%)  No   Maq     Exc     Vel     Est   Reat Barra|
+ |  Num     Nome     Gr Qg(%)  Un   Mod    Mod T   Mod T   Mod T  Xvd  Contr|
+ X-----X------------X--X-----X---X------X-------X-------X-------X-----X-----X
+
+      1 GERADOR-B14  10  100    1     20                                   1
+                         100
+
+      2 BARRA-INFIN  10  100    1     30                                   2
+                         100
+
+
+ DADOS DE PLOTAGEM
+
+ X-------X----------------------X--------X-----X-------X-------------------------X
+ |               Elemento         Refer    Num  Bloco         Identificação      |
+ |Tipo  M Tip   Num   Para Nc Gr Barra Gr  Extr P                                |
+ X-------X---X------X-----X--X--X-----X--X-----X-------X------------X------------X
+
+  DELT    Ger      1          10     2 10               GERADOR-B14  BARRA-INFIN 
+  PELE    Ger      1          10                        GERADOR-B14              
+  FMAQ    Ger      1          10                        GERADOR-B14              
+  VOLT    Bar      1                                    GERADOR-B14              
+  VOLT    Bar      2                                    BARRA-INFIN              
+
+ DADOS DE EVENTOS
+
+ X-------------X---------------X-----X------X--X---X----X-------X--------------X
+ |    Evento        Elemento             %   Gr Und  Blk  Resist     Nome 1    |
+ |Tipo   Tempo    Tip            Num    ABS     Uni       Reatan     Nome 2   D|
+ |                Num   Para Nc  Extr            C        Suscep               |
+ |                                              Unf       Defas.               |
+ X----X--------X------X-----X--X-----X------X--X---X----X-------X------------X-X
+
+  APCB      1.0 Bar                                              GERADOR-B14   
+                     1                                                         
+                                                                
+                                                                
+  RMCB     1.29 Bar                                              GERADOR-B14   
+                     1                                                         
+                                                                
+                                                                
+
+ DADOS DE SIMULAÇÃO
+
+ X---------X----------X----------------------------X
+ |  Tempo    Intervalo      Frequência pontos      |
+ |simulação integração plotagem impressão fatoração|
+ X---------X----------X--------X---------X---------X
+
+       5.0      .001         5         1         1
+
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELÉTRICA  - ANATEM - v13.0.0-x64                                                                                                    
+
+ Item 4.4 - Equivalente maquina 14 - barra infinita                              
+ Item 4.4 - Equivalente maq. 14 x barra infinita - falta de 290 ms               
+
+
+ ******* SIMULAÇÃO DO INSTANTE T=     0.0s  ATÉ O INSTANTE T=     5.0s *******
+
+
+ T=  1.0000s APCB - Aplicou curto-circuito na barra     1 GERADOR-B14 
+
+ T=  1.2900s RMCB - Removeu curto-circuito da barra     1 GERADOR-B14 
+
+ Simulação do instante t= 0.0s até o instante t= 5.0s, com passo de dt= 1.0ms
+ Opções ativadas:
+
+ Tempo de CPU da simulação: 00:00:00.06
+ Média de soluções de rede CA por passo:   1.47
+ Média de iterações modelos CA - rede CA por passo:  1.24
