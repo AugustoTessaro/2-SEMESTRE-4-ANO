@@ -232,15 +232,20 @@
  |simulação integração plotagem impressão fatoração|
  X---------X----------X--------X---------X---------X
 
-     10.00      .001        10         1         1
- *** AVISO INPSIM-130 ***
- Frequência de plotagem não é impar. Oscilações numéricas não serão aparentes.
+     10.00      .001         5         1         1
+
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELÉTRICA  - ANATEM - v13.0.0-x64                                                                                                    
+
+ Sistema 14 Barras - Limites ONS                                                 
+ Item 5.2 - Caso ANTES - E0_SEM_EVENTO                                           
 
 
- *** ERRO INIT01-110 Barra     2 ***
- Limite superior do bloco ( Ka / 1+sTa ) violado (modelo 1 de regulador de tensão).
+ ******* SIMULAÇÃO DO INSTANTE T=     0.0s  ATÉ O INSTANTE T=   10.00s *******
 
 
- *** ÚLTIMO ARQUIVO PROCESSADO ***
- E0_SEM_EVENTO.stb
- Verifique a linha: 167
+ Simulação do instante t= 0.0s até o instante t= 10.0s, com passo de dt= 1.0ms
+ Opções ativadas:
+
+ Tempo de CPU da simulação: 00:00:00.22
+ Média de soluções de rede CA por passo:   1.00
+ Média de iterações modelos CA - rede CA por passo:  1.00

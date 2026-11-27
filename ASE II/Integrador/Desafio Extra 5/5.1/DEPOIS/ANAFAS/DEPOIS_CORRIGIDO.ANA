@@ -1,12 +1,12 @@
 (
 ( >>> ARQUIVO CORRIGIDO - DESAFIO EXTRA (item 5.1), CASO DEPOIS (2 unidades na barra 14) <<<
-( Conversao ANAANA (modelagem A, com carregamento) de CASO_APOS_ADICIONAR_G14.PWF + mesmas correcoes do item 3:
+( Gerado do caso CASO_APOS_ADICIONAR_G14.PWF (barra 1 em 1,05 pu) com as mesmas correcoes do item 3:
 (  - Linhas: R0 = 3R1, X0 = 3X1 (line-charging S0 mantido = S1)
 (  - Trafos: R desprezada, X0 = X1, Dyn11 (delta no 138 kV, YN nos demais), DEF = +30 graus
 (  - Trafo 3 enrol. 4-8-9: barra 7 = mid-point; ramo 4-7 em delta
 (  - Geradores: X1 = X"d, X0 = 0,4 X"d, YN solido (Xn = 0); Pg/Qg do fluxo de potencia
 (  - Cargas Z const. e capacitor da barra 9: ligacao D (sem seq. zero, nao dada no enunciado)
-(  - Tensoes pre-falta, cargas (Z const.) e Pg/Qg dos geradores do fluxo salvo c/ Ponto de Operacao (27/11/2026)
+(  - Tensoes/angulos pre-falta, cargas (Z const.) e Pg/Qg do fluxo convergido (Ponto de Operacao 27/11/2026 09:37)
 (  - Barra 14 com 2 unidades iguais (modelo 202): X1 = 38,056/2 = 19,028 %; X0 = 15,222/2 = 7,611 %
 (
 (  ARQUIVO ANAFAS COM TENSAO PRE-FALTA
@@ -29,20 +29,20 @@ BASE
 DBAR
 (NB  CEM      BN      VPRE ANG VBAS DISJUN         DDMMAAAA DDMMAAAA IA  SA
 (----=-= ------------ ----==== ---- ------         -------- ======== --- --
-    1    BARRA01--138 1043  0.  138                                   10
-    2    BARRA02--138 1040 -2.  138                                   10
-    3    BARRA03--138 1010-8.8  138                                   10
-    4    BARRA04--138 1014-5.4  138                                   10
-    5    BARRA05--138 1021-3.7  138                                   10
+    1    BARRA01--138 1050 0.0  138                                   10
+    2    BARRA02--138 1040-1.8  138                                   10
+    3    BARRA03--138 1010-8.7  138                                   10
+    4    BARRA04--138 1014-5.2  138                                   10
+    5    BARRA05--138 1022-3.6  138                                   10
     6    BARRA06---66 1050-13.   66                                   20
-    7  1 BARRA07-FICT 1021-6.8  138                                   30
-    8    BARRA08---33 1002-6.8   33                                   30
-    9    BARRA09---66 1025-7.6   66                                   30
-   10    BARRA10---66 1022-8.9   66                                   30
+    7  1 BARRA07-FICT 1021-6.7  138                                   30
+    8    BARRA08---33 1001-6.7   33                                   30
+    9    BARRA09---66 1025-7.5   66                                   30
+   10    BARRA10---66 1022-8.8   66                                   30
    11    BARRA11---66 1032-11.   66                                   30
    12    BARRA12---66 1011-12.   66                                   20
    13    BARRA13---66 1030-11.   66                                   20
-   14    BARRA14---66 1050-1.9   66                                   30
+   14    BARRA14---66 1050-1.8   66                                   30
 99999
 (
 (  DADOS DE CIRCUITO
@@ -96,14 +96,14 @@ DCIR
 (----=-=====  --=------======------======------=====-----=====-----==---===-====                                   ===--- ======   ======                       ========--------                       --------------------
     0      2    C371.27217.28371.27217.28                             10                      D
     0      3    C104.0620.988104.0620.988                             10                      D
-    0      4    C 198.8-3.845 198.8-3.845                             10                      D
-    0      5    C-99.06-32.15-99.06-32.15                             10                      D
+    0      4    C198.93-3.848198.93-3.848                             10                      D
+    0      5    C-99.31-32.23-99.31-32.23                             10                      D
     0      6    C81.546-16.3181.546-16.31                             20                      D
     0      9    C270.49152.21270.49152.21                             30                      D
-    0     10    C819.99528.44819.99528.44                             30                      D
-    0     11    C2406.41237.62406.41237.6                             30                      D
-    0     12    C1567.7411.211567.7411.21                             20                      D
-    0     13    C 663.4285.02 663.4285.02                             20                      D
+    0     10    C819.95528.41819.95528.41                             30                      D
+    0     11    C2408.71238.82408.71238.8                             30                      D
+    0     12    C1569.2 411.61569.2 411.6                             20                      D
+    0     13    C 663.8285.19 663.8285.19                             20                      D
     0     14    C665.04223.17665.04223.17                             30                      D
 (
 (  A SEGUIR AS CARGAS INDIVIDUALIZADAS
@@ -121,11 +121,11 @@ DCIR
 (
 (BF  CE  BT   NCT  R1    X1    R0    X0    CN   S1   S0   TAP  TB  TCIA DEFE KM                                    NunNop DJ_BF    DJ_BT                        DDMMAAAADDMMAAAA                           NOME EXTENSO    
 (----=-=====  --=------======------======------=====-----=====-----==---===-====                                   ===--- ======   ======                       ========--------                       --------------------
-    0      1    G      12.685       5.074      148.7 -30.             10                      YN
-    0      2    G        56.6       22.64      28.3143.37             10                      YN
-    0      3    G        56.6       22.64         0.29.67             10                      YN
-    0      6    G        56.6       22.64      19.283.365             20                      YN
-    0      8    G        56.6       22.64         0. -11.             30                      YN
+    0      1    G      12.685       5.074      148.6-3.13             10                      YN
+    0      2    G        56.6       22.64      28.3117.74             10                      YN
+    0      3    G        56.6       22.64         0.29.26             10                      YN
+    0      6    G        56.6       22.64      19.282.795             20                      YN
+    0      8    G        56.6       22.64         0.-11.5             30                      YN
     0     12    G        56.6       22.64         0. -15.             20                      YN
     0     14    G      19.028       7.611      95.38-12.2             30                      YN
 (

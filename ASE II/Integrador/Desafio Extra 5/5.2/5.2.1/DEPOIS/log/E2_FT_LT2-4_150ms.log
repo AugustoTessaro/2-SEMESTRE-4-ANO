@@ -1,0 +1,15 @@
+
+ RELATÓRIO DE MENSAGENS DA SIMULAÇÃO - TEMPO =    20.00  SEG
+
+
+ ******* SIMULAÇÃO DO INSTANTE T=     0.0s  ATÉ O INSTANTE T=   20.00s *******
+
+ T=  1.0000s APCL - Aplicou curto em     2 BARRA02--138     4 BARRA04--138  1
+                    a 99.0% a partir da barra     2 BARRA02--138
+
+ T=  1.1500s RMCL - Removeu curto de     2 BARRA02--138     4 BARRA04--138  1
+
+ T=  1.1500s ABCI - Abrir circuito     2 BARRA02--138     4 BARRA04--138  1
+
+ T=  1.1500s Abriu circuito     2 BARRA02--138     4 BARRA04--138  1
+
